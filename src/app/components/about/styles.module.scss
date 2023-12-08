@@ -1,0 +1,45 @@
+.header {
+  padding: 130px 0px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.person,
+.personReverse {
+  display: flex;
+  align-items: flex-start;
+  gap: 10%;
+  margin-bottom: 150px;
+  box-sizing: border-box;
+  padding: 0px 20px;
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
+  .personText {
+    flex: 0 0 50%;
+    @media (max-width: 900px) {
+      flex: 0 0 100%;
+      width: 100%;
+    }
+  }
+}
+
+.personReverse {
+  flex-direction: row-reverse;
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
+}
+
+.photo {
+  flex: 0 0 40%;
+  position: relative;
+  @media (max-width: 900px) {
+    flex: 0 0 100%;
+    width: 100%;
+  }
+  img {
+    width: 100%;
+  }
+}

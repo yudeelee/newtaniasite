@@ -1,0 +1,100 @@
+.contact {
+  margin-bottom: 130px;
+  padding: 20px;
+}
+
+.contactHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 130px 0px;
+  @media (max-width: 900px) {
+    margin: 50px 0px;
+  }
+}
+
+.contactWrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 5%;
+  @media (max-width: 900px) {
+    flex-direction: column-reverse;
+  }
+}
+
+.contacts {
+  flex: 0 0 55%;
+  @media (max-width: 900px) {
+    flex: 0 0 100%;
+    width: 100%;
+  }
+}
+
+.cons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+.conText {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.conData {
+  padding-left: 30px;
+  margin-bottom: 18px;
+  @media (max-width: 500px) {
+    font-size: 12px;
+  }
+  a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    color: #edafb8;
+  }
+}
+
+.conForm {
+  flex: 0 0 45%;
+  padding: 10px;
+  @media (max-width: 900px) {
+    flex: 0 0 100%;
+    width: 100%;
+    margin-bottom: 100px;
+  }
+}
+.formControl {
+  padding: 5px 0px;
+  input,
+  select,
+  textarea {
+    width: 80%;
+    box-sizing: border-box;
+    padding: 14px 20px;
+    border-radius: 3px;
+    border: 1px solid #ebebeb;
+    resize: none;
+    @media (max-width: 900px) {
+      width: 100%;
+    }
+    &::placeholder {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-style: italic;
+      color: #9c9ea6;
+    }
+  }
+  button {
+    padding: 15px 40px;
+    border-radius: 3px;
+    background-color: #edafb8;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 700;
+  }
+}
