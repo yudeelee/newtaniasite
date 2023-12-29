@@ -26,7 +26,7 @@ const HomePage = () => {
   return (
     <div className={styles.home}>
       <div className='container'>
-        {/* <div className={styles.hero}>
+        <div className={styles.hero}>
           <div className={styles.heroLeft}>
             <h1 className={styles.heroTitle}>БУХГАЛТЕР-КОНСУЛЬТАНТ</h1>
             <h3 className={styles.heroSubTitle}>
@@ -40,7 +40,7 @@ const HomePage = () => {
           <div className={styles.heroImg}>
             <img src='/img/headerPhoto.png' alt='' />
           </div>
-        </div> */}
+        </div>
         <div className={styles.youtube}>
           <div className={styles.rolik}>
             <YouTube

@@ -5,17 +5,55 @@
 }
 .heroLeft {
   flex: 0 0 50%;
+  padding-left: 20px;
+  @media (max-width: 1000px) {
+    flex: 0 0 100%;
+    padding: 0px 20px 100px;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      url(/img/headerPhoto.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+  }
   .heroTitle {
     font-size: 85px;
     font-weight: 700;
     font-family: 'Poppins', sans-serif;
+    @media (max-width: 1279px) {
+      font-size: 65px;
+    }
+    @media (max-width: 1000px) {
+      font-size: 55px;
+      line-height: 125%;
+      background-color: #edafb8a5;
+    }
+    @media (max-width: 550px) {
+      font-size: 45px;
+    }
   }
   .heroSubTitle {
     font-size: 50px;
     font-weight: 700;
     color: #edafb8;
+    @media (max-width: 1000px) {
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 40px;
+    }
+    @media (max-width: 550px) {
+      font-size: 35px;
+    }
     span {
       color: black;
+      @media (max-width: 1000px) {
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #edafb8;
+        font-size: 40px;
+      }
+      @media (max-width: 550px) {
+        font-size: 35px;
+      }
     }
   }
   .heroText {
@@ -23,10 +61,16 @@
     font-weight: 500;
     max-width: 500px;
     letter-spacing: 1px;
+    @media (max-width: 1000px) {
+      background-color: #edafb8a5;
+    }
   }
 }
 .heroImg {
   flex: 0 0 50%;
+  @media (max-width: 1000px) {
+    display: none;
+  }
   img {
     width: 100%;
   }
