@@ -182,7 +182,7 @@ const HomePage = () => {
             <div className={styles.fishBody}>клієнтів на супроводі</div>
           </div>
           <div className={styles.fishka}>
-            <div className={styles.fishHeader}>10 000 000+ грн</div>
+            <div className={styles.fishHeader}>25 000 000+ грн</div>
             <div className={styles.fishBody}>залученого фінансування</div>
           </div>
         </div>
