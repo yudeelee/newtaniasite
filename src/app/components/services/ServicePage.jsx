@@ -9,7 +9,7 @@ const ServicePage = () => {
         <div className={styles.header}>
           <div className='title'>Наші послуги</div>
         </div>
-        <div className={styles.section}>
+        <div className={styles.section} id='consaltId'>
           <div className={styles.sectionHeader}>Консультації</div>
           <div className={styles.sectionBody}>
             <div className={styles.sectionText}>
@@ -40,7 +40,7 @@ const ServicePage = () => {
         <div className={styles.lineWrapper}>
           <div className={styles.line}></div>
         </div>
-        <div className={styles.section}>
+        <div className={styles.section} id='fopId'>
           <div className={styles.sectionHeader}>ФОП</div>
           <div className={styles.sectionBodyReverse}>
             <div className={styles.sectionText}>
@@ -73,7 +73,7 @@ const ServicePage = () => {
         <div className={styles.lineWrapper}>
           <div className={styles.line}></div>
         </div>
-        <div className={styles.section}>
+        <div className={styles.section} id='tovId'>
           <div className={styles.sectionHeader}>ТОВ</div>
           <div className={styles.sectionBody}>
             <div className={styles.sectionText}>
@@ -113,7 +113,7 @@ const ServicePage = () => {
         <div className={styles.lineWrapper}>
           <div className={styles.line}></div>
         </div>
-        <div className={styles.section}>
+        <div className={styles.section} id='financeId'>
           <div className={styles.sectionHeader}>Фінанси</div>
           <div className={styles.sectionBodyReverse}>
             <div className={styles.sectionText}>
@@ -149,7 +149,7 @@ const ServicePage = () => {
         <div className={styles.lineWrapper}>
           <div className={styles.line}></div>
         </div>
-        <div className={styles.section}>
+        <div className={styles.section} id='grantId'>
           <div className={styles.sectionHeader}>Отримання грантів</div>
           <div className={styles.sectionBody}>
             <div className={styles.sectionText}>
@@ -183,7 +183,7 @@ const ServicePage = () => {
         <div className={styles.lineWrapper}>
           <div className={styles.line}></div>
         </div>
-        <div className={styles.section}>
+        <div className={styles.section} id='yurId'>
           <div className={styles.sectionHeader}>Юридичні послуги</div>
           <div className={styles.sectionBodyReverse}>
             <div className={styles.sectionText}>

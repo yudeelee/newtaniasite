@@ -6,6 +6,7 @@ import YouTube from 'react-youtube';
 import Link from 'next/link';
 import Carusel from '../rekl/carusel';
 import Footer from '../footer/Footer';
+import { redirect } from 'next/navigation';
 
 const HomePage = () => {
   const [actual, setActual] = useState(0);
@@ -191,63 +192,75 @@ const HomePage = () => {
         <div className='container'>
           <div className='title mt100 center'>Наші послуги</div>
           <div className={styles.serviceWrapper}>
-            <div className={styles.service}>
-              <div className={styles.serHeader}>Консультації</div>
-              <div className={styles.serBody}>
-                Бухгалтерський облік ФОП, ТОВ, фінанси бізнесу, гранти,
-                інвестиції...
+            <Link href='/services#consaltId'>
+              <div className={styles.service}>
+                <div className={styles.serHeader}>Консультації</div>
+                <div className={styles.serBody}>
+                  Бухгалтерський облік ФОП, ТОВ, фінанси бізнесу, гранти,
+                  інвестиції...
+                </div>
+                <div className={styles.serLink}>
+                  <Link href='#'>Читати більше &#8594;</Link>
+                </div>
               </div>
-              <div className={styles.serLink}>
-                <Link href='#'>Читати більше &#8594;</Link>
+            </Link>
+            <Link href='/services#fopId'>
+              <div className={styles.service}>
+                <div className={styles.serHeader}>ФОП</div>
+                <div className={styles.serBody}>
+                  Реєстрація, супровід ФОП, наймані працівники, закриття ФОП...
+                </div>
+                <div className={styles.serLink}>
+                  <Link href='#'>Читати більше &#8594;</Link>
+                </div>
               </div>
-            </div>
-            <div className={styles.service}>
-              <div className={styles.serHeader}>ФОП</div>
-              <div className={styles.serBody}>
-                Реєстрація, супровід ФОП, наймані працівники, закриття ФОП...
+            </Link>
+            <Link href='/services#tovId'>
+              <div className={styles.service}>
+                <div className={styles.serHeader}>ТОВ</div>
+                <div className={styles.serBody}>
+                  Бухгалтерський супровід бізнесу в облікових програмах...
+                </div>
+                <div className={styles.serLink}>
+                  <Link href='#'>Читати більше &#8594;</Link>
+                </div>
               </div>
-              <div className={styles.serLink}>
-                <Link href='#'>Читати більше &#8594;</Link>
+            </Link>
+            <Link href='/services#financeId'>
+              <div className={styles.service}>
+                <div className={styles.serHeader}>Фінанси</div>
+                <div className={styles.serBody}>
+                  Побудова фінансової системи, облік фінансів, звіти P&L, Cash
+                  Flow, Balance...
+                </div>
+                <div className={styles.serLink}>
+                  <Link href='#'>Читати більше &#8594;</Link>
+                </div>
               </div>
-            </div>
-            <div className={styles.service}>
-              <div className={styles.serHeader}>Гранти</div>
-              <div className={styles.serBody}>
-                Формування бізнес-плану для подання на грант, грантовий
-                супровід...
+            </Link>
+            <Link href='/services#grantId'>
+              <div className={styles.service}>
+                <div className={styles.serHeader}>Гранти</div>
+                <div className={styles.serBody}>
+                  Формування бізнес-плану для подання на грант, грантовий
+                  супровід...
+                </div>
+                <div className={styles.serLink}>
+                  <Link href='#'>Читати більше &#8594;</Link>
+                </div>
               </div>
-              <div className={styles.serLink}>
-                <Link href='#'>Читати більше &#8594;</Link>
+            </Link>
+            <Link href='/services#yurId'>
+              <div className={styles.service}>
+                <div className={styles.serHeader}>Юридичні послуги</div>
+                <div className={styles.serBody}>
+                  Юридичний супровід бізнесу, формування договорів...
+                </div>
+                <div className={styles.serLink}>
+                  <Link href='#'>Читати більше &#8594;</Link>
+                </div>
               </div>
-            </div>
-            <div className={styles.service}>
-              <div className={styles.serHeader}>Юридичні послуги</div>
-              <div className={styles.serBody}>
-                Юридичний супровід бізнесу, формування договорів...
-              </div>
-              <div className={styles.serLink}>
-                <Link href='#'>Читати більше &#8594;</Link>
-              </div>
-            </div>
-            <div className={styles.service}>
-              <div className={styles.serHeader}>ТОВ</div>
-              <div className={styles.serBody}>
-                Бухгалтерський супровід бізнесу в облікових програмах...
-              </div>
-              <div className={styles.serLink}>
-                <Link href='#'>Читати більше &#8594;</Link>
-              </div>
-            </div>
-            <div className={styles.service}>
-              <div className={styles.serHeader}>Фінанси</div>
-              <div className={styles.serBody}>
-                Побудова фінансової системи, облік фінансів, звіти P&L, Cash
-                Flow, Balance...
-              </div>
-              <div className={styles.serLink}>
-                <Link href='#'>Читати більше &#8594;</Link>
-              </div>
-            </div>
+            </Link>
           </div>
         </div>
       </div>
