@@ -199,9 +199,7 @@ const HomePage = () => {
                   Бухгалтерський облік ФОП, ТОВ, фінанси бізнесу, гранти,
                   інвестиції...
                 </div>
-                <div className={styles.serLink}>
-                  <Link href='#'>Читати більше &#8594;</Link>
-                </div>
+                <div className={styles.serLink}>Читати більше &#8594;</div>
               </div>
             </Link>
             <Link href='/services#fopId'>
@@ -210,9 +208,7 @@ const HomePage = () => {
                 <div className={styles.serBody}>
                   Реєстрація, супровід ФОП, наймані працівники, закриття ФОП...
                 </div>
-                <div className={styles.serLink}>
-                  <Link href='#'>Читати більше &#8594;</Link>
-                </div>
+                <div className={styles.serLink}>Читати більше &#8594;</div>
               </div>
             </Link>
             <Link href='/services#tovId'>
@@ -221,9 +217,7 @@ const HomePage = () => {
                 <div className={styles.serBody}>
                   Бухгалтерський супровід бізнесу в облікових програмах...
                 </div>
-                <div className={styles.serLink}>
-                  <Link href='#'>Читати більше &#8594;</Link>
-                </div>
+                <div className={styles.serLink}>Читати більше &#8594;</div>
               </div>
             </Link>
             <Link href='/services#financeId'>
@@ -233,9 +227,7 @@ const HomePage = () => {
                   Побудова фінансової системи, облік фінансів, звіти P&L, Cash
                   Flow, Balance...
                 </div>
-                <div className={styles.serLink}>
-                  <Link href='#'>Читати більше &#8594;</Link>
-                </div>
+                <div className={styles.serLink}>Читати більше &#8594;</div>
               </div>
             </Link>
             <Link href='/services#grantId'>
@@ -245,9 +237,7 @@ const HomePage = () => {
                   Формування бізнес-плану для подання на грант, грантовий
                   супровід...
                 </div>
-                <div className={styles.serLink}>
-                  <Link href='#'>Читати більше &#8594;</Link>
-                </div>
+                <div className={styles.serLink}>Читати більше &#8594;</div>
               </div>
             </Link>
             <Link href='/services#yurId'>
@@ -256,9 +246,7 @@ const HomePage = () => {
                 <div className={styles.serBody}>
                   Юридичний супровід бізнесу, формування договорів...
                 </div>
-                <div className={styles.serLink}>
-                  <Link href='#'>Читати більше &#8594;</Link>
-                </div>
+                <div className={styles.serLink}>Читати більше &#8594;</div>
               </div>
             </Link>
           </div>
