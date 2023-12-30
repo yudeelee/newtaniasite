@@ -19,6 +19,7 @@ const HomePage = () => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
+  const [success, setSuccess] = useState('');
 
   const sendMsg = () => {
     if (name === '') {
@@ -38,6 +39,7 @@ const HomePage = () => {
         parse_mode: 'html',
       })
       .then((res) => {
+        setSuccess('Вашу заявку прийнято');
         console.log('good');
       })
       .catch((err) => {
@@ -66,6 +68,14 @@ const HomePage = () => {
           <div className={styles.alert}>
             <p>{errorMsg}</p>
             <button onClick={() => setErrorMsg('')}>Гаразд</button>
+          </div>
+        </div>
+      )}
+      {success && (
+        <div className={styles.alertWrapper} onClick={() => setSuccess('')}>
+          <div className={styles.success}>
+            <p>{success}</p>
+            <button onClick={() => setSuccess('')}>Гаразд</button>
           </div>
         </div>
       )}

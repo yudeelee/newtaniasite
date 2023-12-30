@@ -91,6 +91,14 @@
   font-weight: 700;
   text-decoration: none;
   color: #000000;
+  transition: all 0.3s;
+  &:hover {
+    box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+  }
+  &:active {
+    background-color: #edafb8c2;
+  }
 }
 
 .youtube {
@@ -380,6 +388,28 @@
     padding: 10px 40px;
     background-color: white;
     color: #edafb8;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 700;
+  }
+}
+
+.success {
+  width: 300px;
+  border-radius: 5px;
+  background-color: #2db400;
+  padding: 20px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: black;
+  button {
+    padding: 10px 40px;
+    background-color: white;
+    color: #2db400;
     border-radius: 5px;
     border: none;
     outline: none;
