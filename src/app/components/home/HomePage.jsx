@@ -40,6 +40,8 @@ const HomePage = () => {
       })
       .then((res) => {
         setSuccess('Вашу заявку прийнято');
+        setName('');
+        setPhone('');
         console.log('good');
       })
       .catch((err) => {
@@ -335,6 +337,7 @@ const HomePage = () => {
                     type='text'
                     placeholder="І'мя"
                     onChange={(e) => setName(e.target.value)}
+                    value={name}
                   />
                 </div>
                 <div className='formGroup'>
@@ -342,6 +345,7 @@ const HomePage = () => {
                     type='text'
                     placeholder='Телефон'
                     onChange={(e) => setPhone(e.target.value)}
+                    value={phone}
                   />
                 </div>
                 <div className='formGroup'>
