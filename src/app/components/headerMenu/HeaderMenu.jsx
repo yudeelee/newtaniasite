@@ -9,7 +9,9 @@ const HeaderMenu = ({ active }) => {
   return (
     <div className={styles.HeaderMenu}>
       <div className={`container ${styles.menuWrapper}`}>
-        <div className={styles.logo}>Logo</div>
+        <div className={styles.logo}>
+          <img src='/img/logo1.png' alt='' />
+        </div>
         <nav className={styles.menu}>
           <ul className={styles.topMenu}>
             <li className={active === 'home' ? styles.active : ''}>
