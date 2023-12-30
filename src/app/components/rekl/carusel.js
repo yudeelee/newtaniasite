@@ -162,6 +162,16 @@ const Carusel = (props) => {
                 clickImg('https://www.instagram.com/tvoya_polygraphy/?hl=uk')
               }
             />
+            <img
+              src='/img/bytech.png'
+              alt=''
+              onClick={() => clickImg('https://bftech.pro/')}
+            />
+            <img
+              src='/img/diamy.png'
+              alt=''
+              onClick={() => clickImg('https://www.instagram.com/bo.diia.my/')}
+            />
             <p></p>
           </div>
           <div id='ground'></div>
