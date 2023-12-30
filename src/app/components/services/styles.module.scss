@@ -81,3 +81,36 @@
   height: 1px;
   background-color: black;
 }
+
+.litteButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #edafb8;
+  padding: 20px;
+  border-radius: 5px;
+  animation: blum 3s infinite linear;
+  color: black;
+  text-decoration: none;
+}
+
+@keyframes blum {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  5% {
+    transform: rotateZ(10deg);
+  }
+  10% {
+    transform: rotateZ(-10deg);
+  }
+  15% {
+    transform: rotateZ(-10deg);
+  }
+  20% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
+}

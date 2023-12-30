@@ -1,10 +1,14 @@
 import styles from './styles.module.scss';
 import { data } from '../../../../data/data';
 import { Fragment } from 'react';
+import Link from 'next/link';
 
 const ServicePage = () => {
   return (
     <div className={styles.service}>
+      <Link href='/contact' className={styles.litteButton}>
+        Замовити
+      </Link>
       <div className='container'>
         <div className={styles.header}>
           <div className='title'>Наші послуги</div>
