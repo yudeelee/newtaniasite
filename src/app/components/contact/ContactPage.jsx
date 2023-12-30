@@ -58,6 +58,7 @@ const ContactPage = () => {
         parse_mode: 'html',
       })
       .then((res) => {
+        setErrorMsg('Ваше замовлення прийнято');
         console.log('good');
       })
       .catch((err) => {
