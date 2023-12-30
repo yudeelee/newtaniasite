@@ -22,7 +22,7 @@ const HeaderMenu = ({ active }) => {
               <Link href='/services'>Наші послуги</Link>
             </li>
             <li className={active === 'contact' ? styles.active : ''}>
-              <Link href='/contact'>Контакти</Link>
+              <Link href='/contact'>Замовити</Link>
             </li>
           </ul>
           <div
@@ -50,7 +50,7 @@ const HeaderMenu = ({ active }) => {
               <Link href='/services'>Наші послуги</Link>
             </li>
             <li className={active === 'contact' ? styles.active : ''}>
-              <Link href='/contact'>Контакти</Link>
+              <Link href='/contact'>Замовити</Link>
             </li>
           </ul>
         </nav>
