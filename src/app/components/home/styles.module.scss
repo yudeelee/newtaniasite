@@ -81,6 +81,7 @@
 }
 
 .button {
+  display: inline-block;
   padding: 15px 40px;
   background-color: #edafb8;
   border-radius: 3px;
@@ -88,6 +89,8 @@
   outline: none;
   font-size: 18px;
   font-weight: 700;
+  text-decoration: none;
+  color: #000000;
 }
 
 .youtube {

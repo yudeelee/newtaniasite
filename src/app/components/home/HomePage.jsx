@@ -82,7 +82,9 @@ const HomePage = () => {
             <p className='text'>
               широкий спектр фінансових та бухгалтерських послуг для бізнесу
             </p>
-            <button className={styles.button}>Замовити послугу</button>
+            <Link href='/services' className={styles.button}>
+              Замовити послугу
+            </Link>
           </div>
           <div className={styles.heroImg}>
             <img src='/img/headerPhoto.png' alt='' />
