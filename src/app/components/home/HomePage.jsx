@@ -7,9 +7,44 @@ import Link from 'next/link';
 import Carusel from '../rekl/carusel';
 import Footer from '../footer/Footer';
 import { redirect } from 'next/navigation';
+import axios from 'axios';
 
 const HomePage = () => {
+  const TOKEN = '5530765545:AAFy5U47-r8OYc198-5blcgCR-cKB3_jowE';
+  const CHAT_ID = '-1001517912943';
+  const URI = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
+
   const [actual, setActual] = useState(0);
+
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [errorMsg, setErrorMsg] = useState('');
+
+  const sendMsg = () => {
+    if (name === '') {
+      setErrorMsg("Введіть будь-ласка своє Ім'я");
+      return;
+    }
+    if (phone === '') {
+      setErrorMsg('Введіть будь-ласка свій номер телефону');
+      return;
+    }
+    const msg = `Запит на консультацію\n${name}\n${phone}`;
+
+    axios
+      .post(URI, {
+        chat_id: CHAT_ID,
+        text: msg,
+        parse_mode: 'html',
+      })
+      .then((res) => {
+        console.log('good');
+      })
+      .catch((err) => {
+        console.log('bad');
+      });
+  };
+
   useEffect(() => {
     const interval = setInterval(() => {
       setActual((actual) => actual + 1);
@@ -26,6 +61,14 @@ const HomePage = () => {
   };
   return (
     <div className={styles.home}>
+      {errorMsg && (
+        <div className={styles.alertWrapper} onClick={() => setErrorMsg('')}>
+          <div className={styles.alert}>
+            <p>{errorMsg}</p>
+            <button onClick={() => setErrorMsg('')}>Гаразд</button>
+          </div>
+        </div>
+      )}
       <div className='container'>
         <div className={styles.hero}>
           <div className={styles.heroLeft}>
@@ -276,13 +319,23 @@ const HomePage = () => {
               </div>
               <div className={styles.sendMessage}>
                 <div className='formGroup'>
-                  <input type='text' placeholder="І'мя" />
+                  <input
+                    type='text'
+                    placeholder="І'мя"
+                    onChange={(e) => setName(e.target.value)}
+                  />
                 </div>
                 <div className='formGroup'>
-                  <input type='text' placeholder='Телефон' />
+                  <input
+                    type='text'
+                    placeholder='Телефон'
+                    onChange={(e) => setPhone(e.target.value)}
+                  />
                 </div>
                 <div className='formGroup'>
-                  <button className={styles.button}>Замовити послугу</button>
+                  <button className={styles.button} onClick={sendMsg}>
+                    Замовити послугу
+                  </button>
                 </div>
               </div>
             </div>

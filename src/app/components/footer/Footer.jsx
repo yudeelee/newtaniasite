@@ -12,16 +12,16 @@ const Footer = () => {
                 <div className={styles.menuHeader}>Меню</div>
               </li>
               <li>
-                <Link href='#'>Головна</Link>
+                <Link href='/'>Головна</Link>
               </li>
               <li>
-                <Link href='#'>Про нас</Link>
+                <Link href='/about'>Про нас</Link>
               </li>
               <li>
-                <Link href='#'>Наші послуги</Link>
+                <Link href='/services'>Наші послуги</Link>
               </li>
               <li>
-                <Link href='#'>Контакти</Link>
+                <Link href='/contact'>Замовити</Link>
               </li>
             </ul>
           </div>
@@ -31,22 +31,22 @@ const Footer = () => {
                 <div className={styles.menuHeader}>Наші послуги</div>
               </li>
               <li>
-                <Link href='#'>Консультації</Link>
+                <Link href='/services#consaltId'>Консультації</Link>
               </li>
               <li>
-                <Link href='#'>ФОП</Link>
+                <Link href='/services#fopId'>ФОП</Link>
               </li>
               <li>
-                <Link href='#'>ТОВ</Link>
+                <Link href='/services#tovId'>ТОВ</Link>
               </li>
               <li>
-                <Link href='#'>Гранти</Link>
+                <Link href='/services#grantId'>Гранти</Link>
               </li>
               <li>
-                <Link href='#'>Юридичні послуги</Link>
+                <Link href='/services#yurId'>Юридичні послуги</Link>
               </li>
               <li>
-                <Link href='#'>Фінанси</Link>
+                <Link href='/services#financeId'>Фінанси</Link>
               </li>
             </ul>
           </div>
@@ -56,16 +56,18 @@ const Footer = () => {
                 <div className={styles.menuHeader}>Долучайтесь</div>
               </li>
               <li>
-                <Link href='#'>
+                <a href='https://www.instagram.com/tanyaselezniova_accountant/'>
                   <img src='/img/insta.png' alt='' />
-                </Link>
-                <Link href='#'>
+                </a>
+                <a href='https://t.me/tanyaselezniova_accountant'>
                   <img src='/img/teleg.png' alt='' />
-                </Link>
-                <Link href='#'>
+                </a>
+                <a href='https://www.youtube.com/@consulting-accountant'>
                   <img src='/img/youtu.png' alt='' />
-                </Link>
+                </a>
               </li>
+              <li>+380734187147</li>
+              <li>consulting.lviv.ua@gmail.com</li>
             </ul>
           </div>
         </div>
