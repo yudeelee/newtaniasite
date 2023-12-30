@@ -33,7 +33,10 @@ const HomePage = () => {
             <h3 className={styles.heroSubTitle}>
               З нами<span> працюють </span>найкращі
             </h3>
-            <p className={styles.heroText}>
+            {/* <p className={styles.heroText}>
+              широкий спектр фінансових та бухгалтерських послуг для бізнесу
+            </p> */}
+            <p className='text'>
               широкий спектр фінансових та бухгалтерських послуг для бізнесу
             </p>
             <button className={styles.button}>Замовити послугу</button>
@@ -167,7 +170,7 @@ const HomePage = () => {
               }`}
             >
               <div className={styles.back}></div>
-              <img src='/img/photo7.png' alt='' />
+              <img src='/img/photo7.jpg' alt='' />
             </div>
           </div>
         </div>
