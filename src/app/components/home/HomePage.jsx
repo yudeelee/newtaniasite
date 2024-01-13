@@ -331,7 +331,7 @@ const HomePage = () => {
                   ми надамо Вам зворотній зв'язок найближчим часом.
                 </div>
               </div>
-              <div className={styles.sendMessage}>
+              <div className={styles.sendMessage + ' mt20'}>
                 <div className='formGroup'>
                   <input
                     type='text'

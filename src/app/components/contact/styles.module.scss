@@ -59,7 +59,7 @@
 
 .conForm {
   flex: 0 0 45%;
-  padding: 10px;
+  padding: 0px 10px 10px;
   @media (max-width: 900px) {
     flex: 0 0 100%;
     width: 100%;
@@ -68,6 +68,9 @@
 }
 .formControl {
   padding: 5px 0px;
+  &:first-child {
+    padding: 0px 0px 5px;
+  }
   input,
   select,
   textarea {
