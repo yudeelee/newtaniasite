@@ -27,6 +27,7 @@ const Uploader = ({ close, select }) => {
       const data = new FormData();
       data.set('file', file);
       const res = await axios.post('/api/image', data);
+      console.log(res);
       const newImgs = [...images];
       newImgs.unshift(res.data);
       setImages(newImgs);
