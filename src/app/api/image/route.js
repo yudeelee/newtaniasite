@@ -13,7 +13,7 @@ export async function POST(req) {
     if (!file) {
       return new Response(JSON.stringify({ message: 'failed' }));
     }
-
+    return new Response(JSON.stringify(file));
     const dat = Date.now().toString();
 
     const ext = path.extname(file.name);
@@ -23,7 +23,6 @@ export async function POST(req) {
     });
 
     const bytes = await file.arrayBuffer();
-    return new Response(JSON.stringify(bytes));
     const buffer = Buffer.from(bytes);
 
     const path1 = join('./', 'public', 'img', 'uploaded', dat + ext);
