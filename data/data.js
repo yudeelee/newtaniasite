@@ -52,7 +52,7 @@ export const data = [
       {
         name: 'Супровід ФОП без ПРРО',
         from: false,
-        price: 1500,
+        price: 2000,
         nom: 'грн',
       },
       {
@@ -74,9 +74,9 @@ export const data = [
         nom: 'грн',
       },
       {
-        name: 'Подання звітності',
+        name: 'Подання річної звітності',
         from: false,
-        price: 1500,
+        price: 2000,
         nom: 'грн',
       },
       {

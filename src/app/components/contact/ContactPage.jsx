@@ -97,7 +97,11 @@ const ContactPage = () => {
               </div>
               <div className={styles.conText}>Електронна пошта</div>
             </div>
-            <div className={styles.conData}>consulting.lviv.ua@gmail.com</div>
+            <div className={styles.conData}>
+              <a href='mailto:consulting.lviv.ua@gmail.com'>
+                consulting.lviv.ua@gmail.com
+              </a>
+            </div>
             <div className={styles.cons}>
               <div className={styles.conIcon}>
                 <img src='/img/instagram.png' alt='' />
@@ -105,7 +109,9 @@ const ContactPage = () => {
               <div className={styles.conText}>Instagram</div>
             </div>
             <div className={styles.conData}>
-              www.instagram.com/tanyaselezniova_accountant/
+              <a href='https://www.instagram.com/tanyaselezniova_accountant/'>
+                www.instagram.com/tanyaselezniova_accountant/
+              </a>
             </div>
             <div className={styles.cons}>
               <div className={styles.conIcon}>
@@ -114,7 +120,9 @@ const ContactPage = () => {
               <div className={styles.conText}>Telegram</div>
             </div>
             <div className={styles.conData}>
-              t.me/tanyaselezniova_accountant
+              <a href='https://t.me/tanyaselezniova_accountant'>
+                t.me/tanyaselezniova_accountant
+              </a>
             </div>
             <div className={styles.cons}>
               <div className={styles.conIcon}>
@@ -123,7 +131,9 @@ const ContactPage = () => {
               <div className={styles.conText}>YouTube</div>
             </div>
             <div className={styles.conData}>
-              www.youtube.com/@consulting-accountant
+              <a href='https://www.youtube.com/@consulting-accountant'>
+                www.youtube.com/@consulting-accountant
+              </a>
             </div>
             <div className='text mt100'>
               Компанія <span>“БУХГАЛТЕР-КОНСУЛЬТАНТ”</span> працює онлайн по
