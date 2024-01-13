@@ -24,7 +24,7 @@ export async function POST(req) {
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
 
-    const path1 = join('./', 'public', 'img', 'uploaded', dat + ext);
+    const path1 = join('./', 'img', 'uploaded', dat + ext);
     await writeFile(path1, buffer);
     const addedImg = await newImg.save();
 
