@@ -13,7 +13,7 @@ export async function POST(req) {
     if (!file) {
       return new Response(JSON.stringify({ message: 'failed' }));
     }
-    return new Response(JSON.stringify(file));
+
     const dat = Date.now().toString();
 
     const ext = path.extname(file.name);
@@ -31,7 +31,7 @@ export async function POST(req) {
 
     return new Response(JSON.stringify(addedImg));
   } catch (error) {
-    return new Response(JSON.stringify({ message: error }));
+    return new Response(JSON.stringify({ message: 'failed' }));
   }
 }
 
