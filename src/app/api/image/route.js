@@ -2,9 +2,13 @@ import { join } from 'path';
 import { writeFile } from 'fs/promises';
 import Image from '../../../../models/Image';
 import db from '../../../../utils/db';
+import axios from 'axios';
 var path = require('path');
 
 export async function POST(req) {
+  console.log('hello');
+  const cloudName = 'dnsm5nwmg';
+  const uploadPreset = 'tanias_preset';
   try {
     await db.connectDb();
     const data = await req.formData();
@@ -14,24 +18,36 @@ export async function POST(req) {
       return new Response(JSON.stringify({ message: 'failed' }));
     }
 
-    const dat = Date.now().toString();
+    const dataForm = new FormData();
+    dataForm.set('file', file);
+    dataForm.set('upload_preset', uploadPreset);
 
-    const ext = path.extname(file.name);
+    // console.log(dataForm);
+
+    const res = await axios.post(
+      `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
+      dataForm
+    );
+    // console.log(res.data.url);
+    // const dat = Date.now().toString();
+
+    // const ext = path.extname(file.name);
 
     const newImg = new Image({
-      src: `/img/uploaded/${dat + ext}`,
+      src: res.data.url,
     });
 
-    const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
+    // const bytes = await file.arrayBuffer();
+    // const buffer = Buffer.from(bytes);
 
-    const path1 = join('./', 'public', 'img', 'uploaded', dat + ext);
-    await writeFile(path1, buffer);
+    // const path1 = join('./', 'public', 'img', 'uploaded', dat + ext);
+    // await writeFile(path1, buffer);
     const addedImg = await newImg.save();
 
     return new Response(JSON.stringify(addedImg));
+    // return new Response(JSON.stringify({ message: 'ok' }));
   } catch (error) {
-    return new Response(JSON.stringify({ message: 'failed' }));
+    return new Response(JSON.stringify({ message: 'failed1' }));
   }
 }
 

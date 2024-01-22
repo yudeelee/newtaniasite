@@ -8,6 +8,9 @@ import { LuArrowDownRightFromCircle } from 'react-icons/lu';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 
 const Uploader = ({ close, select }) => {
+  const cloudName = 'dnsm5nwmg';
+  const uploadPreset = 'tanias_preset';
+
   const [file, setFile] = useState();
   const [images, setImages] = useState([]);
   const [selected, setSelected] = useState();
@@ -21,12 +24,18 @@ const Uploader = ({ close, select }) => {
   }, []);
 
   const uploadFile = async (e) => {
+    console.log('step1');
     const file = e.target.files?.[0];
     if (!file) return;
+    console.log('dhsjhfjs');
     try {
       const data = new FormData();
       data.set('file', file);
       const res = await axios.post('/api/image', data);
+      // const res = await axios.post(
+      //   `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
+      //   data
+      // );
       console.log(res);
       const newImgs = [...images];
       newImgs.unshift(res.data);

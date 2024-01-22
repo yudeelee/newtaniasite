@@ -321,14 +321,14 @@ const HomePage = () => {
         <div className='container'>
           <div className={styles.mesText}>
             <div className='redText'>швидка дія</div>
-            <div className='title'>замовити консультацію</div>
+            <div className='title'>Замовити консультацію</div>
             <div className={styles.messegeWrapper}>
               <div className={styles.mesLeft}>
                 <div className='text mt20'>
                   Тут Ви можете залишити запит на консультацію. Ми зателефонуємо
                   Вам та проінформуємо про вартість і час проведення зустрічі. У
                   разі, якщо Ваше запитання можна вирішити в режимі переписки,
-                  ми надамо Вам зворотній зв'язок найближчим часом.
+                  ми надамо Вам зворотній зв'язок найближчим часом .
                 </div>
               </div>
               <div className={styles.sendMessage + ' mt20'}>
