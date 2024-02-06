@@ -2,11 +2,12 @@
 
 import styles from './styles.module.scss';
 import { data } from '../../../../data/data';
-import { Fragment, useState } from 'react';
+import { Fragment, useRef, useState } from 'react';
 import Link from 'next/link';
 
 const ServicePage = () => {
   const [kikmore, setKikmore] = useState(false);
+  const myRef = useRef();
   return (
     <div className={styles.service}>
       <Link href='/contact' className={styles.litteButton}>
@@ -237,7 +238,7 @@ const ServicePage = () => {
         <div className={styles.lineWrapper}>
           <div className={styles.line}></div>
         </div>
-        <div className={styles.section} id='kikId'>
+        <div className={styles.section} id='kikId' ref={myRef}>
           <div className={styles.sectionHeader}>КІК</div>
           <div className={styles.sectionBody}>
             <div className={styles.sectionText}>
@@ -300,7 +301,10 @@ const ServicePage = () => {
                 {kikmore && (
                   <button
                     className={styles.buttonMore}
-                    onClick={() => setKikmore(!kikmore)}
+                    onClick={() => {
+                      setKikmore(!kikmore);
+                      myRef.current.scrollIntoView();
+                    }}
                   >
                     Згорнути
                   </button>
