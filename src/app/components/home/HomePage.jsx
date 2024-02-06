@@ -312,21 +312,22 @@ const HomePage = () => {
             <Link href='/services#yurId'>
               <div className={styles.service}>
                 <div className={styles.serHeader}>КІК</div>
-                {/* <div className={styles.serBody}>
-                  Юридичний супровід бізнесу, формування договорів...
-                </div> */}
+                <div className={styles.serBody}>
+                  Що таке КІК? <br />
+                  КІК – Контрольована Іноземна Компанія.
+                </div>
                 <div className={styles.serLink}>Читати більше &#8594;</div>
               </div>
             </Link>
-            <Link href='/services#yurId'>
+            {/* <Link href='/services#yurId'>
               <div className={styles.service}>
                 <div className={styles.serHeader}>Курси</div>
-                {/* <div className={styles.serBody}>
+                <div className={styles.serBody}>
                   Юридичний супровід бізнесу, формування договорів...
-                </div> */}
+                </div>
                 <div className={styles.serLink}>Читати більше &#8594;</div>
               </div>
-            </Link>
+            </Link> */}
             <Link href='/services#yurId'>
               <div className={styles.service}>
                 <div className={styles.serHeader}>Програмування BAS</div>
