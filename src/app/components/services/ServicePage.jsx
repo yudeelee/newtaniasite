@@ -6,7 +6,7 @@ import { Fragment, useState } from 'react';
 import Link from 'next/link';
 
 const ServicePage = () => {
-  const [kikmore, setKikmore] = useState();
+  const [kikmore, setKikmore] = useState(false);
   return (
     <div className={styles.service}>
       <Link href='/contact' className={styles.litteButton}>
@@ -255,12 +255,14 @@ const ServicePage = () => {
                 у вас 100% у статутному капіталі такої КІК; <br />
                 3. кількість найманих працівників. Чи потрібно платити податок
                 після подання цього звіту в Україну?
-                <button
-                  className={styles.buttonMore}
-                  onClick={() => setKikmore(!kikmore)}
-                >
-                  Читати більше &#8594;
-                </button>
+                {!kikmore && (
+                  <button
+                    className={styles.buttonMore}
+                    onClick={() => setKikmore(!kikmore)}
+                  >
+                    Читати більше &#8594;
+                  </button>
+                )}
                 {kikmore && (
                   <Fragment>
                     <br /> Якщо сукупний дохід по всіх Ваших КІК до 2 млн. євро,
@@ -294,6 +296,14 @@ const ServicePage = () => {
                     <br /> - Штраф за невідображення у звіті про КІК відомостей
                     щодо наявних КІК: 2 684 000 грн;
                   </Fragment>
+                )}
+                {kikmore && (
+                  <button
+                    className={styles.buttonMore}
+                    onClick={() => setKikmore(!kikmore)}
+                  >
+                    Читати більше &#8594;
+                  </button>
                 )}
               </div>
             </div>
