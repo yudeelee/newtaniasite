@@ -309,6 +309,33 @@ const HomePage = () => {
                 <div className={styles.serLink}>Читати більше &#8594;</div>
               </div>
             </Link>
+            <Link href='/services#yurId'>
+              <div className={styles.service}>
+                <div className={styles.serHeader}>КІК</div>
+                {/* <div className={styles.serBody}>
+                  Юридичний супровід бізнесу, формування договорів...
+                </div> */}
+                <div className={styles.serLink}>Читати більше &#8594;</div>
+              </div>
+            </Link>
+            <Link href='/services#yurId'>
+              <div className={styles.service}>
+                <div className={styles.serHeader}>Курси</div>
+                {/* <div className={styles.serBody}>
+                  Юридичний супровід бізнесу, формування договорів...
+                </div> */}
+                <div className={styles.serLink}>Читати більше &#8594;</div>
+              </div>
+            </Link>
+            <Link href='/services#yurId'>
+              <div className={styles.service}>
+                <div className={styles.serHeader}>Програмування BAS</div>
+                {/* <div className={styles.serBody}>
+                  Юридичний супровід бізнесу, формування договорів...
+                </div> */}
+                <div className={styles.serLink}>Читати більше &#8594;</div>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
