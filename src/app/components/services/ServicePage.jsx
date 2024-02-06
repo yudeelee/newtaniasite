@@ -302,7 +302,7 @@ const ServicePage = () => {
                     className={styles.buttonMore}
                     onClick={() => setKikmore(!kikmore)}
                   >
-                    Читати більше &#8594;
+                    Згорнути
                   </button>
                 )}
               </div>
