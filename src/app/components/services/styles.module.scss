@@ -94,6 +94,19 @@
   text-decoration: none;
 }
 
+.buttonMore {
+  padding: 5px 15px;
+  border-radius: 5px;
+  background-color: #edafb8;
+  border: none;
+  outline: none;
+  margin-left: 10px;
+  cursor: pointer;
+  &:hover {
+    background-color: #d0909a;
+  }
+}
+
 @keyframes blum {
   0% {
     transform: rotateZ(0deg);
