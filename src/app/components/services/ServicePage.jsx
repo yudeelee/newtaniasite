@@ -231,6 +231,9 @@ const ServicePage = () => {
             </div>
           </div>
         </div>
+        <div className={styles.lineWrapper}>
+          <div className={styles.line}></div>
+        </div>
         <div className={styles.section} id='kikId'>
           <div className={styles.sectionHeader}>КІК</div>
           <div className={styles.sectionBody}>
@@ -296,6 +299,9 @@ const ServicePage = () => {
               </table>
             </div>
           </div>
+        </div>
+        <div className={styles.lineWrapper}>
+          <div className={styles.line}></div>
         </div>
         <div className={styles.section} id='progId'>
           <div className={styles.sectionHeader}>
