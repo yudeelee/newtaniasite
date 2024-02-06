@@ -314,7 +314,7 @@ const HomePage = () => {
                 <div className={styles.serHeader}>КІК</div>
                 <div className={styles.serBody}>
                   Що таке КІК? <br />
-                  КІК – Контрольована Іноземна Компанія.
+                  КІК – Контрольована Іноземна Компанія...
                 </div>
                 <div className={styles.serLink}>Читати більше &#8594;</div>
               </div>
@@ -332,7 +332,7 @@ const HomePage = () => {
               <div className={styles.service}>
                 <div className={styles.serHeader}>Програмування BAS</div>
                 <div className={styles.serBody}>
-                  Програмування BAS Бухгалтерії на хмарному сервері
+                  Програмування BAS Бухгалтерії на хмарному сервері...
                 </div>
                 <div className={styles.serLink}>Читати більше &#8594;</div>
               </div>
