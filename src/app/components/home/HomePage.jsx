@@ -309,7 +309,7 @@ const HomePage = () => {
                 <div className={styles.serLink}>Читати більше &#8594;</div>
               </div>
             </Link>
-            <Link href='/services#yurId'>
+            <Link href='/services#kikId'>
               <div className={styles.service}>
                 <div className={styles.serHeader}>КІК</div>
                 <div className={styles.serBody}>
@@ -328,7 +328,7 @@ const HomePage = () => {
                 <div className={styles.serLink}>Читати більше &#8594;</div>
               </div>
             </Link> */}
-            <Link href='/services#yurId'>
+            <Link href='/services#progId'>
               <div className={styles.service}>
                 <div className={styles.serHeader}>Програмування BAS</div>
                 <div className={styles.serBody}>
