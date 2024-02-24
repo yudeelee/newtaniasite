@@ -109,6 +109,12 @@
   }
 }
 
+.slide {
+  img {
+    max-height: 300px;
+  }
+}
+
 @keyframes blum {
   0% {
     transform: rotateZ(0deg);

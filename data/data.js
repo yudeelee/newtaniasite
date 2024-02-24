@@ -127,6 +127,12 @@ export const data = [
         nom: 'грн',
       },
       {
+        name: 'Розміщення облікових програм на віддаленому хмарному сервері',
+        from: false,
+        price: 500,
+        nom: 'грн',
+      },
+      {
         name: 'Доступ до програм на хмарному сервері',
         from: false,
         price: 500,
@@ -336,6 +342,41 @@ export const data = [
         from: false,
         price: 500,
         nom: 'грн/міс',
+      },
+    ],
+  },
+  {
+    name: 'Дія.City',
+    items: [
+      {
+        name: 'Бухгалтерський супровід резидента Дія.City ',
+        from: true,
+        price: 20000,
+        nom: 'грн',
+      },
+      {
+        name: 'Розробка гіг-контракту ',
+        from: true,
+        price: 3000,
+        nom: 'грн',
+      },
+      {
+        name: 'Реєстрація ТОВ',
+        from: false,
+        price: 4000,
+        nom: 'грн',
+      },
+      {
+        name: 'Доступ до програм на хмарному сервері ',
+        from: false,
+        price: 500,
+        nom: 'грн',
+      },
+      {
+        name: 'Супровід гіг-спеціалістів',
+        from: false,
+        price: 700,
+        nom: 'грн',
       },
     ],
   },
