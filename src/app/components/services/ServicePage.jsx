@@ -359,7 +359,7 @@ const ServicePage = () => {
         <div className={styles.lineWrapper}>
           <div className={styles.line}></div>
         </div>
-        <div className={styles.section} id='progId'>
+        <div className={styles.section} id='diaId'>
           <div className={styles.sectionHeader}>Дія.City</div>
           <div className={styles.sectionBody}>
             <div className={styles.sectionText}>

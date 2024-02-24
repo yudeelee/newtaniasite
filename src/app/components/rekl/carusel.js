@@ -26,8 +26,8 @@ const Carusel = (props) => {
   let radius = 600;
   let autoRotate = true;
   let rotateSpeed = -60;
-  let imgWidth = 220;
-  let imgHeight = 130;
+  let imgWidth = 250;
+  let imgHeight = 150;
 
   const [r, w, h] = useWindowSize();
   radius = r;
