@@ -26,8 +26,8 @@ const Carusel = (props) => {
   let radius = 600;
   let autoRotate = true;
   let rotateSpeed = -60;
-  let imgWidth = 250;
-  let imgHeight = 150;
+  let imgWidth = 220;
+  let imgHeight = 130;
 
   const [r, w, h] = useWindowSize();
   radius = r;
@@ -171,6 +171,11 @@ const Carusel = (props) => {
               src='/img/diamy.png'
               alt=''
               onClick={() => clickImg('https://www.instagram.com/bo.diia.my/')}
+            />
+            <img
+              src='/img/beegu.png'
+              alt=''
+              onClick={() => clickImg('https://consalting.lviv.ua')}
             />
             <p></p>
           </div>
