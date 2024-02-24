@@ -175,7 +175,7 @@ const Carusel = (props) => {
             <img
               src='/img/beegu.png'
               alt=''
-              onClick={() => clickImg('https://consalting.lviv.ua')}
+              onClick={() => clickImg('https://www.beezhu.com/')}
             />
             <p></p>
           </div>
