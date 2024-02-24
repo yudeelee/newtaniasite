@@ -349,7 +349,7 @@ export const data = [
     name: 'Дія.City',
     items: [
       {
-        name: 'Бухгалтерський супровід резидента Дія.City ',
+        name: 'Бухгалтерський супровід резидентів Дія.City',
         from: true,
         price: 20000,
         nom: 'грн',

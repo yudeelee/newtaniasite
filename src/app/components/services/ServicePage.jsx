@@ -436,8 +436,8 @@ const ServicePage = () => {
             <div className={styles.sectionList}>
               <table border='0'>
                 <tbody>
-                  {data[7] &&
-                    data[7].items.map((item, idx) => (
+                  {data[8] &&
+                    data[8].items.map((item, idx) => (
                       <tr key={idx} className={styles.row}>
                         <td className={styles.text}>{item.name}</td>
                         <td className={styles.from}>{item.from && 'від'}</td>
