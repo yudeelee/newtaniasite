@@ -342,7 +342,7 @@ const HomePage = () => {
                 <div className={styles.serHeader}>Дія.City</div>
                 <div className={styles.serBody}>
                   Резиденти Дія.City що потрібно знати
-                  <br /> для початку роботи.
+                  <br /> для початку роботи...
                 </div>
                 <div className={styles.serLink}>Читати більше &#8594;</div>
               </div>
