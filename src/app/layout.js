@@ -1,5 +1,5 @@
 'use client';
-
+import Head from 'next/head';
 import ReduxProvider from '../../redux/provider';
 import { Inter } from 'next/font/google';
 import './globals.scss';
@@ -13,6 +13,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
+      <Head>
+        <title>Hello</title>
+      </Head>
       <ReduxProvider>
         <SessionProvider session={session}>
           <body className={inter.className}>{children}</body>
