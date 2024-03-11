@@ -196,48 +196,6 @@ const ServicePage = () => {
         <div className={styles.lineWrapper}>
           <div className={styles.line}></div>
         </div>
-        <div className={styles.section} id='yurId'>
-          <div className={styles.sectionHeader}>Юридичні послуги</div>
-          <div className={styles.sectionBodyReverse}>
-            <div className={styles.sectionText}>
-              <div className='text'>
-                Юридичні послуги вкрай важливі для зменшення ризиків Вашого
-                бізнесу та проопрацювання всіх можливих сценаріїв розвитку подій
-                з партнерами, клієнтами та працівниками. Юридичний супровід для
-                ТОВ та ФОП включає:
-                <br /> - розробка/аналіз договорів, в тому числі міжнародних
-                контрактів;
-                <br /> - реєстрація ФОП/ТОВ;
-                <br />- необмежені юридичні консультації;
-                <br />- податкові питання (оскарження ППР, заяви);
-                <br />- претензійна діяльність (стягнення боргів, зобов’язання
-                виконати обов’язки за договорами);
-                <br />- судові спори (додатково оплачується час адвоката в
-                судовому засіданні);
-                <br />- інші послуги за погодженням, які потрібні саме Вашому
-                підприємству.
-              </div>
-            </div>
-            <div className={styles.sectionList}>
-              <table border='0'>
-                <tbody>
-                  {data[5] &&
-                    data[5].items.map((item, idx) => (
-                      <tr key={idx} className={styles.row}>
-                        <td className={styles.text}>{item.name}</td>
-                        <td className={styles.from}>{item.from && 'від'}</td>
-                        <td className={styles.price}>{item.price}</td>
-                        <td className={styles.nom}>{item.nom}</td>
-                      </tr>
-                    ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-        <div className={styles.lineWrapper}>
-          <div className={styles.line}></div>
-        </div>
         <div className={styles.section} id='kikId' ref={myRef}>
           <div className={styles.sectionHeader}>КІК</div>
           <div className={styles.sectionBody}>
@@ -438,6 +396,48 @@ const ServicePage = () => {
                 <tbody>
                   {data[8] &&
                     data[8].items.map((item, idx) => (
+                      <tr key={idx} className={styles.row}>
+                        <td className={styles.text}>{item.name}</td>
+                        <td className={styles.from}>{item.from && 'від'}</td>
+                        <td className={styles.price}>{item.price}</td>
+                        <td className={styles.nom}>{item.nom}</td>
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div className={styles.lineWrapper}>
+          <div className={styles.line}></div>
+        </div>
+        <div className={styles.section} id='yurId'>
+          <div className={styles.sectionHeader}>Юридичні послуги</div>
+          <div className={styles.sectionBodyReverse}>
+            <div className={styles.sectionText}>
+              <div className='text'>
+                Юридичні послуги вкрай важливі для зменшення ризиків Вашого
+                бізнесу та проопрацювання всіх можливих сценаріїв розвитку подій
+                з партнерами, клієнтами та працівниками. Юридичний супровід для
+                ТОВ та ФОП включає:
+                <br /> - розробка/аналіз договорів, в тому числі міжнародних
+                контрактів;
+                <br /> - реєстрація ФОП/ТОВ;
+                <br />- необмежені юридичні консультації;
+                <br />- податкові питання (оскарження ППР, заяви);
+                <br />- претензійна діяльність (стягнення боргів, зобов’язання
+                виконати обов’язки за договорами);
+                <br />- судові спори (додатково оплачується час адвоката в
+                судовому засіданні);
+                <br />- інші послуги за погодженням, які потрібні саме Вашому
+                підприємству.
+              </div>
+            </div>
+            <div className={styles.sectionList}>
+              <table border='0'>
+                <tbody>
+                  {data[5] &&
+                    data[5].items.map((item, idx) => (
                       <tr key={idx} className={styles.row}>
                         <td className={styles.text}>{item.name}</td>
                         <td className={styles.from}>{item.from && 'від'}</td>

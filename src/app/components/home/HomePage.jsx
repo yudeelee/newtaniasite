@@ -300,15 +300,6 @@ const HomePage = () => {
                 <div className={styles.serLink}>Читати більше &#8594;</div>
               </div>
             </Link>
-            <Link href='/services#yurId'>
-              <div className={styles.service}>
-                <div className={styles.serHeader}>Юридичні послуги</div>
-                <div className={styles.serBody}>
-                  Юридичний супровід бізнесу, формування договорів...
-                </div>
-                <div className={styles.serLink}>Читати більше &#8594;</div>
-              </div>
-            </Link>
             <Link href='/services#kikId'>
               <div className={styles.service}>
                 <div className={styles.serHeader}>КІК</div>
@@ -343,6 +334,15 @@ const HomePage = () => {
                 <div className={styles.serBody}>
                   Резиденти Дія.City що потрібно знати
                   <br /> для початку роботи...
+                </div>
+                <div className={styles.serLink}>Читати більше &#8594;</div>
+              </div>
+            </Link>
+            <Link href='/services#yurId'>
+              <div className={styles.service}>
+                <div className={styles.serHeader}>Юридичні послуги</div>
+                <div className={styles.serBody}>
+                  Юридичний супровід бізнесу, формування договорів...
                 </div>
                 <div className={styles.serLink}>Читати більше &#8594;</div>
               </div>
