@@ -1,8 +1,8 @@
 .logo {
   img {
-    width: 100px;
+    width: 200px;
     @media (max-width: 700px) {
-      width: 70px;
+      width: 150px;
     }
   }
 }
@@ -31,7 +31,7 @@
   .topMenu {
     display: flex;
     font-family: 'Montserrat', sans-serif;
-    @media (max-width: 550px) {
+    @media (max-width: 850px) {
       display: none;
     }
   }
@@ -85,7 +85,7 @@
   width: 40px;
   margin-right: 40px;
   display: none;
-  @media (max-width: 550px) {
+  @media (max-width: 850px) {
     display: block;
   }
 }
