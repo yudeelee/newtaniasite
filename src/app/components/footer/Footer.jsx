@@ -40,13 +40,22 @@ const Footer = () => {
                 <Link href='/services#tovId'>ТОВ</Link>
               </li>
               <li>
+                <Link href='/services#financeId'>Фінанси</Link>
+              </li>
+              <li>
                 <Link href='/services#grantId'>Гранти</Link>
               </li>
               <li>
-                <Link href='/services#yurId'>Юридичні послуги</Link>
+                <Link href='/services#kikId'>КІК</Link>
               </li>
               <li>
-                <Link href='/services#financeId'>Фінанси</Link>
+                <Link href='/services#progId'>Програмування BAS</Link>
+              </li>
+              <li>
+                <Link href='/services#diaId'>Дія.City</Link>
+              </li>
+              <li>
+                <Link href='/services#yurId'>Юридичні послуги</Link>
               </li>
             </ul>
           </div>
