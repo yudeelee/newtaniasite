@@ -9,6 +9,7 @@ import { GrServices } from 'react-icons/gr';
 import Uploader from '../uploader/Uploader';
 import { useState } from 'react';
 import Home from './home/Home';
+import About from './about/About';
 
 const Pages = () => {
   const [page, setPage] = useState('home');
@@ -57,6 +58,7 @@ const Pages = () => {
             </ul>
           </div>
           {page === 'home' && <Home />}
+          {page === 'about' && <About />}
         </div>
       </div>
     </div>

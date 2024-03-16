@@ -1,3 +1,5 @@
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import { useEffect, useState } from 'react';
 import styles from './styles.module.scss';
 import { FaRegSave } from 'react-icons/fa';
@@ -51,17 +53,25 @@ const Home = () => {
   const [img6Open, setImg6Open] = useState(false);
   const [img7Open, setImg7Open] = useState(false);
 
+  const [value, setValue] = useState('');
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const res = await axios.get('/api/mainpage');
         setData(res.data);
+        setValue(res.data.aboutText);
+        console.log(res.data.youtubeId);
       } catch (error) {
         console.log(error);
       }
     };
     fetchData();
   }, []);
+
+  useEffect(() => {
+    setData({ ...data, aboutText: value });
+  }, [value]);
 
   const onReady = (event) => {
     const player = event.target;
@@ -200,10 +210,11 @@ const Home = () => {
       </div>
       <div className={styles.formControl}>
         <label htmlFor=''>Текст</label>
-        <textarea
+        {/* <textarea
           value={data.aboutText || ''}
           onChange={(e) => setData({ ...data, aboutText: e.target.value })}
-        ></textarea>
+        ></textarea> */}
+        <ReactQuill theme='snow' value={value} onChange={setValue} />
       </div>
       <div className={styles.line}>Що ми пропонуємо</div>
       <div className={styles.formControl}>

@@ -11,12 +11,16 @@
 }
 
 .uploader {
+  width: 800px;
   border: 1px solid #edafb8;
   border-radius: 5px;
   max-width: 760px;
   height: 400px;
   background-color: white;
   padding-bottom: 20px;
+  @media (max-width: 800px) {
+    width: 90%;
+  }
   .header {
     background-color: #edafb86e;
     padding: 10px;

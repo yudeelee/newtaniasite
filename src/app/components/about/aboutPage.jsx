@@ -1,13 +1,50 @@
+'use client';
+
 import styles from './styles.module.scss';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const AboutPage = () => {
+  const [workers, setWorkers] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get('/api/aboutpage');
+        setWorkers(res.data.workers);
+        console.log(res.data.workers);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <div className={styles.about}>
       <div className='container'>
         <div className={styles.header}>
           <div className='title'>Про нас</div>
         </div>
-        <div className={styles.person}>
+        {workers.map((wor, idx) => {
+          const cls = idx % 2 == 0 ? styles.person : styles.personReverse;
+          return (
+            <div className={cls} key={idx}>
+              <div className={styles.personText}>
+                <div className='redText'>{wor.position}</div>
+                <div className='title'>{wor.name}</div>
+                <div
+                  className={'text' + ' ' + 'mt20'}
+                  dangerouslySetInnerHTML={{ __html: wor.text }}
+                />
+              </div>
+              <div className={styles.photo}>
+                <img src={wor.photo} alt='' />
+              </div>
+            </div>
+          );
+        })}
+        {/* <div className={styles.person}>
           <div className={styles.personText}>
             <div className='redText'>експерт</div>
             <div className='title'>Селезньова Тетяна Олексіївна</div>
@@ -147,8 +184,8 @@ const AboutPage = () => {
           </div>
           <div className={styles.photo}>
             <img src='/img/photo14.png' alt='' />
-          </div>
-        </div>
+          </div> */}
+        {/* </div> */}
       </div>
     </div>
   );

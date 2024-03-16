@@ -6,6 +6,7 @@ import axios from 'axios';
 import { IoCloudUploadOutline } from 'react-icons/io5';
 import { LuArrowDownRightFromCircle } from 'react-icons/lu';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
+// import Image from '../../../../../models/Image';
 
 const Uploader = ({ close, select }) => {
   const cloudName = 'dnsm5nwmg';
@@ -26,19 +27,28 @@ const Uploader = ({ close, select }) => {
   const uploadFile = async (e) => {
     console.log('step1');
     const file = e.target.files?.[0];
-    if (!file) return;
+    if (!file) {
+      console.log('no file');
+      return;
+    }
     console.log('dhsjhfjs');
     try {
       const data = new FormData();
+      // data.append('file', file);
+      // data.append('upload_preset', uploadPreset);
       data.set('file', file);
       const res = await axios.post('/api/image', data);
       // const res = await axios.post(
       //   `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
       //   data
       // );
-      console.log(res);
+      // const newImg = new Image({ src: res.data.url });
+      // const imgres = await newImg.save();
+      // console.log(imgres);
+
       const newImgs = [...images];
-      newImgs.unshift(res.data);
+      newImgs.unshift({ src: res.data.src });
+      console.log(res);
       setImages(newImgs);
     } catch (error) {
       console.log(error);

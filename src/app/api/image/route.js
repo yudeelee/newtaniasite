@@ -52,6 +52,7 @@ export async function POST(req) {
 }
 
 export async function GET(req) {
+  console.log('image');
   try {
     await db.connectDb();
     const images = await Image.find();

@@ -36,6 +36,11 @@ body {
     font-weight: 700;
     color: #edafb8;
   }
+  ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
 }
 
 .mt20 {
@@ -50,4 +55,10 @@ body {
 }
 .center {
   text-align: center;
+}
+
+.ql-editor {
+  height: 300px !important;
+  box-shadow: inset 0px 2px 8px rgba(128, 128, 128, 0.145) !important;
+  border-radius: 0px 0px 5px 5px !important;
 }

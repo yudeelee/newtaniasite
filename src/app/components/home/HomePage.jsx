@@ -1,5 +1,7 @@
 'use client';
 
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import { useEffect, useState } from 'react';
 import styles from './styles.module.scss';
 import YouTube from 'react-youtube';
@@ -20,6 +22,20 @@ const HomePage = () => {
   const [phone, setPhone] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
   const [success, setSuccess] = useState('');
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get('/api/mainpage');
+        setData(res.data);
+        // console.log(res.data.propositionItems);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
 
   const sendMsg = () => {
     if (name === '') {
@@ -84,16 +100,16 @@ const HomePage = () => {
       <div className='container'>
         <div className={styles.hero}>
           <div className={styles.heroLeft}>
-            <h1 className={styles.heroTitle}>БУХГАЛТЕР-КОНСУЛЬТАНТ</h1>
+            <h1 className={styles.heroTitle}>{data.title}</h1>
             <h3 className={styles.heroSubTitle}>
-              З нами<span> працюють </span>найкращі
+              {data.subTitle}
+              <span> {data.subTitle2} </span>
+              {data.subTitle3}
             </h3>
             {/* <p className={styles.heroText}>
               широкий спектр фінансових та бухгалтерських послуг для бізнесу
             </p> */}
-            <p className='text'>
-              Широкий спектр фінансових та бухгалтерських послуг для бізнесу.
-            </p>
+            <p className='text'>{data.slog}</p>
             <Link href='/services' className={styles.button}>
               Замовити послугу
             </Link>
@@ -105,7 +121,7 @@ const HomePage = () => {
         <div className={styles.youtube}>
           <div className={styles.rolik}>
             <YouTube
-              videoId={'SPqIBw0I_iM'}
+              videoId={data.youtubeId}
               onReady={onReady}
               onError={onError}
             />
@@ -113,7 +129,7 @@ const HomePage = () => {
           <div className={styles.yuText}>
             <div className='redText'>про компанію</div>
             <div className='title'>Наші сильні сторони</div>
-            <div className={'text' + ' ' + 'mt20'}>
+            {/* <div className={'text' + ' ' + 'mt20'}>
               Компанія “Бухгалтер-консультант” працює в сферах фінансових та
               бухгалтерських послуг з 2020 року та надає повний спектр послуг
               супроводу бізнесу більше 100 підприємцям і підприємствам по всій
@@ -125,7 +141,11 @@ const HomePage = () => {
               гранти від держави для бізнесу. Працюємо у команді професіоналів
               на основі стандартів для швидкого та ідеального вирішення
               будь-якої проблеми.
-            </div>
+            </div> */}
+            <div
+              className={'text' + ' ' + 'mt20'}
+              dangerouslySetInnerHTML={{ __html: data.aboutText }}
+            />
           </div>
         </div>
         <div className={styles.poroposition + ' ' + 'mt100'}>
@@ -133,7 +153,16 @@ const HomePage = () => {
             <div className='redText'>що ми пропонуємо</div>
             <div className='title mb20'>Переваги співпраці з нами</div>
             <ul>
-              <li>
+              {data.propositionItems &&
+                data.propositionItems.map((prop, idx) => {
+                  return (
+                    <li key={idx}>
+                      <img src='/img/galochka.svg' alt='' />
+                      <span className='text'>{prop}</span>
+                    </li>
+                  );
+                })}
+              {/* <li>
                 <img src='/img/galochka.svg' alt='' />
                 <span className='text'>
                   Вам не потрібно витрачати гроші на офіс та засоби праці.
@@ -169,7 +198,7 @@ const HomePage = () => {
                 <span className='text'>
                   Ми - команда експертів і нас цікавить позитивний результат!
                 </span>
-              </li>
+              </li> */}
             </ul>
           </div>
           <div className={styles.slider}>
