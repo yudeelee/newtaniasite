@@ -1,6 +1,6 @@
 'use client';
 
-import ReactQuill from 'react-quill';
+// import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useEffect, useState } from 'react';
 import styles from './styles.module.scss';
