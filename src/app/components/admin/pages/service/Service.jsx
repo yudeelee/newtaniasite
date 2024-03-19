@@ -26,7 +26,7 @@ const service = () => {
       name: '',
       from: false,
       price: 0,
-      nominal: '',
+      nominal: 'грн',
     },
   ]);
 
@@ -40,7 +40,7 @@ const service = () => {
         name: '',
         from: false,
         price: 0,
-        nominal: '',
+        nominal: 'грн',
       },
     ],
   });
@@ -64,9 +64,9 @@ const service = () => {
     const newItems = JSON.parse(JSON.stringify(items));
     newItems.push({
       name: '',
-      from: '',
-      price: '',
-      nominal: '',
+      from: false,
+      price: 0,
+      nominal: 'грн',
     });
     setItems(newItems);
   };
@@ -330,6 +330,7 @@ const service = () => {
                                   setServices(newService);
                                 }}
                               >
+                                <option value=''>...</option>
                                 <option value='грн'>грн</option>
                                 <option value='грн/рік'>грн/рік</option>
                                 <option value='грн/міс'>грн/міс</option>
@@ -491,6 +492,7 @@ const service = () => {
                     onChange={(e) => {
                       const newItems = JSON.parse(JSON.stringify(items));
                       newItems[idx].nominal = e.target.value;
+                      console.log(newItems);
                       setItems(newItems);
                     }}
                   >
@@ -515,6 +517,7 @@ const service = () => {
           <button
             className={styles.addButton}
             onClick={() => {
+              console.log(items);
               return addItem();
             }}
           >
@@ -523,13 +526,13 @@ const service = () => {
           <button
             className={styles.addButton}
             onClick={() => {
-              setNewService({
-                ...newService,
-                name: '',
-                description: '',
-                text: '',
-                textMore: '',
-              });
+              //   setNewService({
+              //     ...newService,
+              //     name: '',
+              //     description: '',
+              //     text: '',
+              //     textMore: '',
+              //   });
               return addNewService();
             }}
           >

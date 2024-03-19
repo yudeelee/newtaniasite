@@ -59,14 +59,19 @@ const ServicePage = () => {
                     <table border='0'>
                       <tbody>
                         {ser.items &&
-                          ser.items.map((item, idx) => (
-                            <tr key={idx} className={styles.row}>
-                              <td className={styles.text}>{item.name}</td>
-                              <td className={styles.from}>{item.from}</td>
-                              <td className={styles.price}>{item.price}</td>
-                              <td className={styles.nom}>{item.nom}</td>
-                            </tr>
-                          ))}
+                          ser.items.map((item, idx) => {
+                            console.log(item);
+                            return (
+                              <tr key={idx} className={styles.row}>
+                                <td className={styles.text}>{item.name}</td>
+                                <td className={styles.from}>
+                                  {item.from ? 'від' : ''}
+                                </td>
+                                <td className={styles.price}>{item.price}</td>
+                                <td className={styles.nom}>{item.nominal}</td>
+                              </tr>
+                            );
+                          })}
                       </tbody>
                     </table>
                   </div>
@@ -78,7 +83,7 @@ const ServicePage = () => {
             </Fragment>
           );
         })}
-        {/* <div className={styles.section} id='consaltId'>
+        <div className={styles.section} id='consaltId'>
           <div className={styles.sectionHeader}>Консультації</div>
           <div className={styles.sectionBody}>
             <div className={styles.sectionText}>
@@ -528,7 +533,7 @@ const ServicePage = () => {
                         <td className={styles.text}>{item.name}</td>
                         <td className={styles.from}>{item.from && 'від'}</td>
                         <td className={styles.price}>{item.price}</td>
-                        <td className={styles.nom}>{item.nom}</td>
+                        <td className={styles.nom}>{item.nominal}</td>
                       </tr>
                     ))}
                 </tbody>
@@ -538,7 +543,7 @@ const ServicePage = () => {
         </div>
         <div className={styles.lineWrapper}>
           <div className={styles.line}></div>
-        </div> */}
+        </div>
       </div>
     </div>
   );
