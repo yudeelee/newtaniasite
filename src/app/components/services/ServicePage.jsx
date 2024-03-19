@@ -61,40 +61,43 @@ const ServicePage = () => {
                       className={'text' + ' ' + 'mt20'}
                       dangerouslySetInnerHTML={{ __html: ser.text }}
                     />
-                    {ser.textMore && (
-                      <Fragment>
-                        {!more[idx] && (
-                          <button
-                            className={styles.buttonMore}
-                            onClick={() =>
-                              setKikmore([...more, (more[idx] = !more[idx])])
-                            }
-                          >
-                            Читати більше &#8594;
-                          </button>
-                        )}
-                        {more[idx] && (
-                          <Fragment>
-                            <div
-                              className={'text'}
-                              dangerouslySetInnerHTML={{ __html: ser.textMore }}
-                            />
-                          </Fragment>
-                        )}
-                        {more[idx] && (
-                          <button
-                            className={styles.buttonMore}
-                            onClick={() => {
-                              setKikmore([...more, (more[idx] = !more[idx])]);
-                              itemsRef.current[idx].scrollIntoView();
-                              // myRef.current.scrollIntoView();
-                            }}
-                          >
-                            Згорнути
-                          </button>
-                        )}
-                      </Fragment>
-                    )}
+                    {ser.textMore &&
+                      ser.textMore.replace(/(<([^>]+)>)/gi, '') != '' && (
+                        <Fragment>
+                          {!more[idx] && (
+                            <button
+                              className={styles.buttonMore}
+                              onClick={() =>
+                                setKikmore([...more, (more[idx] = !more[idx])])
+                              }
+                            >
+                              Читати більше &#8594;
+                            </button>
+                          )}
+                          {more[idx] && (
+                            <Fragment>
+                              <div
+                                className={'text'}
+                                dangerouslySetInnerHTML={{
+                                  __html: ser.textMore,
+                                }}
+                              />
+                            </Fragment>
+                          )}
+                          {more[idx] && (
+                            <button
+                              className={styles.buttonMore}
+                              onClick={() => {
+                                setKikmore([...more, (more[idx] = !more[idx])]);
+                                itemsRef.current[idx].scrollIntoView();
+                                // myRef.current.scrollIntoView();
+                              }}
+                            >
+                              Згорнути
+                            </button>
+                          )}
+                        </Fragment>
+                      )}
                   </div>
                   <div className={styles.sectionList}>
                     <table border='0'>
@@ -302,7 +305,7 @@ const ServicePage = () => {
         <div className={styles.lineWrapper}>
           <div className={styles.line}></div>
         </div>
-        <div className={styles.section} id='kikId' ref={myRef}>
+        <div className={styles.section} id='kikId'>
           <div className={styles.sectionHeader}>КІК</div>
           <div className={styles.sectionBody}>
             <div className={styles.sectionText}>
@@ -423,7 +426,7 @@ const ServicePage = () => {
         <div className={styles.lineWrapper}>
           <div className={styles.line}></div>
         </div>
-        <div className={styles.section} id='diaId' ref={myRef1}>
+        <div className={styles.section} id='diaId'>
           <div className={styles.sectionHeader}>Дія.City</div>
           <div className={styles.sectionBody}>
             <div className={styles.sectionText}>
@@ -573,7 +576,7 @@ const ServicePage = () => {
                         <td className={styles.text}>{item.name}</td>
                         <td className={styles.from}>{item.from && 'від'}</td>
                         <td className={styles.price}>{item.price}</td>
-                        <td className={styles.nom}>{item.nominal}</td>
+                        <td className={styles.nom}>{item.nom}</td>
                       </tr>
                     ))}
                 </tbody>
