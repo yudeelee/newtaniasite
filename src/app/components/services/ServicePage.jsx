@@ -13,12 +13,14 @@ const ServicePage = () => {
   const myRef1 = useRef();
 
   const [services, setServices] = useState();
+  const [more, setMore] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const res = await axios.get('/api/servicepage');
         setServices(res.data.services);
+        setMore(new Array(res.data.services.length).fill(false));
         // console.log(res.data.services);
       } catch (error) {
         console.log(error);
@@ -54,13 +56,45 @@ const ServicePage = () => {
                       className={'text' + ' ' + 'mt20'}
                       dangerouslySetInnerHTML={{ __html: ser.text }}
                     />
+                    {ser.textMore && (
+                      <Fragment>
+                        {!more[idx] && (
+                          <button
+                            className={styles.buttonMore}
+                            onClick={() =>
+                              setKikmore([...more, (more[idx] = !more[idx])])
+                            }
+                          >
+                            Читати більше &#8594;
+                          </button>
+                        )}
+                        {more[idx] && (
+                          <Fragment>
+                            <div
+                              className={'text'}
+                              dangerouslySetInnerHTML={{ __html: ser.textMore }}
+                            />
+                          </Fragment>
+                        )}
+                        {more[idx] && (
+                          <button
+                            className={styles.buttonMore}
+                            onClick={() => {
+                              setKikmore([...more, (more[idx] = !more[idx])]);
+                              myRef.current.scrollIntoView();
+                            }}
+                          >
+                            Згорнути
+                          </button>
+                        )}
+                      </Fragment>
+                    )}
                   </div>
                   <div className={styles.sectionList}>
                     <table border='0'>
                       <tbody>
                         {ser.items &&
                           ser.items.map((item, idx) => {
-                            console.log(item);
                             return (
                               <tr key={idx} className={styles.row}>
                                 <td className={styles.text}>{item.name}</td>
@@ -83,7 +117,7 @@ const ServicePage = () => {
             </Fragment>
           );
         })}
-        <div className={styles.section} id='consaltId'>
+        {/* <div className={styles.section} id='consaltId'>
           <div className={styles.sectionHeader}>Консультації</div>
           <div className={styles.sectionBody}>
             <div className={styles.sectionText}>
@@ -543,7 +577,7 @@ const ServicePage = () => {
         </div>
         <div className={styles.lineWrapper}>
           <div className={styles.line}></div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
