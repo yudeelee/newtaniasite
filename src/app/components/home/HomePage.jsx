@@ -208,11 +208,11 @@ const HomePage = () => {
           </div>
           <div className={styles.slider}>
             <Swiper
-              // speed={1000}
+              speed={3000}
               loop={true}
               autoplay
               spaceBetween={20}
-              slidesPerView={1}
+              slidesPerView={2}
               onSlideChange={() => console.log('slide change')}
               onSwiper={(swiper) => console.log(swiper)}
               modules={[Autoplay]}
