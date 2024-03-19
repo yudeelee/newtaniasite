@@ -212,7 +212,7 @@ const HomePage = () => {
               loop={true}
               autoplay
               spaceBetween={20}
-              slidesPerView={3}
+              slidesPerView={1}
               onSlideChange={() => console.log('slide change')}
               onSwiper={(swiper) => console.log(swiper)}
               modules={[Autoplay]}
