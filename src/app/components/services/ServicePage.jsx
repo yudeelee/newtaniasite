@@ -2,14 +2,31 @@
 
 import styles from './styles.module.scss';
 import { data } from '../../../../data/data';
-import { Fragment, useRef, useState } from 'react';
+import { Fragment, useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
+import axios from 'axios';
 
 const ServicePage = () => {
   const [kikmore, setKikmore] = useState(false);
   const [diamore, setDiamore] = useState(false);
   const myRef = useRef();
   const myRef1 = useRef();
+
+  const [services, setServices] = useState();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get('/api/servicepage');
+        setServices(res.data.services);
+        // console.log(res.data.services);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <div className={styles.service}>
       <Link href='/contact' className={styles.litteButton}>
@@ -19,7 +36,49 @@ const ServicePage = () => {
         <div className={styles.header}>
           <div className='title'>Наші послуги</div>
         </div>
-        <div className={styles.section} id='consaltId'>
+        {services?.map((ser, idx) => {
+          return (
+            <Fragment key={idx}>
+              <div className={styles.section} id={ser.slogId}>
+                <div className={styles.sectionHeader}>{ser.name}</div>
+                <div
+                  className={
+                    idx % 2 === 0
+                      ? styles.sectionBody
+                      : styles.sectionBodyReverse
+                  }
+                >
+                  <div className={styles.sectionText}>
+                    {/* <div className='text'>{ser.text}</div> */}
+                    <div
+                      className={'text' + ' ' + 'mt20'}
+                      dangerouslySetInnerHTML={{ __html: ser.text }}
+                    />
+                  </div>
+                  <div className={styles.sectionList}>
+                    <table border='0'>
+                      <tbody>
+                        {ser.items &&
+                          ser.items.map((item, idx) => (
+                            <tr key={idx} className={styles.row}>
+                              <td className={styles.text}>{item.name}</td>
+                              <td className={styles.from}>{item.from}</td>
+                              <td className={styles.price}>{item.price}</td>
+                              <td className={styles.nom}>{item.nom}</td>
+                            </tr>
+                          ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div className={styles.lineWrapper}>
+                <div className={styles.line}></div>
+              </div>
+            </Fragment>
+          );
+        })}
+        {/* <div className={styles.section} id='consaltId'>
           <div className={styles.sectionHeader}>Консультації</div>
           <div className={styles.sectionBody}>
             <div className={styles.sectionText}>
@@ -479,7 +538,7 @@ const ServicePage = () => {
         </div>
         <div className={styles.lineWrapper}>
           <div className={styles.line}></div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

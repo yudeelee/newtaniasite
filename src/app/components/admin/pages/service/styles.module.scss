@@ -1,0 +1,184 @@
+.hesderLine {
+  height: 30px;
+  margin: 0px -20px 20px;
+  background-color: rgba(237, 175, 184, 0.431372549);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 20px;
+  font-weight: 700;
+}
+
+.addService {
+  label {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: #b5737d;
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+  input {
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ebebeb;
+    outline: none;
+    box-shadow: inset 0px 2px 8px rgba(128, 128, 128, 0.145);
+  }
+  .items {
+    margin-top: 20px;
+    input {
+      width: 50%;
+      display: inline-block;
+      &.itemPrice {
+        width: 50px;
+        box-sizing: border-box;
+        padding: 2px;
+        height: 39px;
+        text-align: center;
+      }
+    }
+    input[type='checkbox'] {
+      width: 20px;
+      border: 1px solid rgb(196, 196, 196);
+    }
+    .item {
+      border: 1px solid #edafb8;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 2px 0px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+  select {
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ebebeb;
+    outline: none;
+    box-shadow: inset 0px 2px 8px rgba(128, 128, 128, 0.145);
+  }
+}
+
+.priceBlock {
+  display: flex;
+  align-items: center;
+}
+
+.deleteItem {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #edafb8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-left: 10px;
+  &:hover {
+    background-color: #b5737d;
+    color: white;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  .addButton {
+    padding: 10px 20px;
+    background-color: #edafb8;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: all 0.5s;
+    &:hover {
+      background-color: #b5737d;
+      color: white;
+    }
+  }
+}
+
+.allServices {
+  margin: 20px 0px;
+}
+
+.serviceWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #edafb8;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin: 2px 0px;
+  transition: all 0.5s;
+  &.openHeader {
+    background-color: #b5737d;
+    color: white;
+    margin: 0px -20px;
+    margin-bottom: 20px;
+    border-radius: 0px;
+    border: none;
+    &:hover {
+      background-color: #b5737d;
+      color: white;
+    }
+  }
+  &.rouge {
+    background-color: rgba(237, 175, 184, 0.2274509804);
+    &.openHeader {
+      background-color: #b5737d;
+      color: white;
+      margin: 0px -20px;
+      margin-bottom: 20px;
+      border-radius: 0px;
+      border: none;
+      &:hover {
+        background-color: #b5737d;
+        color: white;
+      }
+    }
+  }
+}
+
+.serviceButtons {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  .serButton {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #edafb8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+      background-color: #b5737d;
+      color: white;
+    }
+    svg {
+      width: 25px;
+    }
+  }
+}
+
+.emptyField {
+  width: 30px;
+}

@@ -10,6 +10,7 @@ import Uploader from '../uploader/Uploader';
 import { useState } from 'react';
 import Home from './home/Home';
 import About from './about/About';
+import Service from './service/Service';
 
 const Pages = () => {
   const [page, setPage] = useState('home');
@@ -59,6 +60,7 @@ const Pages = () => {
           </div>
           {page === 'home' && <Home />}
           {page === 'about' && <About />}
+          {page === 'service' && <Service />}
         </div>
       </div>
     </div>
