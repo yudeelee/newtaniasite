@@ -9,8 +9,8 @@ import axios from 'axios';
 const ServicePage = () => {
   const [kikmore, setKikmore] = useState(false);
   const [diamore, setDiamore] = useState(false);
-  const myRef = useRef();
-  const myRef1 = useRef();
+
+  const itemsRef = useRef([]);
 
   const [services, setServices] = useState();
   const [more, setMore] = useState([]);
@@ -21,6 +21,7 @@ const ServicePage = () => {
         const res = await axios.get('/api/servicepage');
         setServices(res.data.services);
         setMore(new Array(res.data.services.length).fill(false));
+        itemsRef.current = itemsRef.current.slice(0, res.data.services.length);
         // console.log(res.data.services);
       } catch (error) {
         console.log(error);
@@ -41,7 +42,11 @@ const ServicePage = () => {
         {services?.map((ser, idx) => {
           return (
             <Fragment key={idx}>
-              <div className={styles.section} id={ser.slogId}>
+              <div
+                className={styles.section}
+                id={ser.slogId}
+                ref={(el) => (itemsRef.current[idx] = el)}
+              >
                 <div className={styles.sectionHeader}>{ser.name}</div>
                 <div
                   className={
@@ -81,7 +86,8 @@ const ServicePage = () => {
                             className={styles.buttonMore}
                             onClick={() => {
                               setKikmore([...more, (more[idx] = !more[idx])]);
-                              myRef.current.scrollIntoView();
+                              itemsRef.current[idx].scrollIntoView();
+                              // myRef.current.scrollIntoView();
                             }}
                           >
                             Згорнути
