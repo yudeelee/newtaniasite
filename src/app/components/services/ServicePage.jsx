@@ -83,7 +83,7 @@ const ServicePage = () => {
             </Fragment>
           );
         })}
-        {/* <div className={styles.section} id='consaltId'>
+        <div className={styles.section} id='consaltId'>
           <div className={styles.sectionHeader}>Консультації</div>
           <div className={styles.sectionBody}>
             <div className={styles.sectionText}>
@@ -543,7 +543,7 @@ const ServicePage = () => {
         </div>
         <div className={styles.lineWrapper}>
           <div className={styles.line}></div>
-        </div> */}
+        </div>
       </div>
     </div>
   );

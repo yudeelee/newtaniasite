@@ -40,7 +40,7 @@ const service = () => {
         name: '',
         from: false,
         price: 0,
-        nominal: 'грн',
+        nominal: '',
       },
     ],
   });
@@ -66,7 +66,7 @@ const service = () => {
       name: '',
       from: false,
       price: 0,
-      nominal: 'грн',
+      nominal: '',
     });
     setItems(newItems);
   };
@@ -496,6 +496,7 @@ const service = () => {
                       setItems(newItems);
                     }}
                   >
+                    <option value=''>...</option>
                     <option value='грн'>грн</option>
                     <option value='грн/рік'>грн/рік</option>
                     <option value='грн/міс'>грн/міс</option>
