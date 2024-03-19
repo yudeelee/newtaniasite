@@ -120,7 +120,7 @@ const HomePage = () => {
             </Link>
           </div>
           <div className={styles.heroImg}>
-            <img src='/img/headerPhoto-min.png' alt='' />
+            <img src='/img/headerPhoto.webp' alt='' />
           </div>
         </div>
         <div className={styles.youtube}>
