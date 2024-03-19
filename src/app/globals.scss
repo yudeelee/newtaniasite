@@ -66,3 +66,10 @@ p {
   box-shadow: inset 0px 2px 8px rgba(128, 128, 128, 0.145) !important;
   border-radius: 0px 0px 5px 5px !important;
 }
+
+.swiper-slide {
+  width: 33%;
+  img {
+    width: 100%;
+  }
+}

@@ -3,6 +3,9 @@
 // import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useEffect, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Autoplay } from 'swiper';
+import 'swiper/css';
 import styles from './styles.module.scss';
 import YouTube from 'react-youtube';
 import Link from 'next/link';
@@ -12,6 +15,8 @@ import { redirect } from 'next/navigation';
 import axios from 'axios';
 
 const HomePage = () => {
+  SwiperCore.use([Autoplay]);
+
   const TOKEN = '5530765545:AAFy5U47-r8OYc198-5blcgCR-cKB3_jowE';
   const CHAT_ID = '-1001517912943';
   const URI = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
@@ -202,6 +207,40 @@ const HomePage = () => {
             </ul>
           </div>
           <div className={styles.slider}>
+            <Swiper
+              // speed={1000}
+              loop={true}
+              autoplay
+              spaceBetween={20}
+              slidesPerView={3}
+              onSlideChange={() => console.log('slide change')}
+              onSwiper={(swiper) => console.log(swiper)}
+              modules={[Autoplay]}
+            >
+              <SwiperSlide>
+                <img src='/img/photo8.png' alt='' />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src='/img/photo9.png' alt='' />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src='/img/photo10.png' alt='' />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src='/img/photo11.png' alt='' />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src='/img/photo12.png' alt='' />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src='/img/photo13.png' alt='' />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src='/img/photo14.png' alt='' />
+              </SwiperSlide>
+            </Swiper>
+          </div>
+          {/* <div className={styles.slider}>
             <div
               className={`${styles.slide} ${
                 actual % 7 == 0 ? styles.actual : ''
@@ -258,7 +297,7 @@ const HomePage = () => {
               <div className={styles.back}></div>
               <img src='/img/photo7.jpg' alt='' />
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className={styles.fishki + ' ' + 'mt100'}>

@@ -150,10 +150,14 @@
 }
 
 .slider {
+  width: 50%;
   position: relative;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  @media (max-width: 1000px) {
+    width: 100%;
+  }
   .slide {
     position: relative;
     width: 33%;
@@ -193,7 +197,7 @@
     img {
       position: relative;
       z-index: 10;
-      width: 80%;
+      width: 150px;
     }
   }
 }
