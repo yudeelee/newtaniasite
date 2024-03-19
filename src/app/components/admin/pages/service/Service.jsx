@@ -26,7 +26,7 @@ const service = () => {
       name: '',
       from: false,
       price: 0,
-      nominal: 'грн',
+      nominal: '',
     },
   ]);
 
