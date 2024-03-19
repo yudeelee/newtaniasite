@@ -208,7 +208,7 @@ const HomePage = () => {
           </div>
           <div className={styles.slider}>
             <Swiper
-              speed={3000}
+              speed={1500}
               loop={true}
               autoplay
               spaceBetween={20}
