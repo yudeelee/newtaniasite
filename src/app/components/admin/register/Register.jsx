@@ -5,16 +5,26 @@ import { useState } from 'react';
 import axios from 'axios';
 
 const Register = () => {
+  const [name, setName] = useState('');
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const register = async () => {
-    const res = await axios.post('/api/register', { login, password });
+    const res = await axios.post('/api/register', { name, login, password });
   };
   return (
     <div className={styles.register}>
       <div className={styles.registerForm}>
         <div className={styles.header}>Реєстрація</div>
         <div className={styles.body}>
+          <div className={styles.formControl}>
+            <label>Ім'я</label>
+            <input
+              type='text'
+              value={name}
+              placeholder='Введіть Логін'
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
           <div className={styles.formControl}>
             <label>Логін</label>
             <input

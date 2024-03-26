@@ -5,11 +5,12 @@ export async function POST(req) {
   const body = await req.json();
   try {
     await db.connectDb();
-    const { login, password } = body;
-    if (!login || !password) {
+    const { name, login, password } = body;
+    if (!login || !password || !name) {
       return new Response(JSON.stringify({ message: 'fill all fields' }));
     }
     const newUser = new User({
+      name,
       email: login,
       password,
     });

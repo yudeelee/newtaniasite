@@ -37,7 +37,7 @@ const Header = () => {
                 </Link>
               </li>
               <li>
-                <Link href='#'>
+                <Link href='/admin/manager'>
                   <GrServices />
                   Менеджери
                 </Link>

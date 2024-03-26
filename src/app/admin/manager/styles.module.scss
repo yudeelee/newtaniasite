@@ -1,0 +1,97 @@
+.manager {
+  margin-top: 30px;
+  border: 1px solid #edafb8;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.headLine {
+  height: 30px;
+  margin: 0px -20px 20px;
+  background-color: rgba(237, 175, 184, 0.431372549);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 20px;
+  font-weight: 700;
+}
+
+.buttonWrapper {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  .addButton {
+    padding: 10px 20px;
+    background-color: #edafb8;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: all 0.5s;
+    text-decoration: none;
+    color: black;
+    &:hover {
+      background-color: #b5737d;
+      color: white;
+    }
+  }
+}
+
+.allManagers {
+  .user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #edafb8;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 2px 0px;
+  }
+  .userRouge {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #edafb8;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 2px 0px;
+    background-color: rgba(237, 175, 184, 0.2274509804);
+  }
+}
+
+.userStatus {
+  margin-right: 30px;
+}
+
+.editWrapper {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.editButton {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #edafb8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    background-color: #b5737d;
+    color: white;
+  }
+  svg {
+    width: 25px;
+  }
+}

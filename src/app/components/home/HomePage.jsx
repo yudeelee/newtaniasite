@@ -29,6 +29,8 @@ const HomePage = () => {
   const [success, setSuccess] = useState('');
   const [data, setData] = useState({});
 
+  const [about, setAbout] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -41,6 +43,20 @@ const HomePage = () => {
     };
     fetchData();
   }, []);
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const res = await axios.get('/api/aboutpage');
+  //       setAbout(res.data.workers);
+  //       console.log(res.data.workers);
+  //       // console.log(res.data.propositionItems);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+  //   fetchData();
+  // }, []);
 
   const sendMsg = () => {
     if (name === '') {
@@ -217,6 +233,13 @@ const HomePage = () => {
               onSwiper={(swiper) => console.log(swiper)}
               modules={[Autoplay]}
             >
+              {/* {about.map((ab, idx) => {
+                return (
+                  <SwiperSlide key={idx}>
+                    <img src={ab.photo} alt='' />
+                  </SwiperSlide>
+                );
+              })} */}
               <SwiperSlide>
                 <img src='/img/photo8.png' alt='' />
               </SwiperSlide>

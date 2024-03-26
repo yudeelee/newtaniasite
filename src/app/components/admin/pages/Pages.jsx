@@ -11,6 +11,7 @@ import { useState } from 'react';
 import Home from './home/Home';
 import About from './about/About';
 import Service from './service/Service';
+import Contact from './contact/Contact';
 
 const Pages = () => {
   const [page, setPage] = useState('home');
@@ -61,6 +62,7 @@ const Pages = () => {
           {page === 'home' && <Home />}
           {page === 'about' && <About />}
           {page === 'service' && <Service />}
+          {page === 'contact' && <Contact />}
         </div>
       </div>
     </div>
