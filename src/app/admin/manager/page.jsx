@@ -56,7 +56,7 @@ const page = () => {
         </div>
         <div className={styles.buttonWrapper}>
           <Link href='/admin/register' className={styles.addButton}>
-            Додати менедєера
+            Додати менедєера1
           </Link>
         </div>
       </div>
