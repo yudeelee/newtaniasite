@@ -19,7 +19,7 @@ export default function RootLayout({
       </Head>
       <div>
         {/* Your React components */}
-        <Helmet>
+        {/* <Helmet>
           <script
             async
             src='https://www.googletagmanager.com/gtag/js?id=AW-16508963435'
@@ -29,7 +29,7 @@ export default function RootLayout({
             {dataLayer.push(arguments)}
             gtag('js', new Date()); gtag('config', 'AW-16508963435');
           </script>
-        </Helmet>
+        </Helmet> */}
       </div>
       <ReduxProvider>
         <SessionProvider session={session}>
