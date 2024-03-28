@@ -31,8 +31,8 @@ const Carusel = (props) => {
 
   const [r, w, h] = useWindowSize();
   radius = r;
-  imgWidth = w;
-  imgHeight = h;
+  imgWidth = w - 10;
+  imgHeight = h - 5;
 
   useEffect(() => {
     setTimeout(init, 1000);
