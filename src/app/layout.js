@@ -16,21 +16,21 @@ export default function RootLayout({
     <html lang='en'>
       <Head>
         <title>Hello</title>
-      </Head>
-      <div>
-        {/* Your React components */}
-        {/* <Helmet>
+        {/* <Helmet> */}
+        {process.env.NODE_ENV === 'production' && (
           <script
             async
             src='https://www.googletagmanager.com/gtag/js?id=AW-16508963435'
           ></script>
-          <script>
+        )}
+        {/* <script>
             window.dataLayer = window.dataLayer || []; function gtag()
             {dataLayer.push(arguments)}
             gtag('js', new Date()); gtag('config', 'AW-16508963435');
-          </script>
-        </Helmet> */}
-      </div>
+          </script> */}
+        {/* </Helmet> */}
+      </Head>
+      <div>{/* Your React components */}</div>
       <ReduxProvider>
         <SessionProvider session={session}>
           <body className={inter.className}>{children}</body>
