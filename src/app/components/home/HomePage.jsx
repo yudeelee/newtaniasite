@@ -36,7 +36,6 @@ const HomePage = () => {
       try {
         const res = await axios.get('/api/mainpage');
         setData(res.data);
-        // console.log(res.data.propositionItems);
       } catch (error) {
         console.log(error);
       }
@@ -49,8 +48,6 @@ const HomePage = () => {
   //     try {
   //       const res = await axios.get('/api/aboutpage');
   //       setAbout(res.data.workers);
-  //       console.log(res.data.workers);
-  //       // console.log(res.data.propositionItems);
   //     } catch (error) {
   //       console.log(error);
   //     }
@@ -79,7 +76,6 @@ const HomePage = () => {
         setSuccess('Вашу заявку прийнято');
         setName('');
         setPhone('');
-        console.log('good');
       })
       .catch((err) => {
         console.log('bad');
@@ -89,7 +85,6 @@ const HomePage = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setActual((actual) => actual + 1);
-      console.log(actual);
     }, 5000);
     return () => clearInterval(interval);
   }, []);
@@ -491,5 +486,7 @@ const HomePage = () => {
     </div>
   );
 };
+
+export async function getStaticProps() {}
 
 export default HomePage;

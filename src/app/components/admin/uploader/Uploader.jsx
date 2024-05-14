@@ -25,13 +25,10 @@ const Uploader = ({ close, select }) => {
   }, []);
 
   const uploadFile = async (e) => {
-    console.log('step1');
     const file = e.target.files?.[0];
     if (!file) {
-      console.log('no file');
       return;
     }
-    console.log('dhsjhfjs');
     try {
       const data = new FormData();
       // data.append('file', file);
@@ -44,11 +41,9 @@ const Uploader = ({ close, select }) => {
       // );
       // const newImg = new Image({ src: res.data.url });
       // const imgres = await newImg.save();
-      // console.log(imgres);
 
       const newImgs = [...images];
       newImgs.unshift({ src: res.data.src });
-      console.log(res);
       setImages(newImgs);
     } catch (error) {
       console.log(error);

@@ -12,7 +12,6 @@ const AboutPage = () => {
       try {
         const res = await axios.get('/api/aboutpage');
         setWorkers(res.data.workers);
-        console.log(res.data.workers);
       } catch (error) {
         console.log(error);
       }

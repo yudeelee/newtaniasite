@@ -30,11 +30,8 @@ const page = () => {
         <div className={styles.allManagers}>
           {users.map((user, idx) => {
             return (
-              <Fragment>
-                <div
-                  className={idx % 2 === 0 ? styles.user : styles.userRouge}
-                  key={idx}
-                >
+              <Fragment key={idx}>
+                <div className={idx % 2 === 0 ? styles.user : styles.userRouge}>
                   <div className={styles.userName}>{user.name}</div>
                   <div className={styles.editWrapper}>
                     <div className={styles.userStatus}>{user.role}</div>

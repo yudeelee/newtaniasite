@@ -76,7 +76,6 @@ const service = () => {
     newItems = newItems.filter((item, sdx) => {
       return idx !== sdx;
     });
-    console.log(newItems);
     setItems(newItems);
   };
 
@@ -94,7 +93,6 @@ const service = () => {
     };
     try {
       const res = await axios.post('/api/servicepage', nService);
-      console.log(res.data.services.services);
       setServices(res.data.services.services);
       setName('');
       setDescription('');
@@ -109,7 +107,6 @@ const service = () => {
 
   const changeOpen = (idx) => {
     const open = JSON.parse(JSON.stringify(opens));
-    console.log(open);
     open[idx] = !open[idx];
     setOpens(open);
   };
@@ -119,10 +116,8 @@ const service = () => {
     const x = newWorkers[idx];
     newWorkers[idx] = newWorkers[idx - 1];
     newWorkers[idx - 1] = x;
-    console.log(newWorkers);
     try {
       const res = await axios.put('/api/servicepage', newWorkers);
-      //   console.log(res.data.services.services);
       setServices(res.data.services.services);
     } catch (error) {
       console.log(error);
@@ -145,7 +140,6 @@ const service = () => {
   const deleteWorker = async (idx) => {
     let newWorkers = JSON.parse(JSON.stringify(services));
     newWorkers = newWorkers.filter((wor, i) => i !== idx);
-    console.log(newWorkers);
     try {
       const res = await axios.put('/api/servicepage', newWorkers);
       setServices(res.data.services.services);
@@ -361,7 +355,6 @@ const service = () => {
                         className={styles.addButton}
                         onClick={() => {
                           const newItems = JSON.parse(JSON.stringify(services));
-                          console.log(newItems[idx].items);
                           newItems[idx].items.push({
                             name: '',
                             from: false,
@@ -492,7 +485,6 @@ const service = () => {
                     onChange={(e) => {
                       const newItems = JSON.parse(JSON.stringify(items));
                       newItems[idx].nominal = e.target.value;
-                      console.log(newItems);
                       setItems(newItems);
                     }}
                   >
@@ -518,7 +510,6 @@ const service = () => {
           <button
             className={styles.addButton}
             onClick={() => {
-              console.log(items);
               return addItem();
             }}
           >

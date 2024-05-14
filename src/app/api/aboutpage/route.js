@@ -3,13 +3,10 @@ import AboutPage from '../../../../models/AboutPage';
 
 export async function POST(req) {
   const body = await req.json();
-  //   console.log(body);
   try {
     await db.connectDb();
     const data = body;
     const oldData = await AboutPage.findOne();
-    // console.log(oldData, 'data');
-    // console.log(oldData.workers, 'workers');
     oldData.workers.push(data);
     const newPage = await AboutPage.findByIdAndUpdate(
       '65f09c01d011ba41a27eb247',

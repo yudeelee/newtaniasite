@@ -1,7 +1,7 @@
 'use client';
 
 import styles from './styles.module.scss';
-import { data } from '../../../../data/data';
+// import { data } from '../../../../data/data';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -10,11 +10,11 @@ const ContactPage = () => {
   const CHAT_ID = '-1001517912943';
   const URI = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
 
-  const sections = data.map((sec) => sec.name);
-  const [section, setSection] = useState(sections[0]);
+  const [sections, setSections] = useState([]);
+  const [section, setSection] = useState();
   const [items, setItems] = useState([]);
-  const [item, setItem] = useState(data[0].items[0]);
-  const [price, setPrice] = useState(data[0].items[0].price);
+  const [item, setItem] = useState();
+  const [price, setPrice] = useState();
 
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
@@ -22,20 +22,38 @@ const ContactPage = () => {
   const [comment, setComment] = useState('');
 
   const [errorMsg, setErrorMsg] = useState('');
+  const [data, setData] = useState([]);
 
   useEffect(() => {
-    const current = data.find((sec) => sec.name === section);
-    setItems(current.items);
-    setItem(current.items[0].name);
-    setPrice(current.items[0].price);
+    const fetchData = async () => {
+      try {
+        const res = await axios.get('/api/servicepage');
+        setData(res.data.services);
+        setSections(res.data.services.map((sec) => sec.name));
+        setItems(res.data.services[0].items);
+        setSection(res.data.services[0]);
+        setItem(res.data.services[0].items[0].name);
+        setPrice(res.data.services[0].items[0].price);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    const current = data?.find((sec) => sec.name === section);
+    setItems(current?.items);
+    setItem(current?.items[0].name);
+    setPrice(current?.items[0].price);
   }, [section]);
 
   useEffect(() => {
-    const cutItem = items.find((it) => it.name === item);
+    const cutItem = items?.find((it) => it.name === item);
     setPrice(cutItem?.price);
   }, [item]);
 
-  const sendMessage = () => {
+  const sendMessage = async () => {
     if (name === '') {
       setErrorMsg("Введіть будь-ласка своє Ім'я");
       return;
@@ -48,22 +66,40 @@ const ContactPage = () => {
       setErrorMsg('Введіть будь-ласка свій E-mail');
       return;
     }
+    if (!section) {
+      setErrorMsg('Виберіть категорію');
+      return;
+    }
+    if (item === '...') {
+      setErrorMsg('Виберіть розділ');
+      return;
+    }
     const msg = `${name}\n${phone}\n${email}\n${section}\n${item}\n${price}\n${comment}`;
-    console.log(msg);
 
-    axios
-      .post(URI, {
-        chat_id: CHAT_ID,
-        text: msg,
-        parse_mode: 'html',
-      })
-      .then((res) => {
-        setErrorMsg('Ваше замовлення прийнято');
-        console.log('good');
-      })
-      .catch((err) => {
-        console.log('bad');
-      });
+    const data = {
+      name,
+      phone,
+      mail: email,
+      category: section,
+      item,
+      comment,
+      price,
+    };
+
+    const res = await axios.post('/api/orders', data);
+
+    // axios
+    //   .post(URI, {
+    //     chat_id: CHAT_ID,
+    //     text: msg,
+    //     parse_mode: 'html',
+    //   })
+    //   .then((res) => {
+    //     setErrorMsg('Ваше замовлення прийнято');
+    //   })
+    //   .catch((err) => {
+    //     console.log('bad');
+    //   });
   };
 
   return (
@@ -166,20 +202,26 @@ const ContactPage = () => {
             </div>
             <div className={styles.formControl}>
               <select onChange={(e) => setSection(e.target.value)}>
-                {sections.map((sec, idx) => (
-                  <option key={idx} value={sec}>
-                    {sec}
-                  </option>
-                ))}
+                <option value='...'>...</option>
+                {sections?.map((sec, idx) => {
+                  return (
+                    <option key={idx} value={sec}>
+                      {sec}
+                    </option>
+                  );
+                })}
               </select>
             </div>
             <div className={styles.formControl}>
               <select value={item} onChange={(e) => setItem(e.target.value)}>
-                {items.map((itm, idx) => (
-                  <option key={idx} value={itm.name}>
-                    {itm.name}
-                  </option>
-                ))}
+                <option value='...'>...</option>
+                {items?.map((itm, idx) => {
+                  return (
+                    <option key={idx} value={itm.name}>
+                      {itm.name}
+                    </option>
+                  );
+                })}
               </select>
             </div>
             <div className={styles.formControl}>

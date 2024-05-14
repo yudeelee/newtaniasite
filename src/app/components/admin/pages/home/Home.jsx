@@ -61,7 +61,6 @@ const Home = () => {
         const res = await axios.get('/api/mainpage');
         setData(res.data);
         setValue(res.data.aboutText);
-        console.log(res.data.youtubeId);
       } catch (error) {
         console.log(error);
       }
@@ -95,16 +94,13 @@ const Home = () => {
 
   const deleteProposition = (idx) => {
     let props = data.propositionItems;
-    console.log(props);
     props = props.filter((p, i) => i !== idx);
-    console.log(props);
     setData({ ...data, propositionItems: props });
   };
 
   const setProposition = (idx, value) => {
     let props = data.propositionItems;
     props[idx] = value;
-    console.log(props);
     setData({ ...data, propositionItems: props });
   };
 
@@ -331,7 +327,6 @@ const Home = () => {
             value={data?.fishki[0]?.header || ''}
             onChange={(e) => {
               let fish = data.fishki;
-              console.log(fish);
               fish[0].header = e.target.value;
               setData({ ...data, fishki: fish });
             }}
@@ -356,7 +351,6 @@ const Home = () => {
             value={data?.fishki[1]?.header || ''}
             onChange={(e) => {
               let fish = data.fishki;
-              console.log(fish);
               fish[1].header = e.target.value;
               setData({ ...data, fishki: fish });
             }}
@@ -381,7 +375,6 @@ const Home = () => {
             value={data?.fishki[2]?.header || ''}
             onChange={(e) => {
               let fish = data.fishki;
-              console.log(fish);
               fish[2].header = e.target.value;
               setData({ ...data, fishki: fish });
             }}

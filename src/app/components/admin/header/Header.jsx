@@ -25,7 +25,7 @@ const Header = () => {
           <div className={styles.menu}>
             <ul>
               <li>
-                <Link href='#'>
+                <Link href='/admin/orders'>
                   <GoWorkflow />
                   Заявки
                 </Link>

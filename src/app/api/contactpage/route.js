@@ -3,7 +3,6 @@ import ContactPage from '../../../../models/ContactPage';
 
 export async function POST(req) {
   const body = await req.json();
-  //   console.log(body);
   try {
     await db.connectDb();
     const data = body;

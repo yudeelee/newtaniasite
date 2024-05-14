@@ -30,7 +30,7 @@ export default function RootLayout({
           </script> */}
         {/* </Helmet> */}
       </Head>
-      <div>{/* Your React components */}</div>
+      {/* <div>Your React components</div> */}
       <ReduxProvider>
         <SessionProvider session={session}>
           <body className={inter.className}>{children}</body>

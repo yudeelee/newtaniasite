@@ -6,7 +6,6 @@ import axios from 'axios';
 var path = require('path');
 
 export async function POST(req) {
-  console.log('hello');
   const cloudName = 'dnsm5nwmg';
   const uploadPreset = 'tanias_preset';
   try {
@@ -22,17 +21,10 @@ export async function POST(req) {
     dataForm.set('file', file);
     dataForm.set('upload_preset', uploadPreset);
 
-    // console.log(dataForm);
-
     const res = await axios.post(
       `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
       dataForm
     );
-    // console.log(res.data.url);
-    // const dat = Date.now().toString();
-
-    // const ext = path.extname(file.name);
-
     const newImg = new Image({
       src: res.data.url,
     });
@@ -52,7 +44,6 @@ export async function POST(req) {
 }
 
 export async function GET(req) {
-  console.log('image');
   try {
     await db.connectDb();
     const images = await Image.find();

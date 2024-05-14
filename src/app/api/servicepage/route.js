@@ -7,8 +7,6 @@ export async function POST(req) {
     await db.connectDb();
     const data = body;
 
-    console.log(data);
-
     const services = await ServicePage.findOne();
     services.services.push(data);
 

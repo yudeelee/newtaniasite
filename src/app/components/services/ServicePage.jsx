@@ -22,7 +22,6 @@ const ServicePage = () => {
         setServices(res.data.services);
         setMore(new Array(res.data.services.length).fill(false));
         itemsRef.current = itemsRef.current.slice(0, res.data.services.length);
-        // console.log(res.data.services);
       } catch (error) {
         console.log(error);
       }

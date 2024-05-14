@@ -74,7 +74,6 @@ const About = () => {
 
   const saveWorkers = async () => {
     try {
-      console.log(workers, 'begin');
       const res = await axios.put('/api/aboutpage', workers);
       // setWorkers(res.data.workers.workers);
     } catch (error) {
@@ -93,7 +92,6 @@ const About = () => {
     const x = newWorkers[idx];
     newWorkers[idx] = newWorkers[idx - 1];
     newWorkers[idx - 1] = x;
-    console.log(newWorkers);
     try {
       const res = await axios.put('/api/aboutpage', newWorkers);
       setWorkers(res.data.workers.workers);
@@ -118,7 +116,6 @@ const About = () => {
   const deleteWorker = async (idx) => {
     let newWorkers = JSON.parse(JSON.stringify(workers));
     newWorkers = newWorkers.filter((wor, i) => i !== idx);
-    console.log(newWorkers);
     try {
       const res = await axios.put('/api/aboutpage', newWorkers);
       setWorkers(res.data.workers.workers);
