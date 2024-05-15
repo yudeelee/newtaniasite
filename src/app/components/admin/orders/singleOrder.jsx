@@ -152,7 +152,7 @@ const SingleOrder = ({ orderId, user }) => {
             <div className={styles.clientHeader}>Історія</div>
             <div className={styles.clientBody}>
               {history &&
-                history.reverse().map((his, idx) => (
+                history.map((his, idx) => (
                   <div key={idx} className={styles.history}>
                     {his.description}
                     <br />

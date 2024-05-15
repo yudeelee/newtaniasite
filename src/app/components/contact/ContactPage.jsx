@@ -88,18 +88,18 @@ const ContactPage = () => {
 
     const res = await axios.post('/api/orders', data);
 
-    // axios
-    //   .post(URI, {
-    //     chat_id: CHAT_ID,
-    //     text: msg,
-    //     parse_mode: 'html',
-    //   })
-    //   .then((res) => {
-    //     setErrorMsg('Ваше замовлення прийнято');
-    //   })
-    //   .catch((err) => {
-    //     console.log('bad');
-    //   });
+    axios
+      .post(URI, {
+        chat_id: CHAT_ID,
+        text: msg,
+        parse_mode: 'html',
+      })
+      .then((res) => {
+        setErrorMsg('Ваше замовлення прийнято');
+      })
+      .catch((err) => {
+        console.log('bad');
+      });
   };
 
   return (
