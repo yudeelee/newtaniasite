@@ -88,6 +88,37 @@ const ContactPage = () => {
 
     // const res = await axios.post('/api/orders', data);
 
+    const data = {
+      source_id: 'YTU3NzQ1ZmIzMDdmNDU5YzBjMjFhODRmMGY0MTRmMjg0YTdhYzVhNw',
+      buyer: {
+        full_name: name,
+        email: email,
+        phone: phone,
+      },
+      shipping: {
+        shipping_address_city: 'Lviv',
+        shipping_receive_point: 'Lviv',
+        shipping_address_country: 'Lviv',
+        shipping_address_region: 'Lviv',
+        shipping_address_zip: 'Lviv',
+      },
+      products: {
+        price: price,
+        quantity: 1,
+        name: `${section} || ${item}`,
+        picture: '111',
+        properties: [
+          {
+            name: 'Color',
+            value: 'Space Gray',
+          },
+        ],
+      },
+    };
+
+    const res = await axios.post('https://openapi.keycrm.app/v1/order', data);
+    console.log(res.data);
+
     axios
       .post(URI, {
         chat_id: CHAT_ID,
