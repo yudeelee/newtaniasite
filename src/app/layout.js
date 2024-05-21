@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google';
 import './globals.scss';
 import { SessionProvider } from 'next-auth/react';
 import { Helmet } from 'react-helmet-async';
+import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -16,6 +17,7 @@ export default function RootLayout({
     <html lang='en'>
       <Head>
         <title>Hello</title>
+
         {/* <Helmet> */}
         {process.env.NODE_ENV === 'production' && (
           <script
@@ -33,7 +35,18 @@ export default function RootLayout({
       {/* <div>Your React components</div> */}
       <ReduxProvider>
         <SessionProvider session={session}>
-          <body className={inter.className}>{children}</body>
+          <body className={inter.className}>
+            {children}
+            <Script
+              src='/script.js'
+              strategy='lazyOnload'
+              onLoad={() =>
+                console.log(
+                  `script loaded correctly, window.FB has been populated`
+                )
+              }
+            />
+          </body>
         </SessionProvider>
       </ReduxProvider>
     </html>

@@ -76,17 +76,17 @@ const ContactPage = () => {
     }
     const msg = `${name}\n${phone}\n${email}\n${section}\n${item}\n${price}\n${comment}`;
 
-    const data = {
-      name,
-      phone,
-      mail: email,
-      category: section,
-      item,
-      comment,
-      price,
-    };
+    // const data = {
+    //   name,
+    //   phone,
+    //   mail: email,
+    //   category: section,
+    //   item,
+    //   comment,
+    //   price,
+    // };
 
-    const res = await axios.post('/api/orders', data);
+    // const res = await axios.post('/api/orders', data);
 
     axios
       .post(URI, {
