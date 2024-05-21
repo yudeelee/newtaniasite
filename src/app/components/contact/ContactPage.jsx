@@ -76,61 +76,39 @@ const ContactPage = () => {
     }
     const msg = `${name}\n${phone}\n${email}\n${section}\n${item}\n${price}\n${comment}`;
 
-    // const data = {
-    //   name,
-    //   phone,
-    //   mail: email,
-    //   category: section,
-    //   item,
-    //   comment,
-    //   price,
-    // };
-
-    // const res = await axios.post('/api/orders', data);
-
     const data = {
-      source_id: 'YTU3NzQ1ZmIzMDdmNDU5YzBjMjFhODRmMGY0MTRmMjg0YTdhYzVhNw',
-      buyer: {
-        full_name: name,
-        email: email,
-        phone: phone,
-      },
-      shipping: {
-        shipping_address_city: 'Lviv',
-        shipping_receive_point: 'Lviv',
-        shipping_address_country: 'Lviv',
-        shipping_address_region: 'Lviv',
-        shipping_address_zip: 'Lviv',
-      },
-      products: {
-        price: price,
-        quantity: 1,
-        name: `${section} || ${item}`,
-        picture: '111',
-        properties: [
-          {
-            name: 'Color',
-            value: 'Space Gray',
-          },
-        ],
-      },
+      name,
+      phone,
+      mail: email,
+      category: section,
+      item,
+      comment,
+      price,
     };
 
-    const res = await axios.post('https://openapi.keycrm.app/v1/order', data);
-    console.log(res.data);
+    try {
+      const res = await axios.post('/api/orders', data);
+      console.log(res.data);
 
-    axios
-      .post(URI, {
-        chat_id: CHAT_ID,
-        text: msg,
-        parse_mode: 'html',
-      })
-      .then((res) => {
-        setErrorMsg('Ваше замовлення прийнято');
-      })
-      .catch((err) => {
-        console.log('bad');
-      });
+      axios
+        .post(URI, {
+          chat_id: CHAT_ID,
+          text: msg,
+          parse_mode: 'html',
+        })
+        .then((res) => {
+          setErrorMsg('Ваше замовлення прийнято');
+        })
+        .catch((err) => {
+          console.log('bad');
+        });
+      setName('');
+      setPhone('');
+      setEmail('');
+      setComment('');
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -212,6 +190,7 @@ const ContactPage = () => {
           <div className={styles.conForm}>
             <div className={styles.formControl}>
               <input
+                value={name || ''}
                 type='text'
                 placeholder='Ім’я'
                 onChange={(e) => setName(e.target.value)}
@@ -219,6 +198,7 @@ const ContactPage = () => {
             </div>
             <div className={styles.formControl}>
               <input
+                value={phone || ''}
                 type='text'
                 placeholder='Телефон'
                 onChange={(e) => setPhone(e.target.value)}
@@ -226,6 +206,7 @@ const ContactPage = () => {
             </div>
             <div className={styles.formControl}>
               <input
+                value={email || ''}
                 type='text'
                 placeholder='Електронна адреса'
                 onChange={(e) => setEmail(e.target.value)}
@@ -257,6 +238,7 @@ const ContactPage = () => {
             </div>
             <div className={styles.formControl}>
               <textarea
+                value={comment || ''}
                 name=''
                 id=''
                 cols='30'
