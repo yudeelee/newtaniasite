@@ -8,7 +8,7 @@ export async function POST(req) {
   const body = await req.json();
   try {
     const { category, item, comment, name, phone, mail, price } = body;
-    if (!category || !item || !name || !phone || !mail) {
+    if (!name || !phone) {
       return new Response(JSON.stringify({ message: 'empty fields' }));
     }
     // let client = await Client.findOne({ name, phone, mail });

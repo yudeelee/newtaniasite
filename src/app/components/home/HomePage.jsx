@@ -55,7 +55,7 @@ const HomePage = () => {
   //   fetchData();
   // }, []);
 
-  const sendMsg = () => {
+  const sendMsg = async () => {
     if (name === '') {
       setErrorMsg("Введіть будь-ласка своє Ім'я");
       return;
@@ -66,11 +66,30 @@ const HomePage = () => {
     }
     const msg = `Запит на консультацію\n${name}\n${phone}`;
 
+    const data = {
+      name,
+      phone,
+      mail: 'korotka@zsaytu.com',
+      category: 'Коротка',
+      item: 'Коротка',
+      comment: '0',
+      price: 0,
+    };
+
+    try {
+      const res = await axios.post('/api/orders', data);
+      console.log(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+
     axios
       .post(URI, {
         chat_id: CHAT_ID,
         text: msg,
         parse_mode: 'html',
+        name,
+        phone,
       })
       .then((res) => {
         setSuccess('Вашу заявку прийнято');
