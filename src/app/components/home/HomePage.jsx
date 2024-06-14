@@ -14,7 +14,7 @@ import Footer from '../footer/Footer';
 import { redirect } from 'next/navigation';
 import axios from 'axios';
 
-const HomePage = () => {
+const HomePage = ({ photos }) => {
   SwiperCore.use([Autoplay]);
 
   const TOKEN = '5530765545:AAFy5U47-r8OYc198-5blcgCR-cKB3_jowE';
@@ -247,23 +247,25 @@ const HomePage = () => {
               onSwiper={(swiper) => console.log(swiper)}
               modules={[Autoplay]}
             >
-              {/* {about.map((ab, idx) => {
-                return (
-                  <SwiperSlide key={idx}>
-                    <img src={ab.photo} alt='' />
-                  </SwiperSlide>
-                );
-              })} */}
-              <SwiperSlide>
+              {photos.workers.map((ab, idx) => {
+                if (!ab.unvisible) {
+                  return (
+                    <SwiperSlide key={idx}>
+                      <img src={ab.photo} alt='' />
+                    </SwiperSlide>
+                  );
+                }
+              })}
+              {/* <SwiperSlide>
                 <img src='/img/photo8.png' alt='' />
-              </SwiperSlide>
+              </SwiperSlide> */}
               {/* <SwiperSlide>
                 <img src='/img/photo9.png' alt='' />
               </SwiperSlide>
               <SwiperSlide>
                 <img src='/img/photo10.png' alt='' />
               </SwiperSlide> */}
-              <SwiperSlide>
+              {/* <SwiperSlide>
                 <img src='/img/photo11.png' alt='' />
               </SwiperSlide>
               <SwiperSlide>
@@ -277,7 +279,7 @@ const HomePage = () => {
               </SwiperSlide>
               <SwiperSlide>
                 <img src='/img/photo14.png' alt='' />
-              </SwiperSlide>
+              </SwiperSlide> */}
             </Swiper>
           </div>
           {/* <div className={styles.slider}>
