@@ -350,11 +350,11 @@ const HomePage = ({ photos }) => {
             <div className={styles.fishBody}>років на ринку</div>
           </div>
           <div className={styles.fishka}>
-            <div className={styles.fishHeader}>100+</div>
+            <div className={styles.fishHeader}>150+</div>
             <div className={styles.fishBody}>клієнтів на супроводі</div>
           </div>
           <div className={styles.fishka}>
-            <div className={styles.fishHeader}>25 000 000+ грн</div>
+            <div className={styles.fishHeader}>50 000 000+ грн</div>
             <div className={styles.fishBody}>залученого фінансування</div>
           </div>
         </div>
