@@ -248,6 +248,7 @@ const HomePage = ({ photos }) => {
               modules={[Autoplay]}
             >
               {photos.workers.map((ab, idx) => {
+                console.log('qqq');
                 if (!ab.unvisible) {
                   return (
                     <SwiperSlide key={idx}>
