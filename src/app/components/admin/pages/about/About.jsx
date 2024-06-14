@@ -214,7 +214,7 @@ const About = () => {
                           return;
                         }}
                       />
-                      <label htmlFor=''>Видима</label>
+                      <label htmlFor=''>Невидима</label>
                       <input
                         type='checkbox'
                         checked={wor.unvisible || false}
