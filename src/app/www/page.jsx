@@ -1,15 +1,12 @@
+import axios from 'axios';
 import React from 'react';
 import ServicePage from '../components/services/ServicePage';
-import HeaderMenu from '../components/headerMenu/HeaderMenu';
-import Footer from '../components/footer/Footer';
 
 export default async function Page() {
   const data = await getData();
   return (
     <div>
-      <HeaderMenu active='services' />
       <ServicePage data={data} />
-      <Footer />
     </div>
   );
 }

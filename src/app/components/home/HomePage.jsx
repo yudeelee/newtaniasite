@@ -257,12 +257,12 @@ const HomePage = () => {
               <SwiperSlide>
                 <img src='/img/photo8.png' alt='' />
               </SwiperSlide>
-              <SwiperSlide>
+              {/* <SwiperSlide>
                 <img src='/img/photo9.png' alt='' />
               </SwiperSlide>
               <SwiperSlide>
                 <img src='/img/photo10.png' alt='' />
-              </SwiperSlide>
+              </SwiperSlide> */}
               <SwiperSlide>
                 <img src='/img/photo11.png' alt='' />
               </SwiperSlide>

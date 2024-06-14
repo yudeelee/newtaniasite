@@ -6,28 +6,33 @@ import { Fragment, useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
 import axios from 'axios';
 
-const ServicePage = () => {
+const ServicePage = ({ data }) => {
+  console.log(data);
   const [kikmore, setKikmore] = useState(false);
   const [diamore, setDiamore] = useState(false);
 
   const itemsRef = useRef([]);
 
-  const [services, setServices] = useState();
-  const [more, setMore] = useState([]);
+  // const [services, setServices] = useState();
+  const [more, setMore] = useState(new Array(data.services.length).fill(false));
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get('/api/servicepage');
-        setServices(res.data.services);
-        setMore(new Array(res.data.services.length).fill(false));
-        itemsRef.current = itemsRef.current.slice(0, res.data.services.length);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
-  }, []);
+  const services = data.services;
+  // const more = new Array(data.services.length).fill(false);
+  itemsRef.current = itemsRef.current.slice(0, data.services.length);
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const res = await axios.get('/api/servicepage');
+  //       setServices(res.data.services);
+  //       setMore(new Array(res.data.services.length).fill(false));
+  //       itemsRef.current = itemsRef.current.slice(0, res.data.services.length);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+  //   fetchData();
+  // }, []);
 
   return (
     <div className={styles.service}>
