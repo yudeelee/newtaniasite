@@ -273,6 +273,9 @@ const HomePage = () => {
                 <img src='/img/photo13.png' alt='' />
               </SwiperSlide>
               <SwiperSlide>
+                <img src='/img/photo15.png' alt='' />
+              </SwiperSlide>
+              <SwiperSlide>
                 <img src='/img/photo14.png' alt='' />
               </SwiperSlide>
             </Swiper>
@@ -340,7 +343,7 @@ const HomePage = () => {
       <div className={styles.fishki + ' ' + 'mt100'}>
         <div className={'container' + ' ' + styles.fishWrapper}>
           <div className={styles.fishka}>
-            <div className={styles.fishHeader}>3+</div>
+            <div className={styles.fishHeader}>4+</div>
             <div className={styles.fishBody}>років на ринку</div>
           </div>
           <div className={styles.fishka}>
