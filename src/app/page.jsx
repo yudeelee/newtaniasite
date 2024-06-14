@@ -14,7 +14,9 @@ export default async function Home() {
 
 async function getData() {
   try {
-    const res = await fetch('https://consulting.lviv.ua/api/aboutpage');
+    const res = await fetch('https://consulting.lviv.ua/api/aboutpage', {
+      next: { revalidate: 10 },
+    });
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
       throw new Error('Failed to fetch data');
