@@ -16,6 +16,7 @@ const About = () => {
   const [img, setImg] = useState('/img/default.jpg');
   const [value, setValue] = useState('');
   const [changeIdx, setChangeIdx] = useState(0);
+  const [visible, setVisible] = useState(false);
 
   const [workers, setWorkers] = useState([]);
 
@@ -209,6 +210,20 @@ const About = () => {
                             JSON.stringify(workers)
                           );
                           newWorkers[idx].position = e.target.value;
+                          setWorkers([...newWorkers]);
+                          return;
+                        }}
+                      />
+                      <label htmlFor=''>Видима</label>
+                      <input
+                        type='checkbox'
+                        checked={wor.unvisible || false}
+                        onChange={(e) => {
+                          console.log(e.target.checked);
+                          const newWorkers = JSON.parse(
+                            JSON.stringify(workers)
+                          );
+                          newWorkers[idx].unvisible = e.target.checked;
                           setWorkers([...newWorkers]);
                           return;
                         }}

@@ -6,6 +6,7 @@ import axios from 'axios';
 
 const AboutPage = () => {
   const [workers, setWorkers] = useState([]);
+  let par = 0;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,22 +27,26 @@ const AboutPage = () => {
           <div className='title'>Про нас</div>
         </div>
         {workers.map((wor, idx) => {
-          const cls = idx % 2 == 0 ? styles.person : styles.personReverse;
-          return (
-            <div className={cls} key={idx}>
-              <div className={styles.personText}>
-                <div className='redText'>{wor.position}</div>
-                <div className='title'>{wor.name}</div>
-                <div
-                  className={'text' + ' ' + 'mt20'}
-                  dangerouslySetInnerHTML={{ __html: wor.text }}
-                />
+          const cls = par % 2 == 0 ? styles.person : styles.personReverse;
+          console.log(wor.unvisible);
+          if (!wor.unvisible) {
+            par = par + 1;
+            return (
+              <div className={cls} key={idx}>
+                <div className={styles.personText}>
+                  <div className='redText'>{wor.position}</div>
+                  <div className='title'>{wor.name}</div>
+                  <div
+                    className={'text' + ' ' + 'mt20'}
+                    dangerouslySetInnerHTML={{ __html: wor.text }}
+                  />
+                </div>
+                <div className={styles.photo}>
+                  <img src={wor.photo} alt='' />
+                </div>
               </div>
-              <div className={styles.photo}>
-                <img src={wor.photo} alt='' />
-              </div>
-            </div>
-          );
+            );
+          }
         })}
         {/* <div className={styles.person}>
           <div className={styles.personText}>

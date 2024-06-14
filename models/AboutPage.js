@@ -8,6 +8,10 @@ const aboutPageSchema = new mongoose.Schema(
         position: String,
         photo: String,
         text: String,
+        unvisible: {
+          type: Boolean,
+          default: false,
+        },
       },
     ],
   },
