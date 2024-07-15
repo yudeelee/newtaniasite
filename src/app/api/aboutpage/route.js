@@ -49,6 +49,6 @@ export async function GET(req) {
     const data = await AboutPage.findOne();
     return new Response(JSON.stringify(data));
   } catch (error) {
-    return new Response(JSON.stringify({ message: err.message }));
+    return new Response(JSON.stringify({ message: error.message }));
   }
 }

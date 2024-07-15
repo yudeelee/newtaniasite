@@ -89,11 +89,11 @@ const Carusel = (props) => {
         <div className='titleCar center'>Наші клієнти</div>
         <div id='drag-container'>
           <div id='spin-container'>
-            <img
+            {/* <img
               src='/img/Dukachi_logo.png'
               alt=''
               onClick={() => clickImg('https://dukachi.com/uk-ua/')}
-            />
+            /> */}
             <img
               src='/img/1uahmatters.charity_logo_1.png'
               alt=''
