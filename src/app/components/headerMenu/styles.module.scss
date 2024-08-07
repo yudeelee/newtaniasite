@@ -30,7 +30,7 @@
   position: relative;
   .topMenu {
     display: flex;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     @media (max-width: 850px) {
       display: none;
     }
@@ -40,35 +40,93 @@
     display: flex;
     align-items: center;
     li {
+      position: relative;
+      margin-right: 53px;
+      padding: 7px 0px;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
       a {
         text-decoration: none;
-        margin-right: 53px;
         color: black;
-        padding: 7px 0px;
-        border-bottom: 2px solid transparent;
         transition: all 0.5s;
         @media (max-width: 700px) {
           margin-right: 23px;
         }
         &:hover {
-          color: #edafb8;
-          border-bottom: 2px solid black;
+        }
+      }
+      .serviceMenu {
+        display: none;
+      }
+      &:hover {
+        color: #edafb8;
+        border-bottom: 2px solid black;
+        .serviceMenu {
+          padding-top: 20px;
+          position: absolute;
+          display: flex;
+          flex-direction: column;
+          width: 300px;
+          align-items: flex-start;
+          gap: 10px;
+          left: -50px;
         }
       }
       &.active {
+        color: #edafb8;
+        border-bottom: 2px solid black;
         a {
+        }
+        &:hover {
           color: #edafb8;
           border-bottom: 2px solid black;
+          .serviceMenu {
+            padding-top: 20px;
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            align-items: flex-start;
+            gap: 10px;
+            left: -50px;
+          }
+        }
+        .serviceMenu {
+          display: none;
+          .serviceLink {
+            a {
+              text-decoration: none;
+              margin-right: 53px;
+              color: black;
+              padding: 7px 0px;
+              border-bottom: 2px solid transparent;
+              transition: all 0.5s;
+              @media (max-width: 700px) {
+                margin-right: 23px;
+              }
+              &:hover {
+                color: #edafb8;
+                border-bottom: 2px solid black;
+              }
+            }
+          }
         }
       }
     }
   }
   .burgerMenu {
-    width: 200px;
+    .serviceMenu {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    width: 300px;
     background-color: white;
     padding: 20px 0px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 20px;
     position: absolute;
     top: 40px;

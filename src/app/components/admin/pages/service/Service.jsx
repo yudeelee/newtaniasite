@@ -1,12 +1,12 @@
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
-import styles from './styles.module.scss';
-import { useState, useEffect, Fragment } from 'react';
-import { CiEdit } from 'react-icons/ci';
-import { IoMdArrowRoundUp } from 'react-icons/io';
-import { IoMdArrowRoundDown } from 'react-icons/io';
-import { MdDeleteOutline } from 'react-icons/md';
-import axios from 'axios';
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+import styles from "./styles.module.scss";
+import { useState, useEffect, Fragment } from "react";
+import { CiEdit } from "react-icons/ci";
+import { IoMdArrowRoundUp } from "react-icons/io";
+import { IoMdArrowRoundDown } from "react-icons/io";
+import { MdDeleteOutline } from "react-icons/md";
+import axios from "axios";
 
 const service = () => {
   const [value, setValue] = useState();
@@ -16,31 +16,33 @@ const service = () => {
 
   const [opens, setOpens] = useState([]);
 
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
-  const [text, setText] = useState('');
-  const [textMore, setTextMore] = useState('');
-  const [slogId, setSlogId] = useState('');
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [text, setText] = useState("");
+  const [textMore, setTextMore] = useState("");
+  const [slogId, setSlogId] = useState("");
+  const [category, setCategory] = useState("");
   const [items, setItems] = useState([
     {
-      name: '',
+      name: "",
       from: false,
       price: 0,
-      nominal: '',
+      nominal: "",
     },
   ]);
 
   const [newService, setNewService] = useState({
-    name: '',
-    description: '',
-    text: '',
-    textMore: '',
+    name: "",
+    description: "",
+    text: "",
+    textMore: "",
+    category: "",
     items: [
       {
-        name: '',
+        name: "",
         from: false,
         price: 0,
-        nominal: '',
+        nominal: "",
       },
     ],
   });
@@ -50,7 +52,7 @@ const service = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get('/api/servicepage');
+        const res = await axios.get("/api/servicepage");
         setServices(res.data.services);
         setOpens(new Array(res.data.services.length).fill(false));
       } catch (error) {
@@ -63,10 +65,10 @@ const service = () => {
   const addItem = () => {
     const newItems = JSON.parse(JSON.stringify(items));
     newItems.push({
-      name: '',
+      name: "",
       from: false,
       price: 0,
-      nominal: '',
+      nominal: "",
     });
     setItems(newItems);
   };
@@ -80,8 +82,8 @@ const service = () => {
   };
 
   const addNewService = async () => {
-    if (name === '' || description == '' || text == '') {
-      console.log('error', newService);
+    if (name === "" || description == "" || text == "") {
+      console.log("error", newService);
       return;
     }
     const nService = {
@@ -89,16 +91,17 @@ const service = () => {
       description,
       text,
       textMore,
+      category,
       items,
     };
     try {
-      const res = await axios.post('/api/servicepage', nService);
+      const res = await axios.post("/api/servicepage", nService);
       setServices(res.data.services.services);
-      setName('');
-      setDescription('');
-      setText('');
-      setTextMore('');
-      setSlogId('');
+      setName("");
+      setDescription("");
+      setText("");
+      setTextMore("");
+      setSlogId("");
       setItems([]);
     } catch (error) {
       console.log(error);
@@ -117,7 +120,7 @@ const service = () => {
     newWorkers[idx] = newWorkers[idx - 1];
     newWorkers[idx - 1] = x;
     try {
-      const res = await axios.put('/api/servicepage', newWorkers);
+      const res = await axios.put("/api/servicepage", newWorkers);
       setServices(res.data.services.services);
     } catch (error) {
       console.log(error);
@@ -130,7 +133,7 @@ const service = () => {
     newWorkers[idx] = newWorkers[idx + 1];
     newWorkers[idx + 1] = x;
     try {
-      const res = await axios.put('/api/servicepage', newWorkers);
+      const res = await axios.put("/api/servicepage", newWorkers);
       setServices(res.data.services.services);
     } catch (error) {
       console.log(error);
@@ -141,7 +144,7 @@ const service = () => {
     let newWorkers = JSON.parse(JSON.stringify(services));
     newWorkers = newWorkers.filter((wor, i) => i !== idx);
     try {
-      const res = await axios.put('/api/servicepage', newWorkers);
+      const res = await axios.put("/api/servicepage", newWorkers);
       setServices(res.data.services.services);
     } catch (error) {
       console.log(error);
@@ -150,7 +153,7 @@ const service = () => {
 
   const saveChanges = async () => {
     try {
-      const res = await axios.put('/api/servicepage', services);
+      const res = await axios.put("/api/servicepage", services);
       setServices(res.data.services.services);
     } catch (error) {
       console.log(error);
@@ -161,9 +164,9 @@ const service = () => {
     <div className={styles.services}>
       <div className={styles.allServices}>
         {services.map((ser, idx) => {
-          const worHeader = opens[idx] ? styles.openHeader : '';
-          const rouge = idx % 2 == 0 ? styles.rouge : '';
-          const cls = styles.serviceWrapper + ' ' + rouge + ' ' + worHeader;
+          const worHeader = opens[idx] ? styles.openHeader : "";
+          const rouge = idx % 2 == 0 ? styles.rouge : "";
+          const cls = styles.serviceWrapper + " " + rouge + " " + worHeader;
           return (
             <Fragment key={idx}>
               <div className={cls}>
@@ -208,32 +211,32 @@ const service = () => {
               {opens[idx] && (
                 <div className={styles.editService}>
                   <div className={styles.addService}>
-                    <label htmlFor='addName'>Назва</label>
+                    <label htmlFor="addName">Назва</label>
                     <input
-                      type='text'
-                      id='addName'
-                      value={ser.name || ''}
+                      type="text"
+                      id="addName"
+                      value={ser.name || ""}
                       onChange={(e) => {
                         let newService = JSON.parse(JSON.stringify(services));
                         newService[idx].name = e.target.value;
                         setServices(newService);
                       }}
                     />
-                    <label htmlFor='addShortDescr'>Короткий опис</label>
+                    <label htmlFor="addShortDescr">Короткий опис</label>
                     <input
-                      type='text'
-                      id='addShortDescr'
-                      value={ser.description || ''}
+                      type="text"
+                      id="addShortDescr"
+                      value={ser.description || ""}
                       onChange={(e) => {
                         let newService = JSON.parse(JSON.stringify(services));
                         newService[idx].description = e.target.value;
                         setServices(newService);
                       }}
                     />
-                    <label htmlFor='addDescription'>Опис</label>
+                    <label htmlFor="addDescription">Опис</label>
                     <ReactQuill
-                      id='addDescription'
-                      theme='snow'
+                      id="addDescription"
+                      theme="snow"
                       value={ser.text}
                       onChange={(e) => {
                         let newService = JSON.parse(JSON.stringify(services));
@@ -242,10 +245,10 @@ const service = () => {
                         return setValue2;
                       }}
                     />
-                    <label htmlFor='addDescription'>Читати більше</label>
+                    <label htmlFor="addDescription">Читати більше</label>
                     <ReactQuill
-                      id='addDescription'
-                      theme='snow'
+                      id="addDescription"
+                      theme="snow"
                       value={ser.textMore}
                       onChange={(e) => {
                         let newService = JSON.parse(JSON.stringify(services));
@@ -254,11 +257,27 @@ const service = () => {
                         return setValue3;
                       }}
                     />
-                    <label htmlFor='addDescription'>Технічна айдішка</label>
+                    <label>Категорія</label>
+                    <select
+                      name=""
+                      id=""
+                      value={ser.category || ""}
+                      onChange={(e) => {
+                        let newService = JSON.parse(JSON.stringify(services));
+                        newService[idx].category = e.target.value;
+                        setServices(newService);
+                      }}
+                    >
+                      <option value="buh">Бухгалтерські</option>
+                      <option value="yur">Юридичні</option>
+                      <option value="block">Пакети</option>
+                      <option value="fin">Фінансові</option>
+                    </select>
+                    <label htmlFor="addDescription">Технічна айдішка</label>
                     <input
-                      type='text'
-                      id='slogId'
-                      value={ser.slogId || ''}
+                      type="text"
+                      id="slogId"
+                      value={ser.slogId || ""}
                       onChange={(e) => {
                         let newService = JSON.parse(JSON.stringify(services));
                         newService[idx].slogId = e.target.value;
@@ -270,9 +289,9 @@ const service = () => {
                         return (
                           <div className={styles.item} key={sdx}>
                             <input
-                              type='text'
+                              type="text"
                               className={styles.itemName}
-                              value={item.name || ''}
+                              value={item.name || ""}
                               onChange={(e) => {
                                 let newService = JSON.parse(
                                   JSON.stringify(services)
@@ -284,8 +303,8 @@ const service = () => {
                             />
                             <div className={styles.priceBlock}>
                               <input
-                                id='html'
-                                type='checkbox'
+                                id="html"
+                                type="checkbox"
                                 className={styles.itemFrom}
                                 checked={item.from}
                                 onChange={(e) => {
@@ -298,9 +317,9 @@ const service = () => {
                                 }}
                               />
                               <input
-                                type='text'
+                                type="text"
                                 className={styles.itemPrice}
-                                value={item.price || ''}
+                                value={item.price || ""}
                                 onChange={(e) => {
                                   let newService = JSON.parse(
                                     JSON.stringify(services)
@@ -311,8 +330,8 @@ const service = () => {
                                 }}
                               />
                               <select
-                                name=''
-                                id=''
+                                name=""
+                                id=""
                                 className={styles.itemNominal}
                                 value={item.nominal}
                                 onChange={(e) => {
@@ -324,12 +343,13 @@ const service = () => {
                                   setServices(newService);
                                 }}
                               >
-                                <option value=''>...</option>
-                                <option value='грн'>грн</option>
-                                <option value='грн/рік'>грн/рік</option>
-                                <option value='грн/міс'>грн/міс</option>
-                                <option value='грн/год'>грн/год</option>
-                                <option value='$/міс'>$/міс</option>
+                                <option value="">...</option>
+                                <option value="грн">грн</option>
+                                <option value="грн/рік">грн/рік</option>
+                                <option value="грн/міс">грн/міс</option>
+                                <option value="грн/год">грн/год</option>
+                                <option value="$/год">$/год</option>
+                                <option value="$/міс">$/міс</option>
                               </select>
                               <div
                                 className={styles.deleteItem}
@@ -356,10 +376,10 @@ const service = () => {
                         onClick={() => {
                           const newItems = JSON.parse(JSON.stringify(services));
                           newItems[idx].items.push({
-                            name: '',
+                            name: "",
                             from: false,
                             price: 0,
-                            nominal: '',
+                            nominal: "",
                           });
                           setServices(newItems);
                         }}
@@ -382,10 +402,10 @@ const service = () => {
       </div>
       <div className={styles.hesderLine}>Додати послугу</div>
       <div className={styles.addService}>
-        <label htmlFor='addName'>Назва</label>
+        <label htmlFor="addName">Назва</label>
         <input
-          type='text'
-          id='addName'
+          type="text"
+          id="addName"
           value={name}
           onChange={(e) => {
             // const newItems = JSON.parse(JSON.stringify(newService));
@@ -394,10 +414,10 @@ const service = () => {
             setName(e.target.value);
           }}
         />
-        <label htmlFor='addShortDescr'>Короткий опис</label>
+        <label htmlFor="addShortDescr">Короткий опис</label>
         <input
-          type='text'
-          id='addShortDescr'
+          type="text"
+          id="addShortDescr"
           value={description}
           onChange={(e) => {
             // const newItems = JSON.parse(JSON.stringify(newService));
@@ -406,10 +426,10 @@ const service = () => {
             setDescription(e.target.value);
           }}
         />
-        <label htmlFor='addDescription'>Опис</label>
+        <label htmlFor="addDescription">Опис</label>
         <ReactQuill
-          id='addDescription'
-          theme='snow'
+          id="addDescription"
+          theme="snow"
           value={text}
           onChange={(e) => {
             // const newItems = JSON.parse(JSON.stringify(newService));
@@ -419,10 +439,10 @@ const service = () => {
             return setValue;
           }}
         />
-        <label htmlFor='addDescription'>Читати більше</label>
+        <label htmlFor="addDescription">Читати більше</label>
         <ReactQuill
-          id='addDescription'
-          theme='snow'
+          id="addDescription"
+          theme="snow"
           value={textMore}
           onChange={(e) => {
             // const newItems = JSON.parse(JSON.stringify(newService));
@@ -432,11 +452,23 @@ const service = () => {
             return setValue1;
           }}
         />
-        <label htmlFor='addDescription'>Технічна айдішка</label>
+        <label>Категорія</label>
+        <select
+          name=""
+          id=""
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+        >
+          <option value="buh">Бухгалтерські</option>
+          <option value="yur">Юридичні</option>
+          <option value="block">Пакети</option>
+          <option value="fin">Фінансові</option>
+        </select>
+        <label htmlFor="addDescription">Технічна айдішка</label>
         <input
-          type='text'
-          id='slogId'
-          value={slogId || ''}
+          type="text"
+          id="slogId"
+          value={slogId || ""}
           onChange={(e) => {
             setSlogId(e.target.value);
           }}
@@ -446,7 +478,7 @@ const service = () => {
             return (
               <div className={styles.item} key={idx}>
                 <input
-                  type='text'
+                  type="text"
                   className={styles.itemName}
                   value={ser.name}
                   onChange={(e) => {
@@ -457,8 +489,8 @@ const service = () => {
                 />
                 <div className={styles.priceBlock}>
                   <input
-                    id='html'
-                    type='checkbox'
+                    id="html"
+                    type="checkbox"
                     className={styles.itemFrom}
                     checked={ser.from || false}
                     onChange={(e) => {
@@ -468,7 +500,7 @@ const service = () => {
                     }}
                   />
                   <input
-                    type='text'
+                    type="text"
                     className={styles.itemPrice}
                     value={ser.price}
                     onChange={(e) => {
@@ -478,8 +510,8 @@ const service = () => {
                     }}
                   />
                   <select
-                    name=''
-                    id=''
+                    name=""
+                    id=""
                     className={styles.itemNominal}
                     value={ser.nominal}
                     onChange={(e) => {
@@ -488,12 +520,12 @@ const service = () => {
                       setItems(newItems);
                     }}
                   >
-                    <option value=''>...</option>
-                    <option value='грн'>грн</option>
-                    <option value='грн/рік'>грн/рік</option>
-                    <option value='грн/міс'>грн/міс</option>
-                    <option value='грн/год'>грн/год</option>
-                    <option value='$/міс'>$/міс</option>
+                    <option value="">...</option>
+                    <option value="грн">грн</option>
+                    <option value="грн/рік">грн/рік</option>
+                    <option value="грн/міс">грн/міс</option>
+                    <option value="грн/год">грн/год</option>
+                    <option value="$/міс">$/міс</option>
                   </select>
                   <div
                     className={styles.deleteItem}

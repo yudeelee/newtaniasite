@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const servicePageSchema = new mongoose.Schema(
   {
@@ -9,6 +9,7 @@ const servicePageSchema = new mongoose.Schema(
         text: String,
         textMore: String,
         slogId: String,
+        category: String,
         items: [
           {
             name: String,
@@ -26,6 +27,6 @@ const servicePageSchema = new mongoose.Schema(
 );
 const ServicePage =
   mongoose.models.ServicePage ||
-  mongoose.model('ServicePage', servicePageSchema);
+  mongoose.model("ServicePage", servicePageSchema);
 
 export default ServicePage;

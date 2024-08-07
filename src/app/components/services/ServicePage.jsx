@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import styles from './styles.module.scss';
-import { data } from '../../../../data/data';
-import { Fragment, useRef, useState, useEffect } from 'react';
-import Link from 'next/link';
-import axios from 'axios';
+import styles from "./styles.module.scss";
+import { data } from "../../../../data/data";
+import { Fragment, useRef, useState, useEffect } from "react";
+import Link from "next/link";
+import axios from "axios";
 
-const ServicePage = ({ data }) => {
+const ServicePage = ({ data, title }) => {
   console.log(data);
   const [kikmore, setKikmore] = useState(false);
   const [diamore, setDiamore] = useState(false);
@@ -36,12 +36,12 @@ const ServicePage = ({ data }) => {
 
   return (
     <div className={styles.service}>
-      <Link href='/contact' className={styles.litteButton}>
+      <Link href="/contact" className={styles.litteButton}>
         Замовити
       </Link>
-      <div className='container'>
+      <div className="container">
         <div className={styles.header}>
-          <div className='title'>Наші послуги</div>
+          <div className="title">{title}</div>
         </div>
         {services?.map((ser, idx) => {
           return (
@@ -62,11 +62,11 @@ const ServicePage = ({ data }) => {
                   <div className={styles.sectionText}>
                     {/* <div className='text'>{ser.text}</div> */}
                     <div
-                      className={'text' + ' ' + 'mt20'}
+                      className={"text" + " " + "mt20"}
                       dangerouslySetInnerHTML={{ __html: ser.text }}
                     />
                     {ser.textMore &&
-                      ser.textMore.replace(/(<([^>]+)>)/gi, '') != '' && (
+                      ser.textMore.replace(/(<([^>]+)>)/gi, "") != "" && (
                         <Fragment>
                           {!more[idx] && (
                             <button
@@ -81,7 +81,7 @@ const ServicePage = ({ data }) => {
                           {more[idx] && (
                             <Fragment>
                               <div
-                                className={'text'}
+                                className={"text"}
                                 dangerouslySetInnerHTML={{
                                   __html: ser.textMore,
                                 }}
@@ -104,7 +104,7 @@ const ServicePage = ({ data }) => {
                       )}
                   </div>
                   <div className={styles.sectionList}>
-                    <table border='0'>
+                    <table border="0">
                       <tbody>
                         {ser.items &&
                           ser.items.map((item, idx) => {
@@ -112,7 +112,7 @@ const ServicePage = ({ data }) => {
                               <tr key={idx} className={styles.row}>
                                 <td className={styles.text}>{item.name}</td>
                                 <td className={styles.from}>
-                                  {item.from ? 'від' : ''}
+                                  {item.from ? "від" : ""}
                                 </td>
                                 <td className={styles.price}>{item.price}</td>
                                 <td className={styles.nom}>{item.nominal}</td>
