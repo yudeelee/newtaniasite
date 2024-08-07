@@ -33,7 +33,7 @@ const HeaderMenu = ({ active }) => {
                   <Link href="/servicepackeges">Пакети послуг</Link>
                 </li>
                 <li className={styles.serviceLink}>
-                  <Link href="/servicepackeges">Фінансові послуги</Link>
+                  <Link href="/financeservices">Фінансові послуги</Link>
                 </li>
               </ul>
             </li>
