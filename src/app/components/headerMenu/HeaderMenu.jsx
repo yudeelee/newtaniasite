@@ -27,7 +27,7 @@ const HeaderMenu = ({ active }) => {
                   <Link href="/services">Бухгалтерські послуги</Link>
                 </li>
                 <li className={styles.serviceLink}>
-                  <Link href="/legalservices">Юредичні послуги</Link>
+                  <Link href="/legalservices">Юридичні послуги</Link>
                 </li>
                 <li className={styles.serviceLink}>
                   <Link href="/servicepackeges">Пакети послуг</Link>
@@ -69,7 +69,7 @@ const HeaderMenu = ({ active }) => {
                   <Link href="/services">Бухгалтерські послуги</Link>
                 </li>
                 <li className={styles.serviceLink}>
-                  <Link href="/legalservices">Юредичні послуги</Link>
+                  <Link href="/legalservices">Юридичні послуги</Link>
                 </li>
                 <li className={styles.serviceLink}>
                   <Link href="/servicepackeges">Пакети послуг</Link>
