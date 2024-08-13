@@ -143,6 +143,7 @@ const service = () => {
   const deleteWorker = async (idx) => {
     let newWorkers = JSON.parse(JSON.stringify(services));
     newWorkers = newWorkers.filter((wor, i) => i !== idx);
+    console.log(newWorkers);
     try {
       const res = await axios.put("/api/servicepage", newWorkers);
       setServices(res.data.services.services);
@@ -348,6 +349,7 @@ const service = () => {
                                 <option value="грн/рік">грн/рік</option>
                                 <option value="грн/міс">грн/міс</option>
                                 <option value="грн/год">грн/год</option>
+                                <option value="$">$</option>
                                 <option value="$/год">$/год</option>
                                 <option value="$/міс">$/міс</option>
                               </select>
@@ -525,6 +527,8 @@ const service = () => {
                     <option value="грн/рік">грн/рік</option>
                     <option value="грн/міс">грн/міс</option>
                     <option value="грн/год">грн/год</option>
+                    <option value="$">$</option>
+                    <option value="$/год">$/год</option>
                     <option value="$/міс">$/міс</option>
                   </select>
                   <div
