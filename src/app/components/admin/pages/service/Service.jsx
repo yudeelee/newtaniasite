@@ -273,6 +273,7 @@ const service = () => {
                       <option value="yur">Юридичні</option>
                       <option value="block">Пакети</option>
                       <option value="fin">Фінансові</option>
+                      <option value="finblock">Фінансові пакети</option>
                     </select>
                     <label htmlFor="addDescription">Технічна айдішка</label>
                     <input
@@ -465,6 +466,7 @@ const service = () => {
           <option value="yur">Юридичні</option>
           <option value="block">Пакети</option>
           <option value="fin">Фінансові</option>
+          <option value="finblock">Фінансові пакети</option>
         </select>
         <label htmlFor="addDescription">Технічна айдішка</label>
         <input

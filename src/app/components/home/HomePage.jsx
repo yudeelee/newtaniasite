@@ -35,6 +35,7 @@ const HomePage = ({ photos }) => {
   const [yurserv, setYurserv] = useState([]);
   const [blockserv, setBlockserv] = useState([]);
   const [finserv, setFinserv] = useState([]);
+  const [finservBlock, setFinservBlock] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -53,6 +54,10 @@ const HomePage = ({ photos }) => {
         setBlockserv(newBlock);
         const newFin = res1.data.services.filter((s) => s.category == "fin");
         setFinserv(newFin);
+        const newFinBlock = res1.data.services.filter(
+          (s) => s.category == "finblock"
+        );
+        setFinservBlock(newFinBlock);
         // console.log(newFin);
       } catch (error) {
         console.log(error);
@@ -411,10 +416,10 @@ const HomePage = ({ photos }) => {
       </div>
       <div className={styles.services}>
         <div className="container">
-          <div className="title mt100 center">Пакети послуг</div>
+          <div className="title mt100 center">Пакети Юридичних послуг</div>
           <div className={styles.serviceWrapper}>
             {blockserv?.map((buh, idx) => (
-              <Link key={idx} href={`/servicepackeges#${buh.slogId}`}>
+              <Link key={idx} href={`/financepackeges#${buh.slogId}`}>
                 <div className={styles.service}>
                   <div className={styles.serHeader}>{buh.name}</div>
                   <div className={styles.serBody}>{buh.description}</div>
@@ -430,6 +435,22 @@ const HomePage = ({ photos }) => {
           <div className="title mt100 center">Фінансові послуги</div>
           <div className={styles.serviceWrapper}>
             {finserv?.map((buh, idx) => (
+              <Link key={idx} href={`/financeservices#${buh.slogId}`}>
+                <div className={styles.service}>
+                  <div className={styles.serHeader}>{buh.name}</div>
+                  <div className={styles.serBody}>{buh.description}</div>
+                  <div className={styles.serLink}>Читати більше &#8594;</div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div className={styles.services}>
+        <div className="container">
+          <div className="title mt100 center">Пакети Фінансових послуг</div>
+          <div className={styles.serviceWrapper}>
+            {finservBlock?.map((buh, idx) => (
               <Link key={idx} href={`/financeservices#${buh.slogId}`}>
                 <div className={styles.service}>
                   <div className={styles.serHeader}>{buh.name}</div>

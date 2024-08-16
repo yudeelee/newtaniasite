@@ -10,7 +10,7 @@ export default async function Page() {
   return (
     <div>
       <HeaderMenu active="services" />
-      <ServicePage data={newData} title="Пакети юридичних послуг" />
+      <ServicePage data={newData} title="Пакети фінансових послуг" />
       <Footer />
     </div>
   );

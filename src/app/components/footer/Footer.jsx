@@ -1,10 +1,10 @@
-import Link from 'next/link';
-import styles from './styles.module.scss';
+import Link from "next/link";
+import styles from "./styles.module.scss";
 
 const Footer = () => {
   return (
     <div className={styles.footer}>
-      <div className='container'>
+      <div className="container">
         <div className={styles.footerWrapper}>
           <div className={styles.menu}>
             <ul>
@@ -12,16 +12,16 @@ const Footer = () => {
                 <div className={styles.menuHeader}>Меню</div>
               </li>
               <li>
-                <Link href='/'>Головна</Link>
+                <Link href="/">Головна</Link>
               </li>
               <li>
-                <Link href='/about'>Про нас</Link>
+                <Link href="/about">Про нас</Link>
               </li>
               <li>
-                <Link href='/services'>Наші послуги</Link>
+                <Link href="/services">Наші послуги</Link>
               </li>
               <li>
-                <Link href='/contact'>Замовити</Link>
+                <Link href="/contact">Замовити</Link>
               </li>
             </ul>
           </div>
@@ -31,31 +31,19 @@ const Footer = () => {
                 <div className={styles.menuHeader}>Наші послуги</div>
               </li>
               <li>
-                <Link href='/services#consaltId'>Консультації</Link>
+                <Link href="/services">Бухгалтерські послуги</Link>
               </li>
               <li>
-                <Link href='/services#fopId'>ФОП</Link>
+                <Link href="/legalservices">Юридичні послуги</Link>
               </li>
               <li>
-                <Link href='/services#tovId'>ТОВ</Link>
+                <Link href="/servicepackeges">Пакети Юридичних послуг</Link>
               </li>
               <li>
-                <Link href='/services#financeId'>Фінанси</Link>
+                <Link href="/financeservices">Фінансові послуги</Link>
               </li>
               <li>
-                <Link href='/services#grantId'>Гранти</Link>
-              </li>
-              <li>
-                <Link href='/services#kikId'>КІК</Link>
-              </li>
-              <li>
-                <Link href='/services#progId'>Програмування BAS</Link>
-              </li>
-              <li>
-                <Link href='/services#diaId'>Дія.City</Link>
-              </li>
-              <li>
-                <Link href='/services#yurId'>Юридичні послуги</Link>
+                <Link href="/financepackeges">Пакети фінансових послуг</Link>
               </li>
             </ul>
           </div>
@@ -65,14 +53,14 @@ const Footer = () => {
                 <div className={styles.menuHeader}>Долучайтесь</div>
               </li>
               <li>
-                <a href='https://www.instagram.com/tanyaselezniova_accountant/'>
-                  <img src='/img/insta.png' alt='' />
+                <a href="https://www.instagram.com/tanyaselezniova_accountant/">
+                  <img src="/img/insta.png" alt="" />
                 </a>
-                <a href='https://t.me/tanyaselezniova_accountant'>
-                  <img src='/img/teleg.png' alt='' />
+                <a href="https://t.me/tanyaselezniova_accountant">
+                  <img src="/img/teleg.png" alt="" />
                 </a>
-                <a href='https://www.youtube.com/@consulting-accountant'>
-                  <img src='/img/youtu.png' alt='' />
+                <a href="https://www.youtube.com/@consulting-accountant">
+                  <img src="/img/youtu.png" alt="" />
                 </a>
               </li>
               <li>+380734187147</li>
