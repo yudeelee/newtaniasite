@@ -65,23 +65,27 @@ const HeaderMenu = ({ active }) => {
             <li className={active === "about" ? styles.active : ""}>
               <Link href="/about">Про нас</Link>
             </li>
-            <li className={active === "services" ? styles.active : ""}>
+            <li className={styles.serviceLink}>
+              <Link href="/services">Бухгалтерські послуги</Link>
+            </li>
+            <li className={styles.serviceLink}>
+              <Link href="/legalservices">Юридичні послуги</Link>
+            </li>
+            <li className={styles.serviceLink}>
+              <Link href="/servicepackeges">Пакети юридичних послуг</Link>
+            </li>
+            <li className={styles.serviceLink}>
+              <Link href="/financeservices">Фінансові послуги</Link>
+            </li>
+            <li className={styles.serviceLink}>
+              <Link href="/financepackeges">Пакети Фінансових послуг</Link>
+            </li>
+            {/* <li className={active === "services" ? styles.active : ""}>
               Наші послуги
               <ul className={styles.serviceMenu}>
-                <li className={styles.serviceLink}>
-                  <Link href="/services">Бухгалтерські послуги</Link>
-                </li>
-                <li className={styles.serviceLink}>
-                  <Link href="/legalservices">Юридичні послуги</Link>
-                </li>
-                <li className={styles.serviceLink}>
-                  <Link href="/servicepackeges">Пакети послуг</Link>
-                </li>
-                <li className={styles.serviceLink}>
-                  <Link href="/servicepackeges">Фінансові послуги</Link>
-                </li>
+                
               </ul>
-            </li>
+            </li> */}
             <li className={active === "contact" ? styles.active : ""}>
               <Link href="/contact">Замовити</Link>
             </li>
