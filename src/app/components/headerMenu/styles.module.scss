@@ -43,7 +43,7 @@
       position: relative;
       margin-right: 53px;
       padding: 7px 0px;
-      border-bottom: 2px solid transparent;
+      // border-bottom: 2px solid transparent;
       cursor: pointer;
       a {
         text-decoration: none;
@@ -61,7 +61,7 @@
       }
       &:hover {
         color: #edafb8;
-        border-bottom: 2px solid black;
+        // border-bottom: 2px solid black;
         .serviceMenu {
           padding-top: 20px;
           position: absolute;
@@ -75,13 +75,13 @@
       }
       &.active {
         color: #edafb8;
-        border-bottom: 2px solid black;
+        // border-bottom: 2px solid black;
         a {
         }
         &:hover {
-          color: #edafb8;
-          border-bottom: 2px solid black;
+          // border-bottom: 2px solid black;
           .serviceMenu {
+            color: #edafb8;
             padding-top: 20px;
             position: absolute;
             display: flex;
@@ -100,14 +100,14 @@
               margin-right: 53px;
               color: black;
               padding: 7px 0px;
-              border-bottom: 2px solid transparent;
+              // border-bottom: 2px solid transparent;
               transition: all 0.5s;
               @media (max-width: 700px) {
                 margin-right: 23px;
               }
               &:hover {
                 color: #edafb8;
-                border-bottom: 2px solid black;
+                // border-bottom: 2px solid black;
               }
             }
           }
