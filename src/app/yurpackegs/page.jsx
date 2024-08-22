@@ -6,11 +6,11 @@ import Footer from "../components/footer/Footer";
 export default async function Page() {
   const data = await getData();
   const newData = { services: [] };
-  newData.services = data.services.filter((pos) => pos.category === "block");
+  newData.services = data.services.filter((pos) => pos.category === "yurblock");
   return (
     <div>
       <HeaderMenu active="services" />
-      <ServicePage data={newData} title="Пакети юридичних послуг" />
+      <ServicePage data={newData} title="Пакети фінансових послуг" />
       <Footer />
     </div>
   );
