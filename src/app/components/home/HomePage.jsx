@@ -419,7 +419,7 @@ const HomePage = ({ photos }) => {
           <div className="title mt100 center">Пакети Юридичних послуг</div>
           <div className={styles.serviceWrapper}>
             {blockserv?.map((buh, idx) => (
-              <Link key={idx} href={`/financepackeges#${buh.slogId}`}>
+              <Link key={idx} href={`/servicepackeges#${buh.slogId}`}>
                 <div className={styles.service}>
                   <div className={styles.serHeader}>{buh.name}</div>
                   <div className={styles.serBody}>{buh.description}</div>
@@ -451,7 +451,7 @@ const HomePage = ({ photos }) => {
           <div className="title mt100 center">Пакети Фінансових послуг</div>
           <div className={styles.serviceWrapper}>
             {finservBlock?.map((buh, idx) => (
-              <Link key={idx} href={`/financeservices#${buh.slogId}`}>
+              <Link key={idx} href={`/financepackeges#${buh.slogId}`}>
                 <div className={styles.service}>
                   <div className={styles.serHeader}>{buh.name}</div>
                   <div className={styles.serBody}>{buh.description}</div>
