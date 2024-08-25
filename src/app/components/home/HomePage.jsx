@@ -373,7 +373,7 @@ const HomePage = ({ photos }) => {
             <div className={styles.fishBody}>років на ринку</div>
           </div>
           <div className={styles.fishka}>
-            <div className={styles.fishHeader}>150+</div>
+            <div className={styles.fishHeader}>300+</div>
             <div className={styles.fishBody}>клієнтів на супроводі</div>
           </div>
           <div className={styles.fishka}>
