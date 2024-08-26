@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import styles from './styles.module.scss';
+import styles from "./styles.module.scss";
 // import { data } from '../../../../data/data';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const ContactPage = () => {
-  const TOKEN = '5530765545:AAFy5U47-r8OYc198-5blcgCR-cKB3_jowE';
-  const CHAT_ID = '-1001517912943';
+  const TOKEN = "5530765545:AAFy5U47-r8OYc198-5blcgCR-cKB3_jowE";
+  const CHAT_ID = "-1001517912943";
   const URI = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
 
   const [sections, setSections] = useState([]);
@@ -16,18 +16,18 @@ const ContactPage = () => {
   const [item, setItem] = useState();
   const [price, setPrice] = useState();
 
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [email, setEmail] = useState('');
-  const [comment, setComment] = useState('');
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [comment, setComment] = useState("");
 
-  const [errorMsg, setErrorMsg] = useState('');
+  const [errorMsg, setErrorMsg] = useState("");
   const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get('/api/servicepage');
+        const res = await axios.get("/api/servicepage");
         setData(res.data.services);
         setSections(res.data.services.map((sec) => sec.name));
         setItems(res.data.services[0].items);
@@ -54,24 +54,24 @@ const ContactPage = () => {
   }, [item]);
 
   const sendMessage = async () => {
-    if (name === '') {
+    if (name === "") {
       setErrorMsg("Введіть будь-ласка своє Ім'я");
       return;
     }
-    if (phone === '') {
-      setErrorMsg('Введіть будь-ласка свій номер телефону');
+    if (phone === "") {
+      setErrorMsg("Введіть будь-ласка свій номер телефону");
       return;
     }
-    if (email === '') {
-      setErrorMsg('Введіть будь-ласка свій E-mail');
+    if (email === "") {
+      setErrorMsg("Введіть будь-ласка свій E-mail");
       return;
     }
     if (!section) {
-      setErrorMsg('Виберіть категорію');
+      setErrorMsg("Виберіть категорію");
       return;
     }
-    if (item === '...') {
-      setErrorMsg('Виберіть розділ');
+    if (item === "...") {
+      setErrorMsg("Виберіть розділ");
       return;
     }
     const msg = `${name}\n${phone}\n${email}\n${section}\n${item}\n${price}\n${comment}`;
@@ -87,25 +87,25 @@ const ContactPage = () => {
     };
 
     try {
-      const res = await axios.post('/api/orders', data);
+      const res = await axios.post("/api/orders", data);
       console.log(res.data);
-
+      gtag_report_conversion("/contact");
       axios
         .post(URI, {
           chat_id: CHAT_ID,
           text: msg,
-          parse_mode: 'html',
+          parse_mode: "html",
         })
         .then((res) => {
-          setErrorMsg('Ваше замовлення прийнято');
+          setErrorMsg("Ваше замовлення прийнято");
         })
         .catch((err) => {
-          console.log('bad');
+          console.log("bad");
         });
-      setName('');
-      setPhone('');
-      setEmail('');
-      setComment('');
+      setName("");
+      setPhone("");
+      setEmail("");
+      setComment("");
     } catch (error) {
       console.log(error);
     }
@@ -114,73 +114,73 @@ const ContactPage = () => {
   return (
     <div className={styles.contact}>
       {errorMsg && (
-        <div className={styles.alertWrapper} onClick={() => setErrorMsg('')}>
+        <div className={styles.alertWrapper} onClick={() => setErrorMsg("")}>
           <div className={styles.alert}>
             <p>{errorMsg}</p>
-            <button onClick={() => setErrorMsg('')}>Гаразд</button>
+            <button onClick={() => setErrorMsg("")}>Гаразд</button>
           </div>
         </div>
       )}
-      <div className='container'>
+      <div className="container">
         <div className={styles.contactHeader}>
-          <div className='title'>Замовити послугу</div>
+          <div className="title">Замовити послугу</div>
         </div>
         <div className={styles.contactWrapper}>
           <div className={styles.contacts}>
             <div className={styles.cons}>
               <div className={styles.conIcon}>
-                <img src='/img/phone.png' alt='' />
+                <img src="/img/phone.png" alt="" />
               </div>
               <div className={styles.conText}>Телефон</div>
             </div>
             <div className={styles.conData}>
-              <a href='tel:073-418-7147'>+380734187147</a>
+              <a href="tel:073-418-7147">+380734187147</a>
             </div>
             <div className={styles.cons}>
               <div className={styles.conIcon}>
-                <img src='/img/mail.png' alt='' />
+                <img src="/img/mail.png" alt="" />
               </div>
               <div className={styles.conText}>Електронна пошта</div>
             </div>
             <div className={styles.conData}>
-              <a href='mailto:consulting.lviv.ua@gmail.com'>
+              <a href="mailto:consulting.lviv.ua@gmail.com">
                 consulting.lviv.ua@gmail.com
               </a>
             </div>
             <div className={styles.cons}>
               <div className={styles.conIcon}>
-                <img src='/img/instagram.png' alt='' />
+                <img src="/img/instagram.png" alt="" />
               </div>
               <div className={styles.conText}>Instagram</div>
             </div>
             <div className={styles.conData}>
-              <a href='https://www.instagram.com/tanyaselezniova_accountant/'>
+              <a href="https://www.instagram.com/tanyaselezniova_accountant/">
                 www.instagram.com/tanyaselezniova_accountant/
               </a>
             </div>
             <div className={styles.cons}>
               <div className={styles.conIcon}>
-                <img src='/img/telegram.png' alt='' />
+                <img src="/img/telegram.png" alt="" />
               </div>
               <div className={styles.conText}>Telegram</div>
             </div>
             <div className={styles.conData}>
-              <a href='https://t.me/tanyaselezniova_accountant'>
+              <a href="https://t.me/tanyaselezniova_accountant">
                 t.me/tanyaselezniova_accountant
               </a>
             </div>
             <div className={styles.cons}>
               <div className={styles.conIcon}>
-                <img src='/img/youtube.png' alt='' />
+                <img src="/img/youtube.png" alt="" />
               </div>
               <div className={styles.conText}>YouTube</div>
             </div>
             <div className={styles.conData}>
-              <a href='https://www.youtube.com/@consulting-accountant'>
+              <a href="https://www.youtube.com/@consulting-accountant">
                 www.youtube.com/@consulting-accountant
               </a>
             </div>
-            <div className='text mt100'>
+            <div className="text mt100">
               Компанія <span>“БУХГАЛТЕР-КОНСУЛЬТАНТ”</span> працює онлайн по
               всій території України з понеділка по п’ятницю з 9:00 до 18:00.
               <br />
@@ -190,31 +190,31 @@ const ContactPage = () => {
           <div className={styles.conForm}>
             <div className={styles.formControl}>
               <input
-                value={name || ''}
-                type='text'
-                placeholder='Ім’я'
+                value={name || ""}
+                type="text"
+                placeholder="Ім’я"
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
             <div className={styles.formControl}>
               <input
-                value={phone || ''}
-                type='text'
-                placeholder='Телефон'
+                value={phone || ""}
+                type="text"
+                placeholder="Телефон"
                 onChange={(e) => setPhone(e.target.value)}
               />
             </div>
             <div className={styles.formControl}>
               <input
-                value={email || ''}
-                type='text'
-                placeholder='Електронна адреса'
+                value={email || ""}
+                type="text"
+                placeholder="Електронна адреса"
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div className={styles.formControl}>
               <select onChange={(e) => setSection(e.target.value)}>
-                <option value='...'>...</option>
+                <option value="...">...</option>
                 {sections?.map((sec, idx) => {
                   return (
                     <option key={idx} value={sec}>
@@ -226,7 +226,7 @@ const ContactPage = () => {
             </div>
             <div className={styles.formControl}>
               <select value={item} onChange={(e) => setItem(e.target.value)}>
-                <option value='...'>...</option>
+                <option value="...">...</option>
                 {items?.map((itm, idx) => {
                   return (
                     <option key={idx} value={itm.name}>
@@ -238,17 +238,17 @@ const ContactPage = () => {
             </div>
             <div className={styles.formControl}>
               <textarea
-                value={comment || ''}
-                name=''
-                id=''
-                cols='30'
-                rows='6'
-                placeholder='Коментар'
+                value={comment || ""}
+                name=""
+                id=""
+                cols="30"
+                rows="6"
+                placeholder="Коментар"
                 onChange={(e) => setComment(e.target.value)}
               ></textarea>
             </div>
             <div className={styles.formControl}>
-              <button className='button' onClick={sendMessage}>
+              <button className="button" onClick={sendMessage}>
                 Замовити послугу
               </button>
             </div>
