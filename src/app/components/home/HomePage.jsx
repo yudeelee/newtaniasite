@@ -79,21 +79,28 @@ const HomePage = ({ photos }) => {
   //   fetchData();
   // }, []);
 
-  function gtag_report_conversion(url) {
-    var callback = function () {
-      if (typeof url != "undefined") {
-        window.location = url;
-      }
-    };
-    gtag("event", "conversion", {
-      send_to: "AW-16508963435/BmJ4CPKY98wZEOuUi8A9",
-      transaction_id: "",
-      event_callback: callback,
-    });
-    return false;
-  }
-
   const sendMsg = async () => {
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof url != "undefined") {
+          window.location = url;
+        }
+      };
+      gtag("event", "conversion", {
+        send_to: "AW-16508963435/BmJ4CPKY98wZEOuUi8A9",
+        transaction_id: "",
+        event_callback: callback,
+      });
+      return false;
+    }
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      window.dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "AW-16508963435");
+
     if (name === "") {
       setErrorMsg("Введіть будь-ласка своє Ім'я");
       return;
