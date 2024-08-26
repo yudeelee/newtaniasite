@@ -17,11 +17,22 @@ export default function RootLayout({
     <html lang="en">
       <Head>
         <title>Hello</title>
-
+        {/* <!-- Event snippet for Заявка conversion page */}
+        {/* In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. --> */}
         {/* <Helmet> */}
         {process.env.NODE_ENV === "production" && (
           <>
             <script
+              async
+              src="https://www.googletagmanager.com/gtag/js?id=AW-16508963435"
+            ></script>{" "}
+            <script>
+              {" "}
+              window.dataLayer = window.dataLayer || []; function gtag()
+              {dataLayer.push(arguments)} gtag('js', new Date()); gtag('config',
+              'AW-16508963435'); console.log(gtag)
+            </script>
+            {/* <script
               async
               src="https://www.googletagmanager.com/gtag/js?id=AW-16508963435"
             ></script>
@@ -29,7 +40,7 @@ export default function RootLayout({
               window.dataLayer = window.dataLayer || []; function gtag()
               {dataLayer.push(arguments)}
               gtag('js', new Date()); gtag('config', 'AW-16508963435');
-            </script>
+            </script> */}
           </>
         )}
         {/* <script>
