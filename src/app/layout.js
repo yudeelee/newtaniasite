@@ -25,11 +25,11 @@ export default function RootLayout({
               async
               src="https://www.googletagmanager.com/gtag/js?id=AW-16508963435"
             ></script>
-            ;
-            <script
-              async
-              src="https://www.googletagmanager.com/gtag/js?id=AW-16508963435"
-            ></script>
+            <script>
+              window.dataLayer = window.dataLayer || []; function gtag()
+              {dataLayer.push(arguments)}
+              gtag('js', new Date()); gtag('config', 'AW-16508963435');
+            </script>
           </>
         )}
         {/* <script>

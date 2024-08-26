@@ -40,6 +40,7 @@ const HomePage = ({ photos }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        // console.log(gtag);
         const res = await axios.get("/api/mainpage");
         const res1 = await axios.get("/api/servicepage");
         setData(res.data);
