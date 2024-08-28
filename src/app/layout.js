@@ -7,6 +7,7 @@ import { SessionProvider } from "next-auth/react";
 import { Helmet } from "react-helmet-async";
 import Script from "next/script";
 import { useEffect, useState } from "react";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,10 +37,10 @@ export default function RootLayout({
         {/* {process.env.NODE_ENV === "production" && ( */}
         {true && (
           <>
-            <script
+            {/* <script
               async
               src="https://www.googletagmanager.com/gtag/js?id=AW-16508963435"
-            ></script>{" "}
+            ></script>{" "} */}
             {/* <script>
               {" "}
               window.dataLayer = window.dataLayer || []; function gtag()
@@ -69,6 +70,7 @@ export default function RootLayout({
         <SessionProvider session={session}>
           <body className={inter.className}>
             {children}
+            <GoogleAnalytics gaId="G-XYZ" />
             <Script
               src="/script.js"
               strategy="lazyOnload"
