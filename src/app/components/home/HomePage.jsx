@@ -80,6 +80,31 @@ const HomePage = ({ photos }) => {
   // }, []);
 
   const sendMsg = async () => {
+    if (name === "") {
+      setErrorMsg("Введіть будь-ласка своє Ім'я");
+      return;
+    }
+    if (phone === "") {
+      setErrorMsg("Введіть будь-ласка свій номер телефону");
+      return;
+    }
+    const msg1 = `Запит на консультацію\n${name}\n${phone}`;
+
+    const data1 = {
+      name,
+      phone,
+      mail: "korotka@zsaytu.com",
+      category: "Коротка",
+      item: "Коротка",
+      comment: "0",
+      price: 0,
+    };
+    try {
+      const res = await axios.post("/api/orders", data1);
+      console.log(res.data);
+    } catch (error) {
+      console.log(error);
+    }
     function gtag_report_conversion(url) {
       var callback = function () {
         if (typeof url != "undefined") {
@@ -121,14 +146,8 @@ const HomePage = ({ photos }) => {
       price: 0,
     };
 
-    try {
-      const res = await axios.post("/api/orders", data);
-
-      console.log(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-    gtag_report_conversion("/");
+    const sadsasd = gtag_report_conversion("/");
+    console.log(sadsasd);
     axios
       .post(URI, {
         chat_id: CHAT_ID,

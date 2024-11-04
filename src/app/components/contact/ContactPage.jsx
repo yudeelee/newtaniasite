@@ -103,6 +103,11 @@ const ContactPage = () => {
     try {
       const res = await axios.post("/api/orders", data);
       console.log(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+
+    try {
       function gtag_report_conversion(url) {
         var callback = function () {
           if (typeof url != "undefined") {
