@@ -1,20 +1,20 @@
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
-import styles from './styles.module.scss';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import Uploader from '../../uploader/Uploader';
-import { CiEdit } from 'react-icons/ci';
-import { IoMdArrowRoundUp } from 'react-icons/io';
-import { IoMdArrowRoundDown } from 'react-icons/io';
-import { MdDeleteOutline } from 'react-icons/md';
-import { Fragment } from 'react';
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+import styles from "./styles.module.scss";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import Uploader from "../../uploader/Uploader";
+import { CiEdit } from "react-icons/ci";
+import { IoMdArrowRoundUp } from "react-icons/io";
+import { IoMdArrowRoundDown } from "react-icons/io";
+import { MdDeleteOutline } from "react-icons/md";
+import { Fragment } from "react";
 
 const About = () => {
-  const [name, setName] = useState('');
-  const [position, setPosition] = useState('');
-  const [img, setImg] = useState('/img/default.jpg');
-  const [value, setValue] = useState('');
+  const [name, setName] = useState("");
+  const [position, setPosition] = useState("");
+  const [img, setImg] = useState("/img/default.jpg");
+  const [value, setValue] = useState("");
   const [changeIdx, setChangeIdx] = useState(0);
   const [visible, setVisible] = useState(false);
 
@@ -25,12 +25,12 @@ const About = () => {
 
   const [open, setOpen] = useState([]);
 
-  const [value1, setValue1] = useState('');
+  const [value1, setValue1] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get('/api/aboutpage');
+        const res = await axios.get("/api/aboutpage");
         setWorkers(res.data.workers);
         const newOpen = new Array(res.data.workers.length).fill(false);
         setOpen(newOpen);
@@ -57,11 +57,11 @@ const About = () => {
         photo: img,
         text: value1,
       };
-      const res = await axios.post('/api/aboutpage', data);
-      setName('');
-      setPosition('');
-      setImg('/img/default.jpg');
-      setValue1('');
+      const res = await axios.post("/api/aboutpage", data);
+      setName("");
+      setPosition("");
+      setImg("/img/default.jpg");
+      setValue1("");
     } catch (error) {
       console.log(error);
     }
@@ -75,7 +75,7 @@ const About = () => {
 
   const saveWorkers = async () => {
     try {
-      const res = await axios.put('/api/aboutpage', workers);
+      const res = await axios.put("/api/aboutpage", workers);
       // setWorkers(res.data.workers.workers);
     } catch (error) {
       console.log(error);
@@ -94,7 +94,7 @@ const About = () => {
     newWorkers[idx] = newWorkers[idx - 1];
     newWorkers[idx - 1] = x;
     try {
-      const res = await axios.put('/api/aboutpage', newWorkers);
+      const res = await axios.put("/api/aboutpage", newWorkers);
       setWorkers(res.data.workers.workers);
     } catch (error) {
       console.log(error);
@@ -107,7 +107,7 @@ const About = () => {
     newWorkers[idx] = newWorkers[idx + 1];
     newWorkers[idx + 1] = x;
     try {
-      const res = await axios.put('/api/aboutpage', newWorkers);
+      const res = await axios.put("/api/aboutpage", newWorkers);
       setWorkers(res.data.workers.workers);
     } catch (error) {
       console.log(error);
@@ -118,7 +118,7 @@ const About = () => {
     let newWorkers = JSON.parse(JSON.stringify(workers));
     newWorkers = newWorkers.filter((wor, i) => i !== idx);
     try {
-      const res = await axios.put('/api/aboutpage', newWorkers);
+      const res = await axios.put("/api/aboutpage", newWorkers);
       setWorkers(res.data.workers.workers);
     } catch (error) {
       console.log(error);
@@ -129,9 +129,9 @@ const About = () => {
     <div className={styles.about}>
       <div className={styles.workerList}>
         {workers?.map((wor, idx) => {
-          const worHeader = open[idx] ? styles.openHeader : '';
-          const rouge = idx % 2 == 0 ? styles.rouge : '';
-          const cls = styles.worker + ' ' + rouge + ' ' + worHeader;
+          const worHeader = open[idx] ? styles.openHeader : "";
+          const rouge = idx % 2 == 0 ? styles.rouge : "";
+          const cls = styles.worker + " " + rouge + " " + worHeader;
           return (
             <Fragment key={idx}>
               <div className={cls}>
@@ -176,7 +176,7 @@ const About = () => {
                   <div className={styles.top}>
                     <div className={styles.left}>
                       <div className={styles.imgWrapper}>
-                        <img src={wor.photo} alt='' />
+                        <img src={wor.photo} alt="" />
                         <button
                           onClick={() => {
                             setChangeIdx(idx);
@@ -188,9 +188,9 @@ const About = () => {
                       </div>
                     </div>
                     <div className={styles.right}>
-                      <label htmlFor=''>Ім'я</label>
+                      <label htmlFor="">Ім'я</label>
                       <input
-                        type='text'
+                        type="text"
                         value={wor.name}
                         onChange={(e) => {
                           const newWorkers = JSON.parse(
@@ -201,9 +201,22 @@ const About = () => {
                           return;
                         }}
                       />
-                      <label htmlFor=''>Посада</label>
+                      {/* <label htmlFor="">Name</label>
                       <input
-                        type='text'
+                        type="text"
+                        value={wor.nameEn}
+                        onChange={(e) => {
+                          const newWorkers = JSON.parse(
+                            JSON.stringify(workers)
+                          );
+                          newWorkers[idx].nameEn = e.target.value;
+                          setWorkers([...newWorkers]);
+                          return;
+                        }}
+                      /> */}
+                      <label htmlFor="">Посада</label>
+                      <input
+                        type="text"
                         value={wor.position}
                         onChange={(e) => {
                           const newWorkers = JSON.parse(
@@ -214,9 +227,9 @@ const About = () => {
                           return;
                         }}
                       />
-                      <label htmlFor=''>Невидима</label>
+                      <label htmlFor="">Невидима</label>
                       <input
-                        type='checkbox'
+                        type="checkbox"
                         checked={wor.unvisible || false}
                         onChange={(e) => {
                           console.log(e.target.checked);
@@ -231,7 +244,7 @@ const About = () => {
                     </div>
                   </div>
                   <ReactQuill
-                    theme='snow'
+                    theme="snow"
                     value={wor.text}
                     onChange={(e) => {
                       const newWorkers = JSON.parse(JSON.stringify(workers));
@@ -257,28 +270,28 @@ const About = () => {
         <div className={styles.top}>
           <div className={styles.left}>
             <div className={styles.imgWrapper}>
-              <img src={img} alt='' />
+              <img src={img} alt="" />
               <button onClick={() => setNewWorker1(!newWorker1)}>
                 Змінити
               </button>
             </div>
           </div>
           <div className={styles.right}>
-            <label htmlFor=''>Ім'я</label>
+            <label htmlFor="">Ім'я</label>
             <input
-              type='text'
+              type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
-            <label htmlFor=''>Посада</label>
+            <label htmlFor="">Посада</label>
             <input
-              type='text'
+              type="text"
               value={position}
               onChange={(e) => setPosition(e.target.value)}
             />
           </div>
         </div>
-        <ReactQuill theme='snow' value={value1} onChange={setValue1} />
+        <ReactQuill theme="snow" value={value1} onChange={setValue1} />
         <div className={styles.btnWrapper}>
           <button className={styles.addButton} onClick={addWorker}>
             Додати

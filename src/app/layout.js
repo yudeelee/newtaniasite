@@ -25,7 +25,7 @@ export default function RootLayout({
     gtag("js", new Date());
     gtag("config", "AW-16508963435");
     setGgg(gtag);
-    console.log(window.dataLayer);
+    // console.log(window.dataLayer);
   }, []);
   return (
     <html lang="en">

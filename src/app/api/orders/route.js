@@ -1,15 +1,16 @@
-import db from '../../../../utils/db';
-import Order from '../../../../models/Order';
-import Client from '../../../../models/Client';
-import Event from '../../../../models/Event';
-import axios from 'axios';
+import db from "../../../../utils/db";
+import Order from "../../../../models/Order";
+import Client from "../../../../models/Client";
+import Event from "../../../../models/Event";
+import axios from "axios";
 
 export async function POST(req) {
   const body = await req.json();
+  console.log(body, "ddd");
   try {
     const { category, item, comment, name, phone, mail, price } = body;
     if (!name || !phone) {
-      return new Response(JSON.stringify({ message: 'empty fields' }));
+      return new Response(JSON.stringify({ message: "empty fields" }));
     }
     // let client = await Client.findOne({ name, phone, mail });
     // if (!client) {
@@ -52,29 +53,43 @@ export async function POST(req) {
         phone: phone,
       },
       shipping: {
-        shipping_address_city: 'Lviv',
-        shipping_receive_point: 'Lviv',
-        shipping_address_country: 'Lviv',
-        shipping_address_region: 'Lviv',
-        shipping_address_zip: 'Lviv',
+        shipping_address_city: "Lviv",
+        shipping_receive_point: "Lviv",
+        shipping_address_country: "Lviv",
+        shipping_address_region: "Lviv",
+        shipping_address_zip: "Lviv",
       },
       products: [
         {
           price: price,
           quantity: 1,
           name: `${category} || ${item}`,
-          picture: '111',
-          // properties: [
-          //   {
-          //     name: 'Color',
-          //     value: 'Space Gray',
-          //   },
-          // ],
+          picture: "111",
         },
       ],
     };
 
-    console.log(data);
+    // const data = {
+    //   source_id: 3,
+    //   buyer: { full_name: "yura", email: "yura@mail.com", phone: "3874583405" },
+    //   shipping: {
+    //     shipping_address_city: "Lviv",
+    //     shipping_receive_point: "Lviv",
+    //     shipping_address_country: "Lviv",
+    //     shipping_address_region: "Lviv",
+    //     shipping_address_zip: "Lviv",
+    //   },
+    //   products: [
+    //     {
+    //       price: 2500,
+    //       quantity: 1,
+    //       name: "Гранти || Допомога з поданням грантової заявки",
+    //       picture: "111",
+    //     },
+    //   ],
+    // };
+
+    // console.log(data);
     // const res = await axios.get('https://openapi.keycrm.app/v1/order', {
     //   headers: {
     //     'Content-type': 'application/json',
@@ -85,20 +100,23 @@ export async function POST(req) {
     //       'Bearer YTU3NzQ1ZmIzMDdmNDU5YzBjMjFhODRmMGY0MTRmMjg0YTdhYzVhNw',
     //   },
     // });
-    const res = await axios.post('https://openapi.keycrm.app/v1/order', data, {
+    const res = await axios.post("https://openapi.keycrm.app/v1/order", data, {
       headers: {
-        'Content-type': 'application/json',
-        Accept: 'application/json',
-        'Cache-Control': 'no-cache',
-        Pragma: 'no-cache',
+        "Content-type": "application/json",
+        Accept: "application/json",
+        "Cache-Control": "no-cache",
+        Pragma: "no-cache",
         Authorization:
-          'Bearer YTU3NzQ1ZmIzMDdmNDU5YzBjMjFhODRmMGY0MTRmMjg0YTdhYzVhNw',
+          "Bearer YTU3NzQ1ZmIzMDdmNDU5YzBjMjFhODRmMGY0MTRmMjg0YTdhYzVhNw",
       },
     });
+
     console.log(res.data);
 
-    return new Response(JSON.stringify({ message: 'order added' }));
+    return new Response(JSON.stringify(res.data));
+    // return new Response(JSON.stringify({ message: "order added" }));
   } catch (error) {
+    console.log("there", error);
     return new Response(JSON.stringify({ message: error.message }));
   }
   return new Response(JSON.stringify({ body }));
@@ -136,7 +154,7 @@ export async function PUT(req) {
       );
       return new Response(JSON.stringify(res));
     }
-    return new Response(JSON.stringify({ message: 'order added' }));
+    return new Response(JSON.stringify({ message: "order added" }));
   } catch (error) {
     return new Response(JSON.stringify({ message: error.message }));
   }

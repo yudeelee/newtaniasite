@@ -67,6 +67,12 @@ const ContactPage = () => {
     setPrice(cutItem?.price);
   }, [item]);
 
+  function validateEmail(email) {
+    var re =
+      /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+    return re.test(String(email).toLowerCase());
+  }
+
   const sendMessage = async () => {
     if (name === "") {
       setErrorMsg("Введіть будь-ласка своє Ім'я");
@@ -76,7 +82,7 @@ const ContactPage = () => {
       setErrorMsg("Введіть будь-ласка свій номер телефону");
       return;
     }
-    if (email === "") {
+    if (email === "" || !validateEmail(email)) {
       setErrorMsg("Введіть будь-ласка свій E-mail");
       return;
     }
@@ -100,12 +106,12 @@ const ContactPage = () => {
       price,
     };
 
-    try {
-      const res = await axios.post("/api/orders", data);
-      console.log(res.data);
-    } catch (error) {
-      console.log(error);
-    }
+    // try {
+    //   const res = await axios.post("/api/orders", data);
+    //   console.log(res.data);
+    // } catch (error) {
+    //   console.log(error);
+    // }
 
     try {
       function gtag_report_conversion(url) {
@@ -136,17 +142,26 @@ const ContactPage = () => {
           parse_mode: "html",
         })
         .then((res) => {
+          console.log(res);
           setErrorMsg("Ваше замовлення прийнято");
         })
         .catch((err) => {
           console.log("bad");
         });
+      try {
+        const res = await axios.post("/api/orders", data);
+        console.log(res.data);
+      } catch (error) {
+        console.log("RRRRRRRRRRRRRRRRRRR");
+        // console.log("RRRRRRRRRRRRRRRRRRR", error);
+      }
       setName("");
       setPhone("");
       setEmail("");
       setComment("");
     } catch (error) {
-      console.log(error);
+      console.log("QQQQQQQQQQQQQQQ");
+      // console.log("QQQQQQQQQQQQQQQ", error);
     }
   };
 
