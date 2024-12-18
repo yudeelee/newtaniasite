@@ -105,6 +105,10 @@ const HomePage = ({ photos }) => {
     } catch (error) {
       console.log(error);
     }
+
+    try {
+      
+    
     function gtag_report_conversion(url) {
       var callback = function () {
         if (typeof url != "undefined") {
@@ -147,7 +151,8 @@ const HomePage = ({ photos }) => {
     };
 
     const sadsasd = gtag_report_conversion("/");
-    console.log(sadsasd);
+    // console.log(sadsasd);
+    console.log('here')
     axios
       .post(URI, {
         chat_id: CHAT_ID,
@@ -162,8 +167,12 @@ const HomePage = ({ photos }) => {
         setPhone("");
       })
       .catch((err) => {
-        console.log("bad");
+        console.log(err);
       });
+      console.log('there')
+    } catch (error) {
+      console.log("RRRRRRRRRRRRRRRRRRR");
+    }
   };
 
   useEffect(() => {
@@ -215,7 +224,7 @@ const HomePage = ({ photos }) => {
             </Link>
           </div>
           <div className={styles.heroImg}>
-            <img src="/img/headerPhoto.webp" alt="" />
+            <img src="/img/t1111.png" alt="" />
           </div>
         </div>
         <div className={styles.youtube}>
