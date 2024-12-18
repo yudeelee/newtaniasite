@@ -1,0 +1,20 @@
+.policy {
+    width: 900px;
+    margin: 0 auto;
+    @media (max-width: 900px) {
+        width: 90%;
+    }
+    h1,h2 {
+        text-align: center;
+    }
+    
+}
+
+.text {
+    margin-bottom: 15px;
+}
+
+.snoska {
+    text-align: right;
+    margin-bottom: 40px;
+}

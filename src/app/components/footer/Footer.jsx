@@ -69,6 +69,9 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <div className={styles.footTextWrapper}>
+      <div className={styles.footText}><Link href="/privacypolicy">Політика конфіденційності</Link></div>
+        <div className={styles.footText}>ТОВ «БУХГАЛТЕР КОНСУЛЬТАНТ» / ЄДРПОУ 45494012 / м. Львів</div></div>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 .footer {
   background-color: black;
-  padding: 130px 0px;
+  padding: 130px 0px 20px;
 }
 
 .footerWrapper {
@@ -37,5 +37,20 @@
         font-size: 16px;
       }
     }
+  }
+}
+
+.footTextWrapper {
+  padding-top: 80px;
+}
+
+.footText {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  a {
+    color: white;
+    font-weight: 700;
   }
 }
