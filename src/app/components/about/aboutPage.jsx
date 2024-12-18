@@ -20,6 +20,8 @@ const AboutPage = () => {
     fetchData();
   }, []);
 
+  let innn = -1;
+
   return (
     <div className={styles.about}>
       <div className='container'>
@@ -28,8 +30,10 @@ const AboutPage = () => {
         </div>
         {workers.map((wor, idx) => {
           const cls = par % 2 == 0 ? styles.person : styles.personReverse;
+          
           console.log(wor.unvisible);
           if (!wor.unvisible) {
+            innn = innn + 1;
             par = par + 1;
             return (
               <div className={cls} key={idx}>
@@ -42,7 +46,7 @@ const AboutPage = () => {
                   />
                 </div>
                 <div className={styles.photo}>
-                  <img src={wor.photo} alt='' />
+                  <img src={`/img/t${innn}.jpg`} alt='' />
                 </div>
               </div>
             );
