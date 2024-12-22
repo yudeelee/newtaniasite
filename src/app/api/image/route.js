@@ -43,6 +43,22 @@ export async function POST(req) {
   }
 }
 
+export async function PUT(req) {
+  try {
+    const data = await req.json();;
+    // console.log(data)
+    const newImg = new Image({
+      src: data.src,
+    });
+
+    const addedImg = await newImg.save();
+
+    return new Response(JSON.stringify(addedImg));
+  } catch (error) {
+    return new Response(JSON.stringify({ message: 'failed1' }));
+  }
+}
+
 export async function GET(req) {
   try {
     await db.connectDb();

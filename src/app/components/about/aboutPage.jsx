@@ -46,7 +46,7 @@ const AboutPage = () => {
                   />
                 </div>
                 <div className={styles.photo}>
-                  <img src={`/img/t${innn}.jpg`} alt='' />
+                  <img src={wor.photo} alt='' />
                 </div>
               </div>
             );

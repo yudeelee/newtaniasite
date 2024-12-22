@@ -8,6 +8,33 @@ import { LuArrowDownRightFromCircle } from 'react-icons/lu';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 // import Image from '../../../../../models/Image';
 
+import { ImageKitProvider, IKImage, IKUpload } from "imagekitio-next";
+
+const publicKey = process.env.NEXT_PUBLIC_PUBLIC_KEY;
+const urlEndpoint = process.env.NEXT_PUBLIC_URL_ENDPOINT;
+const authenticator = async () => {
+  try {
+    const response = await fetch("/api/authimage");
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Request failed with status ${response.status}: ${errorText}`);
+    }
+
+    const data = await response.json();
+    const { signature, expire, token } = data;
+    return { signature, expire, token };
+  } catch (error) {
+    throw new Error(`Authentication request failed: ${error.message}`);
+  }
+};
+
+const onError = (err) => {
+  console.log("Error", err);
+};
+
+
+
 const Uploader = ({ close, select }) => {
   const cloudName = 'dnsm5nwmg';
   const uploadPreset = 'tanias_preset';
@@ -23,6 +50,19 @@ const Uploader = ({ close, select }) => {
     };
     fetchImages();
   }, []);
+
+  const onSuccess = async (res) => {
+    console.log("Success", res);  
+    try {
+      const result = await axios.put('/api/image', {src: res.url});
+      const newImgs = [...images];
+        newImgs.unshift({ src: result.data.src });
+        setImages(newImgs);
+      console.log(result.data.src)
+    } catch (error) {
+      console.log(error)
+    }
+  };
 
   const uploadFile = async (e) => {
     const file = e.target.files?.[0];
@@ -58,7 +98,12 @@ const Uploader = ({ close, select }) => {
             <label>
               <IoCloudUploadOutline />
               Завантажити
-              <input type='file' onChange={(e) => uploadFile(e)} />
+              <ImageKitProvider publicKey={publicKey} urlEndpoint={urlEndpoint} authenticator={authenticator}>
+        <div>
+          <h2>File upload</h2>
+          <IKUpload fileName="test-upload.png" onError={onError} onSuccess={onSuccess} />
+        </div>
+      </ImageKitProvider>
             </label>
           </div>
           <div className={styles.topButtons}>
