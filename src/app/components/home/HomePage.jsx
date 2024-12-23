@@ -79,6 +79,52 @@ const HomePage = ({ photos }) => {
   //   fetchData();
   // }, []);
 
+  const sendMsg1 = async () => {
+    if (name === "") {
+      setErrorMsg("Введіть будь-ласка своє Ім'я");
+      return;
+    }
+    if (phone === "") {
+      setErrorMsg("Введіть будь-ласка свій номер телефону");
+      return;
+    }
+    const msg1 = `Запит на консультацію\n${name}\n${phone}`;
+
+    axios
+      .post(URI, {
+        chat_id: CHAT_ID,
+        text: msg1,
+        parse_mode: "html",
+        name,
+        phone,
+      })
+      .then((res) => {
+        setSuccess("Вашу заявку прийнято");
+        setName("");
+        setPhone("");
+        console.log('Result',res)
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+      const data1 = {
+        name,
+        phone,
+        mail: "korotka@zsaytu.com",
+        category: "Коротка",
+        item: "Коротка",
+        comment: "0",
+        price: 0,
+      };
+      try {
+        const res = await axios.post("/api/orders", data1);
+        console.log(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+  }
+
   const sendMsg = async () => {
     if (name === "") {
       setErrorMsg("Введіть будь-ласка своє Ім'я");
@@ -550,7 +596,7 @@ const HomePage = ({ photos }) => {
                   />
                 </div>
                 <div className="formGroup">
-                  <button className={styles.button} onClick={sendMsg}>
+                  <button className={styles.button} onClick={sendMsg1}>
                     Замовити послугу
                   </button>
                 </div>
