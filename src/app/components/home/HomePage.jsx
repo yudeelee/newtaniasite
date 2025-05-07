@@ -305,7 +305,7 @@ const HomePage = ({ photos }) => {
         </div>
         <div className={styles.poroposition + " " + "mt100"}>
           <div className={styles.propText}>
-            <div className="redText">що ми пропонуємо</div>
+            <div className="redText">що ми пропонуємо! </div>
             <div className="title mb20">Переваги співпраці з нами</div>
             <ul>
               {data.propositionItems &&
