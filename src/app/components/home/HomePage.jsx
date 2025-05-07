@@ -466,7 +466,7 @@ const HomePage = ({ photos }) => {
       <div className={styles.fishki + " " + "mt100"}>
         <div className={"container" + " " + styles.fishWrapper}>
           <div className={styles.fishka}>
-            <div className={styles.fishHeader}>4+</div>
+            <div className={styles.fishHeader}>5+</div>
             <div className={styles.fishBody}>років на ринку</div>
           </div>
           <div className={styles.fishka}>
