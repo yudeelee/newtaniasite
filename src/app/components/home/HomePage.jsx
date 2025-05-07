@@ -529,7 +529,7 @@ const HomePage = ({ photos }) => {
       </div>
       <div className={styles.services}>
         <div className="container">
-          <div className="title mt100 center">Фінансові послуги</div>
+          <div className="title mt100 center">Аудиторські послуги</div>
           <div className={styles.serviceWrapper}>
             {finserv?.map((buh, idx) => (
               <Link key={idx} href={`/financeservices#${buh.slogId}`}>

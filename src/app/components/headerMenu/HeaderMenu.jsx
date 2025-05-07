@@ -33,14 +33,14 @@ const HeaderMenu = ({ active }) => {
                   <Link href="/servicepackeges">Пакети Юридичних послуг</Link>
                 </li>
                 <li className={styles.serviceLink}>
-                  <Link href="/financeservices">Фінансові послуги</Link>
+                  <Link href="/financeservices">Аудиторські послуги</Link>
                 </li>
                 <li className={styles.serviceLink}>
                   <Link href="/financepackeges">Пакети Фінансових послуг</Link>
                 </li>
-                <li className={styles.serviceLink}>
+                {/* <li className={styles.serviceLink}>
                   <Link href="/audit">Аудит</Link>
-                </li>
+                </li> */}
               </ul>
             </li>
             <li className={active === "contact" ? styles.active : ""}>

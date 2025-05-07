@@ -40,7 +40,7 @@ const Footer = () => {
                 <Link href="/servicepackeges">Пакети Юридичних послуг</Link>
               </li>
               <li>
-                <Link href="/financeservices">Фінансові послуги</Link>
+                <Link href="/financeservices">Аудиторські послуги</Link>
               </li>
               <li>
                 <Link href="/financepackeges">Пакети фінансових послуг</Link>
