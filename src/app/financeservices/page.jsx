@@ -11,7 +11,7 @@ export default async function Page() {
   return (
     <div>
       <HeaderMenu active="services" />
-      <ServicePage data={newData} title="Фінансові послуги" />
+      <ServicePage data={newData} title="Аудиторські послуги" />
       <Footer />
     </div>
   );
