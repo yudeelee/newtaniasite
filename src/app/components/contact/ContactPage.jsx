@@ -197,7 +197,7 @@ const ContactPage = () => {
               <div className={styles.conText}>Електронна пошта</div>
             </div>
             <div className={styles.conData}>
-              <a href="mailto:consulting.lviv.ua@gmail.com">
+              <a href="mailto:audit@consulting.lviv.ua">
                 consulting.lviv.ua@gmail.com
               </a>
             </div>

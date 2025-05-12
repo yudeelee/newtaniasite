@@ -64,7 +64,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>+380734187147</li>
-              <li>consulting.lviv.ua@gmail.com</li>
+              <li>audit@consulting.lviv.ua</li>
             </ul>
           </div>
         </div>
