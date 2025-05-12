@@ -198,7 +198,7 @@ const ContactPage = () => {
             </div>
             <div className={styles.conData}>
               <a href="mailto:audit@consulting.lviv.ua">
-                consulting.lviv.ua@gmail.com
+              audit@consulting.lviv.ua
               </a>
             </div>
             <div className={styles.cons}>
