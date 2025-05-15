@@ -100,10 +100,10 @@ const Carusel = (props) => {
               onClick={() => clickImg("https://1uahmatters.charity/")}
             />
             <img
-              src="/img/Adeo_dental_logo.png"
+              src="/img/black.png"
               alt=""
               onClick={() =>
-                clickImg("https://www.instagram.com/adeo_dental/?hl=uk")
+                clickImg("https://blackthorn-vision.com/")
               }
             />
             <img

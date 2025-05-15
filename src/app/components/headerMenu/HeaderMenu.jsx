@@ -78,7 +78,7 @@ const HeaderMenu = ({ active }) => {
               <Link href="/servicepackeges">Пакети юридичних послуг</Link>
             </li>
             <li className={styles.serviceLink}>
-              <Link href="/financeservices">Фінансові послуги</Link>
+              <Link href="/financeservices">Аудиторські послуги</Link>
             </li>
             <li className={styles.serviceLink}>
               <Link href="/financepackeges">Пакети Фінансових послуг</Link>
