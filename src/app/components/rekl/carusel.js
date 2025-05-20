@@ -23,16 +23,16 @@ function useWindowSize() {
 }
 
 const Carusel = (props) => {
-  let radius = 600;
+  let radius = 700;
   let autoRotate = true;
   let rotateSpeed = -60;
-  let imgWidth = 250;
-  let imgHeight = 150;
+  let imgWidth = 200;
+  let imgHeight = 100;
 
   const [r, w, h] = useWindowSize();
   radius = r;
-  imgWidth = w - 10;
-  imgHeight = h - 5;
+  imgWidth = w - 30;
+  imgHeight = h - 15;
 
   useEffect(() => {
     setTimeout(init, 1000);
@@ -104,6 +104,13 @@ const Carusel = (props) => {
               alt=""
               onClick={() =>
                 clickImg("https://blackthorn-vision.com/")
+              }
+            />
+            <img
+              src="/img/crystall.png"
+              alt=""
+              onClick={() =>
+                clickImg("https://crystall.shop/")
               }
             />
             <img
