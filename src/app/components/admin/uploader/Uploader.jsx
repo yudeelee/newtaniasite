@@ -117,6 +117,7 @@ const handleUpload = async () => {
         token,
         signature,
         publicKey,);
+        console.log(Date.now());
       try {
         const result = await axios.put('/api/image', {src: uploadResponse.url});
         const newImgs = [...images];
