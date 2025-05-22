@@ -95,7 +95,7 @@ const handleUpload = async () => {
       return;
   }
   const { signature, expire, token, publicKey } = authParams;
-
+  
   // Call the ImageKit SDK upload function with the required parameters and callbacks.
   try {
       const uploadResponse = await upload({
@@ -113,7 +113,10 @@ const handleUpload = async () => {
           // Abort signal to allow cancellation of the upload if needed.
           abortSignal: abortController.signal,
       });
-      console.log("Upload response:", uploadResponse);
+      console.log("Upload response:", uploadResponse, expire,
+        token,
+        signature,
+        publicKey,);
       try {
         const result = await axios.put('/api/image', {src: uploadResponse.url});
         const newImgs = [...images];
