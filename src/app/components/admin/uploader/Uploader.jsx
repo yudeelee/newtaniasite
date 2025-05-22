@@ -122,10 +122,18 @@ const handleUpload = async () => {
         const newImgs = [...images];
           newImgs.unshift({ src: result.data.src });
           setImages(newImgs);
-        console.log(result.data.src)
+        console.log(result.data.src);        
       } catch (error) {
         console.log(error)
       }
+      try {
+        authParams = await authenticator();
+    } catch (authError) {
+        console.error("Failed to authenticate for upload:", authError);
+        return;
+    }
+    
+    console.log(authParams.signature, authParams.expire, authParams.token)
   } catch (error) {
       // Handle specific error types provided by the ImageKit SDK.
       if (error instanceof ImageKitAbortError) {
