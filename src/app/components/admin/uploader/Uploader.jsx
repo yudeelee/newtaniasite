@@ -7,13 +7,13 @@ import { IoCloudUploadOutline } from 'react-icons/io5';
 import { LuArrowDownRightFromCircle } from 'react-icons/lu';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 
-import {
-  ImageKitAbortError,
-  ImageKitInvalidRequestError,
-  ImageKitServerError,
-  ImageKitUploadNetworkError,
-  upload,
-} from "@imagekit/next";
+// import {
+//   ImageKitAbortError,
+//   ImageKitInvalidRequestError,
+//   ImageKitServerError,
+//   ImageKitUploadNetworkError,
+//   upload,
+// } from "@imagekit/next";
 // import Image from '../../../../../models/Image';
 
 import { ImageKitProvider, IKImage, IKUpload } from "imagekitio-next";
@@ -53,26 +53,26 @@ const Uploader = ({ close, select }) => {
   // Create an AbortController instance to provide an option to cancel the upload if needed.
   const abortController = new AbortController();
 
-  const authenticator = async () => {
-    try {
-        // Perform the request to the upload authentication endpoint.
-        const response = await fetch("/api/kitauth");
-        if (!response.ok) {
-            // If the server response is not successful, extract the error text for debugging.
-            const errorText = await response.text();
-            throw new Error(`Request failed with status ${response.status}: ${errorText}`);
-        }
+//   const authenticator = async () => {
+//     try {
+//         // Perform the request to the upload authentication endpoint.
+//         const response = await fetch("/api/kitauth");
+//         if (!response.ok) {
+//             // If the server response is not successful, extract the error text for debugging.
+//             const errorText = await response.text();
+//             throw new Error(`Request failed with status ${response.status}: ${errorText}`);
+//         }
 
-        // Parse and destructure the response JSON for upload credentials.
-        const data = await response.json();
-        const { signature, expire, token, publicKey } = data;
-        return { signature, expire, token, publicKey };
-    } catch (error) {
-        // Log the original error for debugging before rethrowing a new error.
-        console.error("Authentication error:", error);
-        throw new Error("Authentication request failed");
-    }
-};
+//         // Parse and destructure the response JSON for upload credentials.
+//         const data = await response.json();
+//         const { signature, expire, token, publicKey } = data;
+//         return { signature, expire, token, publicKey };
+//     } catch (error) {
+//         // Log the original error for debugging before rethrowing a new error.
+//         console.error("Authentication error:", error);
+//         throw new Error("Authentication request failed");
+//     }
+// };
 
 
 const handleUpload = async () => {
@@ -212,23 +212,23 @@ const handleUpload = async () => {
         <div className={styles.header}>
           <div className={styles.choos}>
             <label>
-              {/* <IoCloudUploadOutline />
+               <IoCloudUploadOutline />
               Завантажити
               <ImageKitProvider publicKey={publicKey} urlEndpoint={urlEndpoint} authenticator={authenticator}>
         <div>
           <h2>File upload</h2>
           <IKUpload fileName="test-upload.png" onError={onError} onSuccess={onSuccess} />
         </div>
-      </ImageKitProvider> */}
+      </ImageKitProvider> 
 
-<input type="file" ref={fileInputRef} onChange={handleUpload}/>
+{/* <input type="file" ref={fileInputRef} onChange={handleUpload}/> */}
             {/* Button to trigger the upload process */}
             {/* <button type="button" onClick={handleUpload}>
                 Upload file
             </button> */}
-            <IoCloudUploadOutline />
+            {/* <IoCloudUploadOutline />
               Завантажити
-            <br />
+            <br /> */}
             {/* Display the current upload progress */}
             {/* Upload progress: <progress value={progress} max={100}></progress> */}
             </label>
