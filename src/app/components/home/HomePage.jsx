@@ -270,7 +270,7 @@ const HomePage = ({ photos }) => {
             </Link>
           </div>
           <div className={styles.heroImg}>
-            <img src="/img/main1.jpg" alt="" />
+            <img src="/img/backkk.jpg" alt="" />
           </div>
         </div>
         <div className={styles.youtube}>
