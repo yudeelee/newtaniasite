@@ -264,7 +264,7 @@ const HomePage = ({ photos }) => {
             {/* <p className={styles.heroText}>
               широкий спектр фінансових та бухгалтерських послуг для бізнесу
             </p> */}
-            <p className="text">{data.slog}</p>
+            <p className="text">{data.slog}</p><br />
             <Link href="/services" className={styles.button}>
               Замовити послугу
             </Link>
