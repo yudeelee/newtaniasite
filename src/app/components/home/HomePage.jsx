@@ -265,14 +265,14 @@ const HomePage = ({ photos }) => {
               широкий спектр фінансових та бухгалтерських послуг для бізнесу
             </p> */}
            
-            <div className={styles.bestseller}>Best seller</div>
+            {/* <div className={styles.bestseller}>Best seller</div> */}
             <a href="#auditService"><p className={`text ${styles.headerSlog}`}>{data.slog}</p></a><br />
             <Link href="/services" className={styles.button}>
               Замовити послугу
             </Link>
           </div>
           <div className={styles.heroImg}>
-            <img src="/img/backkk1.jpg" alt="" />
+            <img src="/img/backkk2.jpg" alt="" />
           </div>
         </div>
         <div className={styles.youtube}>

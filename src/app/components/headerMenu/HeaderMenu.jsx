@@ -10,7 +10,7 @@ const HeaderMenu = ({ active }) => {
     <div className={styles.HeaderMenu}>
       <div className={`container ${styles.menuWrapper}`}>
         <div className={styles.logo}>
-          <img src="/img/Blue1.png" alt="" />
+          <img src="/img/Blue2.png" alt="" />
         </div>
         <nav className={styles.menu}>
           <ul className={styles.topMenu}>
