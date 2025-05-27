@@ -43,8 +43,9 @@
       position: relative;
       margin-right: 53px;
       padding: 7px 0px;
-      // border-bottom: 2px solid transparent;
+      border-bottom: 2px solid transparent;
       cursor: pointer;
+      transition: all 0.5s;
       a {
         text-decoration: none;
         color: black;
@@ -52,13 +53,15 @@
         @media (max-width: 700px) {
           margin-right: 23px;
         }
-        &:hover {
-          
-        }
+        
+      }
+      &:hover {
+        border-bottom: 2px solid black;
       }
       .serviceMenu {
         display: none;
         background-color: #facad1;
+        padding-bottom: 30px;
       }
       &:hover {
         color: #edafb8;
