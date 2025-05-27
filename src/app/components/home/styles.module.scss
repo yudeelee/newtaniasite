@@ -46,11 +46,13 @@
     @media (max-width: 550px) {
       font-size: 35px;
     }
-    span {
+    span.oneSub {
+      font-size: 40px;
+    font-weight: 500;
       color: black;
       @media (max-width: 1000px) {
         text-transform: uppercase;
-        font-weight: 700;
+        font-weight: 500;
         // color: #edafb8;
         font-size: 40px;
       }
@@ -58,6 +60,37 @@
         font-size: 35px;
       }
     }
+    span.twoSub {
+      font-size: 40px;
+    font-weight: 500;
+      @media (max-width: 1000px) {
+        text-transform: uppercase;
+        font-weight: 500;
+        // color: #edafb8;
+        font-size: 40px;
+      }
+      @media (max-width: 550px) {
+        font-size: 35px;
+      }
+    }
+  }
+  .bestseller {
+    background-color: #fd354c;
+    border-radius: 5px 5px 0px 0px;
+    margin-bottom: 0px;
+    width: 100px;
+    margin-left: 30px;
+    text-align: center;
+    cursor: pointer;
+  }
+  .headerSlog {
+    color: black;
+    background-color: #fd354c;
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    cursor: pointer;
   }
   .heroText {
     font-size: 20px;
@@ -300,6 +333,21 @@
         font-weight: 600;
         text-decoration: none;
         color: #edafb8;
+      }
+      &.audit {
+        border: 2px solid #fd354c;
+        padding: 10px;
+        border-radius: 10px;
+        position: relative;
+        .bestStamp {
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          transform: rotateZ(-30deg);
+          background-color: #fd354c;
+          border-radius: 10px;
+          padding: 2px 10px;
+        }
       }
     }
   }

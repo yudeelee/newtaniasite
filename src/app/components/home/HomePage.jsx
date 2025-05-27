@@ -258,13 +258,15 @@ const HomePage = ({ photos }) => {
             <h1 className={styles.heroTitle}>{data.title}</h1>
             <h3 className={styles.heroSubTitle}>
               {data.subTitle}
-              <span> {data.subTitle2} </span>
-              {data.subTitle3}
+              <span className={styles.oneSub}> {data.subTitle2} </span>
+              <span className={styles.twoSub}>{data.subTitle3}</span>
             </h3>
             {/* <p className={styles.heroText}>
               широкий спектр фінансових та бухгалтерських послуг для бізнесу
             </p> */}
-            <p className="text">{data.slog}</p><br />
+           
+            <div className={styles.bestseller}>Best seller</div>
+            <a href="#auditService"><p className={`text ${styles.headerSlog}`}>{data.slog}</p></a><br />
             <Link href="/services" className={styles.button}>
               Замовити послугу
             </Link>
@@ -529,11 +531,12 @@ const HomePage = ({ photos }) => {
       </div>
       <div className={styles.services}>
         <div className="container">
-          <div className="title mt100 center">Аудиторські послуги</div>
+          <div className="title mt100 center" id="auditService">Аудиторські послуги</div>
           <div className={styles.serviceWrapper}>
             {finserv?.map((buh, idx) => (
               <Link key={idx} href={`/financeservices#${buh.slogId}`}>
-                <div className={styles.service}>
+                <div className={`${styles.service} ${idx == 0 ? styles.audit : ''}`}>
+                  {idx == 0 && <div className={styles.bestStamp}>Best seller</div>}
                   <div className={styles.serHeader}>{buh.name}</div>
                   <div className={styles.serBody}>{buh.description}</div>
                   <div className={styles.serLink}>Читати більше &#8594;</div>
