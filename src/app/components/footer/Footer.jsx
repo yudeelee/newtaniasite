@@ -70,7 +70,7 @@ const Footer = () => {
         </div>
       </div>
       <div className={styles.footTextWrapper}>
-      <div className={styles.footText}><Link href="/privacypolicy">Політика конфіденційності</Link></div>
+      <div className={styles.footText}><Link href="/privacypolicy">Політика конфіденційності</Link><Link href="/oferta">Публічна оферта</Link></div>
         <div className={styles.footText}>ТОВ "АУДИТ КОНСУЛЬТАНТ" ЄДРПОУ 45845554 м. Львів</div></div>
     </div>
   );
