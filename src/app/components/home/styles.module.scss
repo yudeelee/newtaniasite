@@ -19,7 +19,8 @@
     box-sizing: border-box;
   }
   .heroTitle {
-    font-size: 55px;
+    font-size: 45px;
+    line-height: 1.1;
     font-weight: 700;
     font-family: "Poppins", sans-serif;
     @media (max-width: 1279px) {
@@ -37,6 +38,7 @@
   .heroSubTitle {
     font-size: 40px;
     font-weight: 700;
+    line-height: 1.1;
     color: #edafb8;
     @media (max-width: 1000px) {
       text-transform: uppercase;
@@ -49,6 +51,7 @@
     span.oneSub {
       font-size: 40px;
     font-weight: 500;
+    
       color: black;
       @media (max-width: 1000px) {
         text-transform: uppercase;
