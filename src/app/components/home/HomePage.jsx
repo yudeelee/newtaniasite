@@ -265,7 +265,9 @@ const HomePage = ({ photos }) => {
               широкий спектр фінансових та бухгалтерських послуг для бізнесу
             </p> */}
            
+            
             {/* <div className={styles.bestseller}>Best seller</div> */}
+            <a href="#auditService"><p className={`text ${styles.headerSlog}`}><div className={styles.bestStamp}>Best seller</div>Супровід ФОП з бухгалтером-консультантом 2000 грн. Підписка</p></a><br />
             <a href="#auditService"><p className={`text ${styles.headerSlog}`}><div className={styles.bestStamp}>Best seller</div>{data.slog}</p></a><br />
             <Link href="/services" className={styles.button}>
               Замовити послугу
