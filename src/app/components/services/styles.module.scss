@@ -136,3 +136,18 @@
     transform: rotateZ(0deg);
   }
 }
+
+.liqpay {  
+  text-decoration: none;
+  display: inline-block;
+    color: white;
+    background-color: #fd354c;    
+    padding: 15px 40px;
+    border-radius: 2px;       
+    font-weight: 700;
+    // margin-top: 10px;
+    cursor: pointer;
+    &:hover {
+      box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.3);      
+    }
+}
