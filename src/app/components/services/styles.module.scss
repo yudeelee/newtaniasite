@@ -57,6 +57,9 @@
     td {
       padding: 5px;
       border: 0px;
+      &.payWrapper {
+        width: 100%;
+      }
     }
     .row {
       transition: all 0.5s;
@@ -137,6 +140,15 @@
   }
 }
 
+.payWrapper {
+  box-sizing: border-box;
+  @media (max-width: 1000px) {
+    // width: 100%;
+    // display: flex !important;
+    // justify-content: center !important;
+  }
+}
+
 .liqpay {  
   text-decoration: none;
   display: inline-block;
@@ -149,5 +161,8 @@
     cursor: pointer;
     &:hover {
       box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.3);      
+    }
+    @media (max-width: 1000px) {
+      width: 100%;
     }
 }
