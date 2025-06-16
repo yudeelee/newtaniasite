@@ -301,10 +301,14 @@ const ContactPage = () => {
                 onChange={(e) => setComment(e.target.value)}
               ></textarea>
             </div>
-            <div className={styles.formControl}>
+            <div className={styles.price}>
+                Вартість послуги {price} грн.
+            </div>
+            <div className={styles.formControl + ' ' + styles.payWrapper}>
               <button className="button" onClick={sendMessage}>
                 Замовити послугу
               </button>
+              <a target="blank" className={styles.pay} href="https://www.liqpay.ua/api/3/checkout?data=eyJ2ZXJzaW9uIjozLCJhY3Rpb24iOiJwYXlkb25hdGUiLCJhbW91bnQiOiIwLjAwIiwiY3VycmVuY3kiOiJVQUgiLCJkZXNjcmlwdGlvbiI6ItCe0L/Qu9Cw0YLQsCDQt9CwINC60L7QvdGB0LDQu9GC0LjQvdCz0L7QstGWINC/0L7RgdC70YPQs9C4IiwicHVibGljX2tleSI6ImkzMjI4MDc2MDI2MCIsImxhbmd1YWdlIjoidWsifQ==&signature=o21g3qGWxer/DBHiNoHHOptQkiI=">Оплатити</a>                             
             </div>
           </div>
         </div>

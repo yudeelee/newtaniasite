@@ -24,7 +24,7 @@
 }
 
 .contacts {
-  flex: 0 0 55%;
+  flex: 0 0 50%;
   @media (max-width: 900px) {
     flex: 0 0 100%;
     width: 100%;
@@ -134,4 +134,38 @@
     font-size: 18px;
     font-weight: 700;
   }
+}
+
+.price {
+  color: #611f29;
+  margin: 10px 0px;
+  font-weight: 900;
+}
+
+.payWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  @media (max-width:1270px) {
+    flex-direction: column;
+  }
+}
+
+.pay {
+  text-decoration: none;
+  display: inline-block;
+    color: white;
+    background-color: #fd354c;    
+    padding: 15px 40px;
+    border-radius: 2px;       
+    font-weight: 700;    
+    font-size: 18px;
+    cursor: pointer;
+    &:hover {
+      box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.3);      
+    }
+    @media (max-width: 1000px) {
+      width: 100%;
+    }
 }
