@@ -119,7 +119,7 @@ const ServicePage = ({ data, title }) => {
                               </tr>
                             {idx == 0 && idx1 == 0 && title == 'Бухгалтерські послуги' ?  
                               <div className={styles.payWrapper} colSpan={4}>
-                                <a target="blank" className={styles.liqpay} href="https://www.liqpay.ua/api/3/checkout?data=eyJ2ZXJzaW9uIjozLCJhY3Rpb24iOiJzdWJzY3JpYmUiLCJhbW91bnQiOiIyMDAwIiwiY3VycmVuY3kiOiJVQUgiLCJkZXNjcmlwdGlvbiI6ItCe0L/Qu9Cw0YLQsCDQt9CwINCx0YPRhdCz0LDQu9GC0LXRgNGB0YzQutC40Lkg0YHRg9C/0YDQvtCy0ZbQtCIsInB1YmxpY19rZXkiOiJzYW5kYm94X2k2MzgxOTQ5MTE2IiwibGFuZ3VhZ2UiOiJ1ayIsInN1YnNjcmliZSI6MSwic3Vic2NyaWJlX2RhdGVfc3RhcnQiOiJub3ciLCJzdWJzY3JpYmVfcGVyaW9kaWNpdHkiOiJtb250aCJ9&signature=cFQZ/9pt7toMBCF1/7TKItq+rPk=">Оформити підписку</a>
+                                <a target="blank" className={styles.liqpay} href="https://www.liqpay.ua/api/3/checkout?data=eyJ2ZXJzaW9uIjozLCJhY3Rpb24iOiJzdWJzY3JpYmUiLCJhbW91bnQiOiIyMDAwIiwiY3VycmVuY3kiOiJVQUgiLCJkZXNjcmlwdGlvbiI6ItCR0YPRhdCz0LDQu9GC0LXRgNGB0YzQutC40Lkg0YHRg9C/0YDQvtCy0ZbQtCIsInB1YmxpY19rZXkiOiJpMzIyODA3NjAyNjAiLCJsYW5ndWFnZSI6InVrIiwic3Vic2NyaWJlIjoxLCJzdWJzY3JpYmVfZGF0ZV9zdGFydCI6Im5vdyIsInN1YnNjcmliZV9wZXJpb2RpY2l0eSI6Im1vbnRoIn0=&signature=3r9n/w0ubi9rO2qml+Oyjk3Ki7c=">Оформити підписку</a>
                               </div>
                              : idx == 0 && idx1 == 0 && title == 'Аудиторські послуги' ? 
                               <div className={styles.payWrapper} colSpan={4}>
