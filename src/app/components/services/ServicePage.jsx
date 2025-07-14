@@ -123,7 +123,7 @@ const ServicePage = ({ data, title }) => {
                               </div>
                              : idx == 0 && idx1 == 0 && title == 'Аудиторські послуги' ? 
                               <div className={styles.payWrapper} colSpan={4}>
-                                <a target="blank" className={styles.liqpay} href="https://www.liqpay.ua/api/3/checkout?data=eyJ2ZXJzaW9uIjozLCJhY3Rpb24iOiJwYXkiLCJhbW91bnQiOiIxMDkwMCIsImN1cnJlbmN5IjoiVUFIIiwiZGVzY3JpcHRpb24iOiJDaGVjayB1cCDQsdGW0LfQvdC10YHRgyIsInB1YmxpY19rZXkiOiJzYW5kYm94X2k2MzgxOTQ5MTE2IiwibGFuZ3VhZ2UiOiJ1ayJ9&signature=JYhGTtRZ8rWz37eSh35cA+Q1OrU=">Оформити замовлення</a>
+                                <a target="blank" className={styles.liqpay} href="https://www.liqpay.ua/api/3/checkout?data=eyJ2ZXJzaW9uIjozLCJhY3Rpb24iOiJwYXkiLCJhbW91bnQiOiIxMDkwMCIsImN1cnJlbmN5IjoiVUFIIiwiZGVzY3JpcHRpb24iOiJDaGVjayB1cCDQsdGW0LfQvdC10YHRgyIsInB1YmxpY19rZXkiOiJpMzIyODA3NjAyNjAiLCJsYW5ndWFnZSI6InVrIn0=&signature=iDoihs3SFZvcRD15aZ1U7bAJat8=">Оформити замовлення</a>
                               </div>
                              : ''}</>
                             );
