@@ -1,0 +1,102 @@
+"use client";
+
+import Link from "next/link";
+import styles from "./styles.module.scss";
+import { useState } from "react";
+
+const HeaderMenu = ({ active }) => {
+  const [burger, setBurger] = useState(false);
+  return (
+    <div className={styles.HeaderMenu}>
+      <div className={`container ${styles.menuWrapper}`}>
+        <div className={styles.logo}>
+          <img src="/img/Blue2.png" alt="" />
+        </div>
+        <nav className={styles.menu}>
+          <ul className={styles.topMenu}>
+            <li className={active === "home" ? styles.active : ""}>
+              <Link href="/">Home</Link>
+            </li>
+            <li className={active === "about" ? styles.active : ""}>
+              <Link href="/about">About Us</Link>
+            </li>
+            <li className={active === "services" ? styles.active : ""}>
+              Our Services
+              <ul className={styles.serviceMenu}>
+                <li className={styles.serviceLink}>
+                  <Link href="/services">Accounting services</Link>
+                </li>
+                <li className={styles.serviceLink}>
+                  <Link href="/legalservices">Legal services</Link>
+                </li>
+                <li className={styles.serviceLink}>
+                  <Link href="/servicepackeges">Legal Services Packages</Link>
+                </li>
+                <li className={styles.serviceLink}>
+                  <Link href="/financeservices">Audit services</Link>
+                </li>
+                <li className={styles.serviceLink}>
+                  <Link href="/financepackeges">Financial Services Packages</Link>
+                </li>
+                {/* <li className={styles.serviceLink}>
+                  <Link href="/audit">Аудит</Link>
+                </li> */}
+              </ul>
+            </li>
+            <li className={active === "contact" ? styles.active : ""}>
+              <Link href="/contact">Order</Link>
+            </li>
+          </ul>
+          <div
+            className={`${styles.burger}`}
+            onClick={() => setBurger(!burger)}
+          >
+            <div
+              className={`${styles.line1} ${burger ? styles.open : ""}`}
+            ></div>
+            <div
+              className={`${styles.line2} ${burger ? styles.open : ""}`}
+            ></div>
+            <div
+              className={`${styles.line3} ${burger ? styles.open : ""}`}
+            ></div>
+          </div>
+          <ul className={`${styles.burgerMenu} ${!burger ? styles.open : ""}`}>
+            <li className={active === "home" ? styles.active : ""}>
+              <Link href="/">Головна</Link>
+            </li>
+            <li className={active === "about" ? styles.active : ""}>
+              <Link href="/about">Про нас</Link>
+            </li>
+            <li className={styles.serviceLink}>
+              <Link href="/services">Бухгалтерські послуги</Link>
+            </li>
+            <li className={styles.serviceLink}>
+              <Link href="/legalservices">Юридичні послуги</Link>
+            </li>
+            <li className={styles.serviceLink}>
+              <Link href="/servicepackeges">Пакети юридичних послуг</Link>
+            </li>
+            <li className={styles.serviceLink}>
+              <Link href="/financeservices">Аудиторські послуги</Link>
+            </li>
+            <li className={styles.serviceLink}>
+              <Link href="/financepackeges">Пакети Фінансових послуг</Link>
+            </li>
+            {/* <li className={active === "services" ? styles.active : ""}>
+              Наші послуги
+              <ul className={styles.serviceMenu}>
+                
+              </ul>
+            </li> */}
+            <li className={active === "contact" ? styles.active : ""}>
+              <Link href="/contact">Замовити</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  );
+};
+
+export default HeaderMenu;

@@ -94,14 +94,14 @@ const handleUpload = async () => {
       console.error("Failed to authenticate for upload:", authError);
       return;
   }
-  const { signature, expire, token, publicKey } = authParams;
+  const { signature, expire, publicKey } = authParams;
   
   // Call the ImageKit SDK upload function with the required parameters and callbacks.
   try {
       const uploadResponse = await upload({
           // Authentication parameters
           expire,
-          token,
+          token: authParams.token,
           signature,
           publicKey,
           file,

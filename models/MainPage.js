@@ -8,16 +8,31 @@ const mainPageSchema = new mongoose.Schema(
     title: {
       type: String,
     },
+    titleen: {
+      type: String,
+    },
     subTitle: {
+      type: String,
+    },
+    subTitleen: {
       type: String,
     },
     subTitle2: {
       type: String,
     },
+    subTitle2en: {
+      type: String,
+    },
     subTitle3: {
       type: String,
     },
+    subTitle3en: {
+      type: String,
+    },
     slog: {
+      type: String,
+    },
+    slogen: {
       type: String,
     },
     youtubeId: {
@@ -26,15 +41,35 @@ const mainPageSchema = new mongoose.Schema(
     aboutTitle: {
       type: String,
     },
+    aboutTitleen: {
+      type: String,
+    },
     aboutText: {
+      type: String,
+    },
+    aboutTexten: {
       type: String,
     },
     propositionTitle: {
       type: String,
     },
+    propositionTitleen: {
+      type: String,
+    },
     propositionItems: [String],
+    propositionItemsen: [String],
     photos: [{ src: { type: String } }],
     fishki: [
+      {
+        header: {
+          type: String,
+        },
+        body: {
+          type: String,
+        },
+      },
+    ],
+    fishkien: [
       {
         header: {
           type: String,
@@ -67,7 +102,13 @@ const mainPageSchema = new mongoose.Schema(
     quiqTitle: {
       type: String,
     },
+    quiqTitleen: {
+      type: String,
+    },
     quiqText: {
+      type: String,
+    },
+    quiqTexten: {
       type: String,
     },
   },

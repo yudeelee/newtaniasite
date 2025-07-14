@@ -29,6 +29,7 @@ export async function PUT(req) {
   try {
     await db.connectDb();
     const data = body;
+    console.log(data);
     const newPage = await MainPage.findByIdAndUpdate(
       '656073b6e19858a026acd1de',
       {

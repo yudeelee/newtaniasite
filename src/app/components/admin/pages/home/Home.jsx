@@ -13,15 +13,24 @@ import axios from 'axios';
 const InitialState = {
   topImg: '',
   title: '',
+  titleen: '',
   subTitle: '',
+  subTitleen: '',
   subTitle2: '',
+  subTitle2en: '',
   subTitle3: '',
+  subTitle3en: '',
   slog: '',
+  slogen: '',
   youtubeId: '',
   aboutTitle: '',
+  aboutTitleen: '',
   aboutText: '',
+  aboutTexten: '',
   propositionTitle: '',
+  propositionTitleen: '',
   propositionItems: [],
+  propositionItemsen: [],
   photos: [
     { src: '' },
     { src: '' },
@@ -36,10 +45,17 @@ const InitialState = {
     { header: '', body: '' },
     { header: '', body: '' },
   ],
+  fishkien: [
+    { header: '', body: '' },
+    { header: '', body: '' },
+    { header: '', body: '' },
+  ],
   services: [],
   clients: [],
   quiqTitle: '',
+  quiqTitleen: '',
   quiqText: '',
+  quiqTexten: '',
 };
 
 const Home = () => {
@@ -54,6 +70,7 @@ const Home = () => {
   const [img7Open, setImg7Open] = useState(false);
 
   const [value, setValue] = useState('');
+  const [value1, setValue1] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -61,6 +78,7 @@ const Home = () => {
         const res = await axios.get('/api/mainpage');
         setData(res.data);
         setValue(res.data.aboutText);
+        setValue1(res.data.aboutTexten);
       } catch (error) {
         console.log(error);
       }
@@ -71,6 +89,10 @@ const Home = () => {
   useEffect(() => {
     setData({ ...data, aboutText: value });
   }, [value]);
+
+  useEffect(() => {
+    setData({ ...data, aboutTexten: value1 });    
+  }, [value1]);
 
   const onReady = (event) => {
     const player = event.target;
@@ -92,10 +114,22 @@ const Home = () => {
     setData({ ...data, propositionItems: props });
   };
 
+  const addProposition1 = () => {
+    const props = data.propositionItemsen;
+    props.push('');
+    setData({ ...data, propositionItemsen: props });
+  };
+
   const deleteProposition = (idx) => {
     let props = data.propositionItems;
     props = props.filter((p, i) => i !== idx);
     setData({ ...data, propositionItems: props });
+  };
+
+  const deleteProposition1 = (idx) => {
+    let props = data.propositionItemsen;
+    props = props.filter((p, i) => i !== idx);
+    setData({ ...data, propositionItemsen: props });
   };
 
   const setProposition = (idx, value) => {
@@ -105,6 +139,7 @@ const Home = () => {
   };
 
   const save = async () => {
+    console.log(data);
     try {
       const res = await axios.put('/api/mainpage', data);
       setData(res.data);
@@ -142,6 +177,17 @@ const Home = () => {
             />
           </div>
           <div className={styles.formControl}>
+            <label htmlFor=''>Заголовок (eng)</label>
+            <input
+              type='text'
+              value={data.titleen || ''}
+              onChange={(e) => {
+                console.log(data.titleen);
+                console.log(data);
+                return setData({ ...data, titleen: e.target.value })}}
+            />
+          </div>
+          <div className={styles.formControl}>
             <label htmlFor=''>Підзаголовок</label>
             <div className={styles.subtitles}>
               <input
@@ -166,11 +212,43 @@ const Home = () => {
             </div>
           </div>
           <div className={styles.formControl}>
+            <label htmlFor=''>Підзаголовок (eng)</label>
+            <div className={styles.subtitles}>
+              <input
+                type='text'
+                value={data.subTitleen || ''}
+                onChange={(e) => setData({ ...data, subTitleen: e.target.value })}
+              />
+              <input
+                type='text'
+                value={data.subTitle2en || ''}
+                onChange={(e) =>
+                  setData({ ...data, subTitle2en: e.target.value })
+                }
+              />
+              <input
+                type='text'
+                value={data.subTitle3en || ''}
+                onChange={(e) =>
+                  setData({ ...data, subTitle3en: e.target.value })
+                }
+              />
+            </div>
+          </div>
+          <div className={styles.formControl}>
             <label htmlFor=''>Слоган</label>
             <input
               type='text'
               value={data.slog || ''}
               onChange={(e) => setData({ ...data, slog: e.target.value })}
+            />
+          </div>
+          <div className={styles.formControl}>
+            <label htmlFor=''>Слоган (eng)</label>
+            <input
+              type='text'
+              value={data.slogen || ''}
+              onChange={(e) => setData({ ...data, slogen: e.target.value })}
             />
           </div>
         </div>
@@ -205,12 +283,28 @@ const Home = () => {
         />
       </div>
       <div className={styles.formControl}>
+        <label htmlFor=''>Заголовок (eng)</label>
+        <input
+          type='text'
+          value={data.aboutTitleen || ''}
+          onChange={(e) => setData({ ...data, aboutTitleen: e.target.value })}
+        />
+      </div>
+      <div className={styles.formControl}>
         <label htmlFor=''>Текст</label>
         {/* <textarea
           value={data.aboutText || ''}
           onChange={(e) => setData({ ...data, aboutText: e.target.value })}
         ></textarea> */}
         <ReactQuill theme='snow' value={value} onChange={setValue} />
+      </div>
+      <div className={styles.formControl}>
+        <label htmlFor=''>Текст (eng)</label>
+        {/* <textarea
+          value={data.aboutText || ''}
+          onChange={(e) => setData({ ...data, aboutText: e.target.value })}
+        ></textarea> */}
+        <ReactQuill theme='snow' value={value1} onChange={setValue1} />
       </div>
       <div className={styles.line}>Що ми пропонуємо</div>
       <div className={styles.formControl}>
@@ -220,6 +314,16 @@ const Home = () => {
           value={data.propositionTitle || ''}
           onChange={(e) =>
             setData({ ...data, propositionTitle: e.target.value })
+          }
+        />
+      </div>
+      <div className={styles.formControl}>
+        <label htmlFor=''>Заголовок (eng)</label>
+        <input
+          type='text'
+          value={data.propositionTitleen || ''}
+          onChange={(e) =>
+            setData({ ...data, propositionTitleen: e.target.value })
           }
         />
       </div>
@@ -266,7 +370,50 @@ const Home = () => {
           Додати
         </button>
       </div>
-      <div className={styles.line}>Фотографії</div>
+      <div className={styles.formControl}>
+        <label htmlFor=''>Пункти (eng)</label>
+      </div>
+      {data.propositionItemsen.map((prop, idx) => {
+        return (
+          <div
+            key={idx}
+            className={styles.formControl + ' ' + styles.deleteCtrl}
+          >
+            <input
+              type='text'
+              value={prop || ''}
+              onChange={(e) => {
+                let props = data.propositionItemsen;
+                props[idx] = e.target.value;
+                setData({ ...data, propositionItemsen: props });
+              }}
+            />
+            <button onClick={() => deleteProposition1(idx)}>
+              <MdDeleteOutline />
+            </button>
+          </div>
+        );
+      })}
+
+      {/* <div className={styles.formControl}>
+        <input type='text' />
+      </div>
+      <div className={styles.formControl}>
+        <input type='text' />
+      </div>
+      <div className={styles.formControl}>
+        <input type='text' />
+      </div>
+      <div className={styles.formControl}>
+        <input type='text' />
+      </div> */}
+      <div className={styles.bButtons}>
+        <button onClick={addProposition1}>
+          <IoIosAddCircleOutline />
+          Додати
+        </button>
+      </div>
+      {/* <div className={styles.line}>Фотографії</div>
       <div className={styles.photos}>
         <div className={styles.topImage + ' ' + styles.small}>
           <img src={data?.photos[0]?.src} alt='' />
@@ -317,7 +464,7 @@ const Home = () => {
             Змінити
           </button>
         </div>
-      </div>
+      </div> */}
       <div className={styles.line}>Фішки</div>
       <div className={styles.fishki}>
         <div className={styles.formControl}>
@@ -329,6 +476,18 @@ const Home = () => {
               let fish = data.fishki;
               fish[0].header = e.target.value;
               setData({ ...data, fishki: fish });
+            }}
+          />
+        </div>
+        <div className={styles.formControl}>
+          <label htmlFor=''>Заголовок (eng)</label>
+          <input
+            type='text'
+            value={data?.fishkien[0]?.header || ''}
+            onChange={(e) => {
+              let fish = data.fishkien;
+              fish[0].header = e.target.value;
+              setData({ ...data, fishkien: fish });
             }}
           />
         </div>
@@ -345,6 +504,18 @@ const Home = () => {
           />
         </div>
         <div className={styles.formControl}>
+          <label htmlFor=''>Текст (eng)</label>
+          <input
+            type='text'
+            value={data?.fishkien[0]?.body || ''}
+            onChange={(e) => {
+              let fish = data.fishkien;
+              fish[0].body = e.target.value;
+              setData({ ...data, fishkien: fish });
+            }}
+          />
+        </div>
+        <div className={styles.formControl}>
           <label htmlFor=''>Заголовок</label>
           <input
             type='text'
@@ -353,6 +524,18 @@ const Home = () => {
               let fish = data.fishki;
               fish[1].header = e.target.value;
               setData({ ...data, fishki: fish });
+            }}
+          />
+        </div>
+        <div className={styles.formControl}>
+          <label htmlFor=''>Заголовок (eng)</label>
+          <input
+            type='text'
+            value={data?.fishkien[1]?.header || ''}
+            onChange={(e) => {
+              let fish = data.fishkien;
+              fish[1].header = e.target.value;
+              setData({ ...data, fishkien: fish });
             }}
           />
         </div>
@@ -369,6 +552,18 @@ const Home = () => {
           />
         </div>
         <div className={styles.formControl}>
+          <label htmlFor=''>Текст (eng)</label>
+          <input
+            type='text'
+            value={data?.fishkien[1]?.body || ''}
+            onChange={(e) => {
+              let fish = data.fishkien;
+              fish[1].body = e.target.value;
+              setData({ ...data, fishkien: fish });
+            }}
+          />
+        </div>
+        <div className={styles.formControl}>
           <label htmlFor=''>Заголовок</label>
           <input
             type='text'
@@ -381,6 +576,18 @@ const Home = () => {
           />
         </div>
         <div className={styles.formControl}>
+          <label htmlFor=''>Заголовок (eng)</label>
+          <input
+            type='text'
+            value={data?.fishkien[2]?.header || ''}
+            onChange={(e) => {
+              let fish = data.fishkien;
+              fish[2].header = e.target.value;
+              setData({ ...data, fishkien: fish });
+            }}
+          />
+        </div>
+        <div className={styles.formControl}>
           <label htmlFor=''>Текст</label>
           <input
             type='text'
@@ -389,6 +596,18 @@ const Home = () => {
               let fish = data.fishki;
               fish[2].body = e.target.value;
               setData({ ...data, fishki: fish });
+            }}
+          />
+        </div>
+        <div className={styles.formControl}>
+          <label htmlFor=''>Текст (eng)</label>
+          <input
+            type='text'
+            value={data?.fishkien[2]?.body || ''}
+            onChange={(e) => {
+              let fish = data.fishkien;
+              fish[2].body = e.target.value;
+              setData({ ...data, fishkien: fish });
             }}
           />
         </div>
@@ -409,7 +628,7 @@ const Home = () => {
           <input type='text' />
         </div> */}
       </div>
-      <div className={styles.line}>Послуги</div>
+      {/* <div className={styles.line}>Послуги</div>
       <div className={styles.formControl}>
         <label htmlFor=''>Заголовок</label>
         <input type='text' />
@@ -457,8 +676,8 @@ const Home = () => {
       <div className={styles.formControl}>
         <label htmlFor=''>Текст</label>
         <input type='text' />
-      </div>
-      <div className={styles.line}>Клієнти</div>
+      </div> */}
+      {/* <div className={styles.line}>Клієнти</div>
       <div className={styles.topImage + ' ' + styles.small}>
         <img src='' alt='' />
         <button>
@@ -469,15 +688,43 @@ const Home = () => {
           <label htmlFor=''>Посилання</label>
           <input type='text' />
         </div>
-      </div>
+      </div> */}
       <div className={styles.line}>Швидка дія</div>
       <div className={styles.formControl}>
         <label htmlFor=''>Заголовок</label>
-        <input type='text' />
+        <input type='text' 
+        value={data.quiqTitle || ''}
+        onChange={(e) =>
+          setData({ ...data, quiqTitle: e.target.value })
+        }
+        />
+      </div>
+      <div className={styles.formControl}>
+        <label htmlFor=''>Заголовок (eng)</label>
+        <input type='text' 
+        value={data.quiqTitleen || ''}
+        onChange={(e) =>
+          setData({ ...data, quiqTitleen: e.target.value })
+        }
+        />
       </div>
       <div className={styles.formControl}>
         <label htmlFor=''>Текст</label>
-        <textarea></textarea>
+        <textarea
+        value={data.quiqText || ''}
+        onChange={(e) =>
+          setData({ ...data, quiqText: e.target.value })
+        }
+        ></textarea>
+      </div>
+      <div className={styles.formControl}>
+        <label htmlFor=''>Текст (eng)</label>
+        <textarea
+        value={data.quiqTexten || ''}
+        onChange={(e) =>
+          setData({ ...data, quiqTexten: e.target.value })
+        }
+        ></textarea>
       </div>
       <div className={styles.buttons}>
         <h2>Головна</h2>
