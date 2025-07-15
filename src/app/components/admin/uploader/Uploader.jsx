@@ -53,104 +53,78 @@ const Uploader = ({ close, select }) => {
   // Create an AbortController instance to provide an option to cancel the upload if needed.
   const abortController = new AbortController();
 
-//   const authenticator = async () => {
-//     try {
-//         // Perform the request to the upload authentication endpoint.
-//         const response = await fetch("/api/kitauth");
-//         if (!response.ok) {
-//             // If the server response is not successful, extract the error text for debugging.
-//             const errorText = await response.text();
-//             throw new Error(`Request failed with status ${response.status}: ${errorText}`);
-//         }
-
-//         // Parse and destructure the response JSON for upload credentials.
-//         const data = await response.json();
-//         const { signature, expire, token, publicKey } = data;
-//         return { signature, expire, token, publicKey };
-//     } catch (error) {
-//         // Log the original error for debugging before rethrowing a new error.
-//         console.error("Authentication error:", error);
-//         throw new Error("Authentication request failed");
-//     }
-// };
 
 
-const handleUpload = async () => {
-  // Access the file input element using the ref
-  const fileInput = fileInputRef.current;
-  if (!fileInput || !fileInput.files || fileInput.files.length === 0) {
-      alert("Please select a file to upload");
-      return;
-  }
+
 
   // Extract the first file from the file input
-  const file = fileInput.files[0];
+  // const file = fileInput.files[0];
 
   // Retrieve authentication parameters for the upload.
-  let authParams;
-  try {
-      authParams = await authenticator();
-  } catch (authError) {
-      console.error("Failed to authenticate for upload:", authError);
-      return;
-  }
-  const { signature, expire, publicKey } = authParams;
+  // let authParams;
+  // try {
+  //     authParams = await authenticator();
+  // } catch (authError) {
+  //     console.error("Failed to authenticate for upload:", authError);
+  //     return;
+  // }
+  // const { signature, expire, publicKey } = authParams;
   
   // Call the ImageKit SDK upload function with the required parameters and callbacks.
-  try {
-      const uploadResponse = await upload({
-          // Authentication parameters
-          expire,
-          token: authParams.token,
-          signature,
-          publicKey,
-          file,
-          fileName: file.name, // Optionally set a custom file name
-          // Progress callback to update upload progress state
-          onProgress: (event) => {
-              setProgress((event.loaded / event.total) * 100);
-          },
-          // Abort signal to allow cancellation of the upload if needed.
-          abortSignal: abortController.signal,
-      });
-      console.log("Upload response:", uploadResponse, expire,
-        token,
-        signature,
-        publicKey,);
-        console.log(Date.now());
-      try {
-        const result = await axios.put('/api/image', {src: uploadResponse.url});
-        const newImgs = [...images];
-          newImgs.unshift({ src: result.data.src });
-          setImages(newImgs);
-        console.log(result.data.src);        
-      } catch (error) {
-        console.log(error)
-      }
-      try {
-        authParams = await authenticator();
-    } catch (authError) {
-        console.error("Failed to authenticate for upload:", authError);
-        return;
-    }
+  // try {
+  //     const uploadResponse = await upload({
+  //         // Authentication parameters
+  //         expire,
+  //         token: authParams.token,
+  //         signature,
+  //         publicKey,
+  //         file,
+  //         fileName: file.name, // Optionally set a custom file name
+  //         // Progress callback to update upload progress state
+  //         onProgress: (event) => {
+  //             setProgress((event.loaded / event.total) * 100);
+  //         },
+  //         // Abort signal to allow cancellation of the upload if needed.
+  //         abortSignal: abortController.signal,
+  //     });
+  //     console.log("Upload response:", uploadResponse, expire,
+  //       token,
+  //       signature,
+  //       publicKey,);
+  //       console.log(Date.now());
+  //     try {
+  //       const result = await axios.put('/api/image', {src: uploadResponse.url});
+  //       const newImgs = [...images];
+  //         newImgs.unshift({ src: result.data.src });
+  //         setImages(newImgs);
+  //       console.log(result.data.src);        
+  //     } catch (error) {
+  //       console.log(error)
+  //     }
+  //     try {
+  //       authParams = await authenticator();
+  //   } catch (authError) {
+  //       console.error("Failed to authenticate for upload:", authError);
+  //       return;
+  //   }
     
-    console.log(authParams.signature, authParams.expire, authParams.token)
-  } catch (error) {
-      // Handle specific error types provided by the ImageKit SDK.
-      if (error instanceof ImageKitAbortError) {
-          console.error("Upload aborted:", error.reason);
-      } else if (error instanceof ImageKitInvalidRequestError) {
-          console.error("Invalid request:", error.message);
-      } else if (error instanceof ImageKitUploadNetworkError) {
-          console.error("Network error:", error.message);
-      } else if (error instanceof ImageKitServerError) {
-          console.error("Server error:", error.message);
-      } else {
-          // Handle any other errors that may occur.
-          console.error("Upload error:", error);
-      }
-  }
-};
+  //   console.log(authParams.signature, authParams.expire, authParams.token)
+  // } catch (error) {
+  //     // Handle specific error types provided by the ImageKit SDK.
+  //     if (error instanceof ImageKitAbortError) {
+  //         console.error("Upload aborted:", error.reason);
+  //     } else if (error instanceof ImageKitInvalidRequestError) {
+  //         console.error("Invalid request:", error.message);
+  //     } else if (error instanceof ImageKitUploadNetworkError) {
+  //         console.error("Network error:", error.message);
+  //     } else if (error instanceof ImageKitServerError) {
+  //         console.error("Server error:", error.message);
+  //     } else {
+  //         // Handle any other errors that may occur.
+  //         console.error("Upload error:", error);
+  //     }
+  // }
+// };
 
   const cloudName = 'dnsm5nwmg';
   const uploadPreset = 'tanias_preset';
@@ -159,78 +133,103 @@ const handleUpload = async () => {
   const [images, setImages] = useState([]);
   const [selected, setSelected] = useState();
 
+  
+
+  // const onSuccess = async (res) => {
+  //   console.log("Success", res);  
+  //   try {
+  //     const result = await axios.put('/api/image', {src: res.url});
+  //     const newImgs = [...images];
+  //       newImgs.unshift({ src: result.data.src });
+  //       setImages(newImgs);
+  //     console.log(result.data.src)
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // };
+
+  // const uploadFile = async (e) => {
+  //   const file = e.target.files?.[0];
+  //   if (!file) {
+  //     return;
+  //   }
+  //   try {
+  //     const data = new FormData();
+  //     // data.append('file', file);
+  //     // data.append('upload_preset', uploadPreset);
+  //     data.set('file', file);
+  //     const res = await axios.post('/api/image', data);
+  //     // const res = await axios.post(
+  //     //   `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
+  //     //   data
+  //     // );
+  //     // const newImg = new Image({ src: res.data.url });
+  //     // const imgres = await newImg.save();
+
+  //     const newImgs = [...images];
+  //     newImgs.unshift({ src: res.data.src });
+  //     setImages(newImgs);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  const [fileL, setFileL] = useState();
+
+  const handleFileChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      setFileL(e.target.files[0]); // Using React state hook
+    }
+  };
+
+  useEffect(() => {
+    if(fileL) {
+    const formData = new FormData();
+    formData.append("image", fileL);
+    fetch(
+      "https://api.imgbb.com/1/upload?key=8f32c219c26c11d448d0e509dc8aa69c",
+      {
+        method: "POST",
+        body: formData,
+      }
+    )
+      .then((response) => response.json())
+      .then( async (data) => { 
+        const result = await axios.put('/api/image', {src: data?.data?.display_url});
+        const newImgs = [...images];
+        newImgs.unshift({ src: result.data.src });
+        console.log(newImgs);
+        setImages(newImgs);
+        // console.log("Upload successful:", data)
+        })
+      .catch((error) => console.error("Upload error:", error));}
+  }, [fileL]);
+
   useEffect(() => {
     const fetchImages = async () => {
-      const res = await axios.get('/api/image');
+      const res = await axios.get('/api/image');      
+      console.log(res.data)
       setImages(res.data.reverse());
     };
     fetchImages();
   }, []);
-
-  const onSuccess = async (res) => {
-    console.log("Success", res);  
-    try {
-      const result = await axios.put('/api/image', {src: res.url});
-      const newImgs = [...images];
-        newImgs.unshift({ src: result.data.src });
-        setImages(newImgs);
-      console.log(result.data.src)
-    } catch (error) {
-      console.log(error)
-    }
-  };
-
-  const uploadFile = async (e) => {
-    const file = e.target.files?.[0];
-    if (!file) {
-      return;
-    }
-    try {
-      const data = new FormData();
-      // data.append('file', file);
-      // data.append('upload_preset', uploadPreset);
-      data.set('file', file);
-      const res = await axios.post('/api/image', data);
-      // const res = await axios.post(
-      //   `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
-      //   data
-      // );
-      // const newImg = new Image({ src: res.data.url });
-      // const imgres = await newImg.save();
-
-      const newImgs = [...images];
-      newImgs.unshift({ src: res.data.src });
-      setImages(newImgs);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   return (
     <div className={styles.uploadWrapper}>
       <div className={styles.uploader}>
         <div className={styles.header}>
           <div className={styles.choos}>
-            <label>
-               <IoCloudUploadOutline />
+            <label htmlFor="sender">
+               {/* <IoCloudUploadOutline />*/}
               Завантажити
-              <ImageKitProvider publicKey={publicKey} urlEndpoint={urlEndpoint} authenticator={authenticator}>
-        <div>
-          <h2>File upload</h2>
-          <IKUpload fileName="test-upload.png" onError={onError} onSuccess={onSuccess} />
-        </div>
-      </ImageKitProvider> 
+              {/* <ImageKitProvider publicKey={publicKey} urlEndpoint={urlEndpoint} authenticator={authenticator}>
+                <div>
+                  <h2>File upload</h2>
+                  <IKUpload fileName="test-upload.png" onError={onError} onSuccess={onSuccess} />
+                </div>
+              </ImageKitProvider>  */} 
+              <input id="sender" type="file" onChange={handleFileChange}/>
 
-{/* <input type="file" ref={fileInputRef} onChange={handleUpload}/> */}
-            {/* Button to trigger the upload process */}
-            {/* <button type="button" onClick={handleUpload}>
-                Upload file
-            </button> */}
-            {/* <IoCloudUploadOutline />
-              Завантажити
-            <br /> */}
-            {/* Display the current upload progress */}
-            {/* Upload progress: <progress value={progress} max={100}></progress> */}
             </label>
           </div>
           <div className={styles.topButtons}>

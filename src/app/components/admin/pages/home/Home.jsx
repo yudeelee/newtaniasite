@@ -728,7 +728,7 @@ const Home = () => {
       </div>
       <div className={styles.buttons}>
         <h2>Головна</h2>
-        <button>
+        <button onClick={save}>
           <FaRegSave />
           Зберегти
         </button>
