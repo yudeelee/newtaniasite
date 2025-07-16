@@ -7,7 +7,7 @@ import { SessionProvider } from "next-auth/react";
 import { Helmet } from "react-helmet-async";
 import Script from "next/script";
 import { useEffect, useState } from "react";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,12 +18,12 @@ export default function RootLayout({
   const [ggg, setGgg] = useState(null);
 
   useEffect(() => {
-    (function(w,d,s,l,i){w[l]=w[l]||[];
-      w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-M6M682HP');
+//     (function(w,d,s,l,i){w[l]=w[l]||[];
+//       w[l].push({'gtm.start':
+// new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+// j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+// 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+// })(window,document,'script','dataLayer','GTM-M6M682HP');
     // console.log(window.dataLayer);
   }, []);
   return (
@@ -75,7 +75,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <SessionProvider session={session}>
           <body className={inter.className}>
             {children}
-            <GoogleAnalytics gaId="G-XYZ" />
+            <GoogleTagManager gtmId="GTM-M6M682HP" />
             <Script
               src="/script.js"
               strategy="lazyOnload"
@@ -86,8 +86,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               }
             />
            
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6M682HP"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+{/* <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6M682HP"
+height="0" width="0" style={{display:none, visibility:hidden}}></iframe></noscript> */}
 
           </body>
         </SessionProvider>
