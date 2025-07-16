@@ -12,9 +12,12 @@ import { Fragment } from "react";
 
 const About = () => {
   const [name, setName] = useState("");
+  const [nameen, setNameen] = useState("");
   const [position, setPosition] = useState("");
+  const [positionen, setPositionen] = useState("");
   const [img, setImg] = useState("/img/default.jpg");
   const [value, setValue] = useState("");
+   const [valueen, setValueen] = useState("");
   const [changeIdx, setChangeIdx] = useState(0);
   const [visible, setVisible] = useState(false);
 
@@ -53,15 +56,21 @@ const About = () => {
     try {
       const data = {
         name,
+        nameen,
         position,
+        positionen,
         photo: img,
         text: value1,
+        texten: valueen,
       };
       const res = await axios.post("/api/aboutpage", data);
       setName("");
+      setNameen("");
       setPosition("");
+      setPositionen("");
       setImg("/img/default.jpg");
       setValue1("");
+      setValueen("");
     } catch (error) {
       console.log(error);
     }
@@ -201,6 +210,19 @@ const About = () => {
                           return;
                         }}
                       />
+                      <label htmlFor="">Ім'я (eng)</label>
+                      <input
+                        type="text"
+                        value={wor.nameen}
+                        onChange={(e) => {
+                          const newWorkers = JSON.parse(
+                            JSON.stringify(workers)
+                          );
+                          newWorkers[idx].nameen = e.target.value;
+                          setWorkers([...newWorkers]);
+                          return;
+                        }}
+                      />
                       {/* <label htmlFor="">Name</label>
                       <input
                         type="text"
@@ -223,6 +245,19 @@ const About = () => {
                             JSON.stringify(workers)
                           );
                           newWorkers[idx].position = e.target.value;
+                          setWorkers([...newWorkers]);
+                          return;
+                        }}
+                      />
+                      <label htmlFor="">Посада (eng)</label>
+                      <input
+                        type="text"
+                        value={wor.positionen}
+                        onChange={(e) => {
+                          const newWorkers = JSON.parse(
+                            JSON.stringify(workers)
+                          );
+                          newWorkers[idx].positionen = e.target.value;
                           setWorkers([...newWorkers]);
                           return;
                         }}
