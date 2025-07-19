@@ -1,6 +1,6 @@
 import HeaderMenu from "../components/headerMenuen/HeaderMenu";
 import Carusel from "../components/rekl/carusel";
-import Footer from "../components/footer/Footer";
+import Footer from "../components/footeren/Footer";
 import MainServices from "../components/mainServices/MainServices";
 import MainHero from "../components/mainHero/MainHero";
 import MainYoutube from "../components/mainYoutube/MainYoutube";

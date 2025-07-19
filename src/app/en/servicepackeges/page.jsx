@@ -1,7 +1,7 @@
 import React from "react";
 import ServicePage from "../../components/services/ServicePage";
 import HeaderMenu from "../../components/headerMenuen/HeaderMenu";
-import Footer from "../../components/footer/Footer";
+import Footer from "../../components/footeren/Footer";
 
 export default async function Page() {
   const data = await getData();
