@@ -1,5 +1,8 @@
 .flag {
   width: 40px;
+  @media (max-width: 850px) {
+    margin-right: 30px;
+  }
   img {
     width: 100%;
   }
