@@ -1,7 +1,7 @@
 import React from "react";
-import ServicePage from "../components/services/ServicePage";
-import HeaderMenu from "../components/headerMenu/HeaderMenu";
-import Footer from "../components/footer/Footer";
+import ServicePage from "../../components/services/ServicePage";
+import HeaderMenu from "../../components/headerMenuen/HeaderMenu";
+import Footer from "../../components/footer/Footer";
 
 export default async function Page() {
   const data = await getData();
@@ -10,7 +10,7 @@ export default async function Page() {
   return (
     <div>
       <HeaderMenu active="services" />
-      <ServicePage data={newData} title="Бухгалтерські послуги" />
+      <ServicePage data={newData} title="Accounting services" eng={true} />
       <Footer />
     </div>
   );

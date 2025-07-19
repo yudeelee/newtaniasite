@@ -65,7 +65,6 @@ async function getData() {
       throw new Error("Failed to fetch data");
     }
     const services = await res2.json();
-    console.log("qqqq");
     return { photos, main, services };
   } catch (error) {
     return error;

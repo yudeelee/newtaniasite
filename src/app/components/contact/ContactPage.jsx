@@ -1,20 +1,23 @@
 "use client";
 
 import styles from "./styles.module.scss";
-// import { data } from '../../../../data/data';
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const ContactPage = () => {
+const ContactPage = ({ eng = false }) => {
   const TOKEN = "5530765545:AAFy5U47-r8OYc198-5blcgCR-cKB3_jowE";
   const CHAT_ID = "-1001517912943";
   const URI = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
 
   const [sections, setSections] = useState([]);
+  const [sectionsen, setSectionsen] = useState([]);
   const [section, setSection] = useState();
   const [items, setItems] = useState([]);
   const [item, setItem] = useState();
   const [price, setPrice] = useState();
+  const [text, setText] = useState();
+  const [texten, setTexten] = useState();
+  const [contacts, setContacts] = useState();
 
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -43,11 +46,19 @@ const ContactPage = () => {
       try {
         const res = await axios.get("/api/servicepage");
         setData(res.data.services);
-        setSections(res.data.services.map((sec) => sec.name));
+        setSections(
+          res.data.services.map((sec) => {
+            return { sec: sec.name, secen: sec.nameen || "" };
+          })
+        );
+
         setItems(res.data.services[0].items);
         setSection(res.data.services[0]);
         setItem(res.data.services[0].items[0].name);
         setPrice(res.data.services[0].items[0].price);
+
+        const conts = await axios.get("/api/contactpage");
+        setContacts(conts.data);
       } catch (error) {
         console.log(error);
       }
@@ -171,13 +182,17 @@ const ContactPage = () => {
         <div className={styles.alertWrapper} onClick={() => setErrorMsg("")}>
           <div className={styles.alert}>
             <p>{errorMsg}</p>
-            <button onClick={() => setErrorMsg("")}>Гаразд</button>
+            <button onClick={() => setErrorMsg("")}>
+              {eng ? "Done" : "Гаразд"}
+            </button>
           </div>
         </div>
       )}
       <div className="container">
         <div className={styles.contactHeader}>
-          <div className="title">Замовити послугу</div>
+          <div className="title">
+            {eng ? "Order a service" : "Замовити послугу"}
+          </div>
         </div>
         <div className={styles.contactWrapper}>
           <div className={styles.contacts}>
@@ -185,21 +200,23 @@ const ContactPage = () => {
               <div className={styles.conIcon}>
                 <img src="/img/phone.png" alt="" />
               </div>
-              <div className={styles.conText}>Телефон</div>
+              <div className={styles.conText}>
+                {eng ? "Phone number" : "Телефон"}
+              </div>
             </div>
             <div className={styles.conData}>
-              <a href="tel:073-418-7147">+380734187147</a>
+              <a href="tel:073-418-7147">{contacts?.phone}</a>
             </div>
             <div className={styles.cons}>
               <div className={styles.conIcon}>
                 <img src="/img/mail.png" alt="" />
               </div>
-              <div className={styles.conText}>Електронна пошта</div>
+              <div className={styles.conText}>
+                {eng ? "E-mail" : "Електронна пошта"}
+              </div>
             </div>
             <div className={styles.conData}>
-              <a href="mailto:audit@consulting.lviv.ua">
-              audit@consulting.lviv.ua
-              </a>
+              <a href={`mailto:${contacts?.mail}`}>{contacts?.mail}</a>
             </div>
             <div className={styles.cons}>
               <div className={styles.conIcon}>
@@ -208,8 +225,8 @@ const ContactPage = () => {
               <div className={styles.conText}>Instagram</div>
             </div>
             <div className={styles.conData}>
-              <a href="https://www.instagram.com/tanyaselezniova_accountant/">
-                www.instagram.com/tanyaselezniova_accountant/
+              <a href={`https://${contacts?.instagram}`}>
+                {contacts?.instagram}
               </a>
             </div>
             <div className={styles.cons}>
@@ -219,9 +236,7 @@ const ContactPage = () => {
               <div className={styles.conText}>Telegram</div>
             </div>
             <div className={styles.conData}>
-              <a href="https://t.me/tanyaselezniova_accountant">
-                t.me/tanyaselezniova_accountant
-              </a>
+              <a href={`https://${contacts?.telegram}`}>{contacts?.telegram}</a>
             </div>
             <div className={styles.cons}>
               <div className={styles.conIcon}>
@@ -230,23 +245,25 @@ const ContactPage = () => {
               <div className={styles.conText}>YouTube</div>
             </div>
             <div className={styles.conData}>
-              <a href="https://www.youtube.com/@consulting-accountant">
-                www.youtube.com/@consulting-accountant
-              </a>
+              <a href={`https://${contacts?.youtube}`}>{contacts?.youtube}</a>
             </div>
-            <div className="text mt100">
-            ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ <span>"БУХГАЛТЕР КОНСУЛЬТАНТ"</span> працює онлайн по
-              всій території України з понеділка по п’ятницю з 9:00 до 18:00.
-              <br />
-              Завжди раді допомогти!
-            </div>
+            <div
+              className={"text" + " " + "mt100"}
+              dangerouslySetInnerHTML={{
+                __html: !eng
+                  ? contacts?.text
+                  : contacts?.texten.replace(/<[^>]*>/g, "") != ""
+                  ? contacts?.texten
+                  : contacts?.text,
+              }}
+            />
           </div>
           <div className={styles.conForm}>
             <div className={styles.formControl}>
               <input
                 value={name || ""}
                 type="text"
-                placeholder="Ім’я"
+                placeholder={eng ? "Name" : "Ім’я"}
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
@@ -254,7 +271,7 @@ const ContactPage = () => {
               <input
                 value={phone || ""}
                 type="text"
-                placeholder="Телефон"
+                placeholder={eng ? "Phone number" : "Телефон"}
                 onChange={(e) => setPhone(e.target.value)}
               />
             </div>
@@ -262,7 +279,7 @@ const ContactPage = () => {
               <input
                 value={email || ""}
                 type="text"
-                placeholder="Електронна адреса"
+                placeholder={eng ? "E-mail" : "Електронна адреса"}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
@@ -271,8 +288,8 @@ const ContactPage = () => {
                 <option value="...">...</option>
                 {sections?.map((sec, idx) => {
                   return (
-                    <option key={idx} value={sec}>
-                      {sec}
+                    <option key={idx} value={sec.sec}>
+                      {!eng ? sec.sec : sec.secen != "" ? sec.secen : sec.sec}
                     </option>
                   );
                 })}
@@ -284,7 +301,11 @@ const ContactPage = () => {
                 {items?.map((itm, idx) => {
                   return (
                     <option key={idx} value={itm.name}>
-                      {itm.name}
+                      {!eng
+                        ? itm.name
+                        : itm.nameen != ""
+                        ? itm.nameen
+                        : itm.name}
                     </option>
                   );
                 })}
@@ -297,18 +318,25 @@ const ContactPage = () => {
                 id=""
                 cols="30"
                 rows="6"
-                placeholder="Коментар"
+                placeholder={eng ? "Comment" : "Коментар"}
                 onChange={(e) => setComment(e.target.value)}
               ></textarea>
             </div>
             <div className={styles.price}>
-                Вартість послуги {price} грн.
+              {eng ? "The cost of the service" : "Вартість послуги"} {price}{" "}
+              {eng ? "uah" : "грн"}.
             </div>
-            <div className={styles.formControl + ' ' + styles.payWrapper}>
+            <div className={styles.formControl + " " + styles.payWrapper}>
               <button className="button" onClick={sendMessage}>
-                Замовити послугу
+                {eng ? "Order a service" : "Замовити послугу"}
               </button>
-              <a target="blank" className={styles.pay} href="https://www.liqpay.ua/api/3/checkout?data=eyJ2ZXJzaW9uIjozLCJhY3Rpb24iOiJwYXlkb25hdGUiLCJhbW91bnQiOiIwLjAwIiwiY3VycmVuY3kiOiJVQUgiLCJkZXNjcmlwdGlvbiI6ItCe0L/Qu9Cw0YLQsCDQt9CwINC60L7QvdGB0LDQu9GC0LjQvdCz0L7QstGWINC/0L7RgdC70YPQs9C4IiwicHVibGljX2tleSI6ImkzMjI4MDc2MDI2MCIsImxhbmd1YWdlIjoidWsifQ==&signature=o21g3qGWxer/DBHiNoHHOptQkiI=">Оплатити</a>                             
+              <a
+                target="blank"
+                className={styles.pay}
+                href="https://www.liqpay.ua/api/3/checkout?data=eyJ2ZXJzaW9uIjozLCJhY3Rpb24iOiJwYXlkb25hdGUiLCJhbW91bnQiOiIwLjAwIiwiY3VycmVuY3kiOiJVQUgiLCJkZXNjcmlwdGlvbiI6ItCe0L/Qu9Cw0YLQsCDQt9CwINC60L7QvdGB0LDQu9GC0LjQvdCz0L7QstGWINC/0L7RgdC70YPQs9C4IiwicHVibGljX2tleSI6ImkzMjI4MDc2MDI2MCIsImxhbmd1YWdlIjoidWsifQ==&signature=o21g3qGWxer/DBHiNoHHOptQkiI="
+              >
+                {eng ? "Pay" : "Оплатити"}
+              </a>
             </div>
           </div>
         </div>

@@ -15,28 +15,32 @@ const HeaderMenu = ({ active }) => {
         <nav className={styles.menu}>
           <ul className={styles.topMenu}>
             <li className={active === "home" ? styles.active : ""}>
-              <Link href="/">Home</Link>
+              <Link href="/en">Home</Link>
             </li>
             <li className={active === "about" ? styles.active : ""}>
-              <Link href="/about">About Us</Link>
+              <Link href="/en/about">About Us</Link>
             </li>
             <li className={active === "services" ? styles.active : ""}>
               Our Services
               <ul className={styles.serviceMenu}>
                 <li className={styles.serviceLink}>
-                  <Link href="/services">Accounting services</Link>
+                  <Link href="/en/services">Accounting services</Link>
                 </li>
                 <li className={styles.serviceLink}>
-                  <Link href="/legalservices">Legal services</Link>
+                  <Link href="/en/legalservices">Legal services</Link>
                 </li>
                 <li className={styles.serviceLink}>
-                  <Link href="/servicepackeges">Legal Services Packages</Link>
+                  <Link href="/en/servicepackeges">
+                    Legal Services Packages
+                  </Link>
                 </li>
                 <li className={styles.serviceLink}>
-                  <Link href="/financeservices">Audit services</Link>
+                  <Link href="/en/financeservices">Audit services</Link>
                 </li>
                 <li className={styles.serviceLink}>
-                  <Link href="/financepackeges">Financial Services Packages</Link>
+                  <Link href="/en/financepackeges">
+                    Financial Services Packages
+                  </Link>
                 </li>
                 {/* <li className={styles.serviceLink}>
                   <Link href="/audit">Аудит</Link>
@@ -44,7 +48,7 @@ const HeaderMenu = ({ active }) => {
               </ul>
             </li>
             <li className={active === "contact" ? styles.active : ""}>
-              <Link href="/contact">Order</Link>
+              <Link href="/en/contact">Order</Link>
             </li>
           </ul>
           <div

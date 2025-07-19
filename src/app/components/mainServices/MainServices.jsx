@@ -11,7 +11,10 @@ const MainServices = ({ buh, yur, block, fin, finblock, eng = false }) => {
           </div>
           <div className={styles.serviceWrapper}>
             {buh?.map((item, idx) => (
-              <Link key={idx} href={`/services#${item.slogId}`}>
+              <Link
+                key={idx}
+                href={`${eng ? "/en" : ""}/services#${item.slogId}`}
+              >
                 <div
                   className={`${styles.service} ${
                     idx == 0 ? styles.audit : ""
@@ -48,7 +51,10 @@ const MainServices = ({ buh, yur, block, fin, finblock, eng = false }) => {
           </div>
           <div className={styles.serviceWrapper}>
             {yur?.map((item, idx) => (
-              <Link key={idx} href={`/services#${item.slogId}`}>
+              <Link
+                key={idx}
+                href={`${eng ? "/en" : ""}/legalservices#${item.slogId}`}
+              >
                 <div className={`${styles.service}`}>
                   <div className={styles.serHeader}>
                     {!eng
@@ -78,7 +84,10 @@ const MainServices = ({ buh, yur, block, fin, finblock, eng = false }) => {
           </div>
           <div className={styles.serviceWrapper}>
             {block?.map((item, idx) => (
-              <Link key={idx} href={`/services#${item.slogId}`}>
+              <Link
+                key={idx}
+                href={`${eng ? "/en" : ""}/servicepackeges#${item.slogId}`}
+              >
                 <div className={`${styles.service}`}>
                   <div className={styles.serHeader}>
                     {!eng
@@ -108,7 +117,10 @@ const MainServices = ({ buh, yur, block, fin, finblock, eng = false }) => {
           </div>
           <div className={styles.serviceWrapper}>
             {fin?.map((item, idx) => (
-              <Link key={idx} href={`/services#${item.slogId}`}>
+              <Link
+                key={idx}
+                href={`${eng ? "/en" : ""}/financeservices#${item.slogId}`}
+              >
                 <div
                   className={`${styles.service} ${
                     idx == 0 ? styles.audit : ""
@@ -145,7 +157,10 @@ const MainServices = ({ buh, yur, block, fin, finblock, eng = false }) => {
           </div>
           <div className={styles.serviceWrapper}>
             {finblock?.map((item, idx) => (
-              <Link key={idx} href={`/services#${item.slogId}`}>
+              <Link
+                key={idx}
+                href={`${eng ? "/en" : ""}/financepackeges#${item.slogId}`}
+              >
                 <div className={`${styles.service}`}>
                   <div className={styles.serHeader}>
                     {!eng
