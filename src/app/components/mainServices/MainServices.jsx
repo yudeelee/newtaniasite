@@ -1,19 +1,39 @@
-import Link from 'next/link'
-import styles from './styles.module.scss'
+import Link from "next/link";
+import styles from "./styles.module.scss";
 
-const MainServices = ({buh, yur, block, fin, finblock}) => {
+const MainServices = ({ buh, yur, block, fin, finblock, eng = false }) => {
   return (
     <>
-    <div className={styles.services}>
+      <div className={styles.services}>
         <div className="container">
-          <div className="title mt100 center" id="buhService">Бухгалтерські послуги</div>
+          <div className="title mt100 center" id="buhService">
+            {eng ? "Accounting services" : "Бухгалтерські послуги"}
+          </div>
           <div className={styles.serviceWrapper}>
-            {buh?.map((buh, idx) => (
-              <Link key={idx} href={`/services#${buh.slogId}`}>
-                <div className={`${styles.service} ${idx == 0 ? styles.audit : ''}`}>
-                {idx == 0 && <div className={styles.bestStamp}>Best seller</div>}
-                  <div className={styles.serHeader}>{buh.name}</div>
-                  <div className={styles.serBody}>{buh.description}</div>
+            {buh?.map((item, idx) => (
+              <Link key={idx} href={`/services#${item.slogId}`}>
+                <div
+                  className={`${styles.service} ${
+                    idx == 0 ? styles.audit : ""
+                  }`}
+                >
+                  {idx == 0 && (
+                    <div className={styles.bestStamp}>Best seller</div>
+                  )}
+                  <div className={styles.serHeader}>
+                    {!eng
+                      ? item.name
+                      : item.nameen != ""
+                      ? item.nameen
+                      : item.name}
+                  </div>
+                  <div className={styles.serBody}>
+                    {!eng
+                      ? item.description
+                      : item.descriptionen != ""
+                      ? item.descriptionen
+                      : item.description}
+                  </div>
                   <div className={styles.serLink}>Читати більше &#8594;</div>
                 </div>
               </Link>
@@ -23,13 +43,27 @@ const MainServices = ({buh, yur, block, fin, finblock}) => {
       </div>
       <div className={styles.services}>
         <div className="container">
-          <div className="title mt100 center">Юридичні послуги</div>
+          <div className="title mt100 center">
+            {eng ? "Legal services" : "Юридичні послуги"}
+          </div>
           <div className={styles.serviceWrapper}>
-            {yur?.map((buh, idx) => (
-              <Link key={idx} href={`/legalservices#${buh.slogId}`}>
-                <div className={styles.service}>
-                  <div className={styles.serHeader}>{buh.name}</div>
-                  <div className={styles.serBody}>{buh.description}</div>
+            {yur?.map((item, idx) => (
+              <Link key={idx} href={`/services#${item.slogId}`}>
+                <div className={`${styles.service}`}>
+                  <div className={styles.serHeader}>
+                    {!eng
+                      ? item.name
+                      : item.nameen != ""
+                      ? item.nameen
+                      : item.name}
+                  </div>
+                  <div className={styles.serBody}>
+                    {!eng
+                      ? item.description
+                      : item.descriptionen != ""
+                      ? item.descriptionen
+                      : item.description}
+                  </div>
                   <div className={styles.serLink}>Читати більше &#8594;</div>
                 </div>
               </Link>
@@ -39,13 +73,27 @@ const MainServices = ({buh, yur, block, fin, finblock}) => {
       </div>
       <div className={styles.services}>
         <div className="container">
-          <div className="title mt100 center">Пакети Юридичних послуг</div>
+          <div className="title mt100 center">
+            {eng ? "Legal Services Packages" : "Пакети Юридичних послуг"}
+          </div>
           <div className={styles.serviceWrapper}>
-            {block?.map((buh, idx) => (
-              <Link key={idx} href={`/servicepackeges#${buh.slogId}`}>
-                <div className={styles.service}>
-                  <div className={styles.serHeader}>{buh.name}</div>
-                  <div className={styles.serBody}>{buh.description}</div>
+            {block?.map((item, idx) => (
+              <Link key={idx} href={`/services#${item.slogId}`}>
+                <div className={`${styles.service}`}>
+                  <div className={styles.serHeader}>
+                    {!eng
+                      ? item.name
+                      : item.nameen != ""
+                      ? item.nameen
+                      : item.name}
+                  </div>
+                  <div className={styles.serBody}>
+                    {!eng
+                      ? item.description
+                      : item.descriptionen != ""
+                      ? item.descriptionen
+                      : item.description}
+                  </div>
                   <div className={styles.serLink}>Читати більше &#8594;</div>
                 </div>
               </Link>
@@ -55,14 +103,34 @@ const MainServices = ({buh, yur, block, fin, finblock}) => {
       </div>
       <div className={styles.services}>
         <div className="container">
-          <div className="title mt100 center" id="auditService">Аудиторські послуги</div>
+          <div className="title mt100 center" id="auditService">
+            {eng ? "Audit services" : "Аудиторські послуги"}
+          </div>
           <div className={styles.serviceWrapper}>
-            {fin?.map((buh, idx) => (
-              <Link key={idx} href={`/financeservices#${buh.slogId}`}>
-                <div className={`${styles.service} ${idx == 0 ? styles.audit : ''}`}>
-                  {idx == 0 && <div className={styles.bestStamp}>Best seller</div>}
-                  <div className={styles.serHeader}>{buh.name}</div>
-                  <div className={styles.serBody}>{buh.description}</div>
+            {fin?.map((item, idx) => (
+              <Link key={idx} href={`/services#${item.slogId}`}>
+                <div
+                  className={`${styles.service} ${
+                    idx == 0 ? styles.audit : ""
+                  }`}
+                >
+                  {idx == 0 && (
+                    <div className={styles.bestStamp}>Best seller</div>
+                  )}
+                  <div className={styles.serHeader}>
+                    {!eng
+                      ? item.name
+                      : item.nameen != ""
+                      ? item.nameen
+                      : item.name}
+                  </div>
+                  <div className={styles.serBody}>
+                    {!eng
+                      ? item.description
+                      : item.descriptionen != ""
+                      ? item.descriptionen
+                      : item.description}
+                  </div>
                   <div className={styles.serLink}>Читати більше &#8594;</div>
                 </div>
               </Link>
@@ -72,13 +140,27 @@ const MainServices = ({buh, yur, block, fin, finblock}) => {
       </div>
       <div className={styles.services}>
         <div className="container">
-          <div className="title mt100 center">Пакети Фінансових послуг</div>
+          <div className="title mt100 center">
+            {eng ? "Financial Services Packages" : "Пакети Фінансових послуг"}
+          </div>
           <div className={styles.serviceWrapper}>
-            {finblock?.map((buh, idx) => (
-              <Link key={idx} href={`/financepackeges#${buh.slogId}`}>
-                <div className={styles.service}>
-                  <div className={styles.serHeader}>{buh.name}</div>
-                  <div className={styles.serBody}>{buh.description}</div>
+            {finblock?.map((item, idx) => (
+              <Link key={idx} href={`/services#${item.slogId}`}>
+                <div className={`${styles.service}`}>
+                  <div className={styles.serHeader}>
+                    {!eng
+                      ? item.name
+                      : item.nameen != ""
+                      ? item.nameen
+                      : item.name}
+                  </div>
+                  <div className={styles.serBody}>
+                    {!eng
+                      ? item.description
+                      : item.descriptionen != ""
+                      ? item.descriptionen
+                      : item.description}
+                  </div>
                   <div className={styles.serLink}>Читати більше &#8594;</div>
                 </div>
               </Link>
@@ -87,7 +169,7 @@ const MainServices = ({buh, yur, block, fin, finblock}) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default MainServices
+export default MainServices;

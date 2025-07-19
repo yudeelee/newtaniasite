@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import "./carusel.css";
 import React, { useLayoutEffect, useState, useEffect } from "react";
@@ -24,7 +24,7 @@ function useWindowSize() {
   return size;
 }
 
-const Carusel = (props) => {
+const Carusel = ({ eng = false }) => {
   let radius = 700;
   let autoRotate = true;
   let rotateSpeed = -60;
@@ -88,7 +88,9 @@ const Carusel = (props) => {
   return (
     <>
       <div className="carusel-wrapper">
-        <div className="titleCar center">Наші клієнти</div>
+        <div className="titleCar center">
+          {eng ? "Our clients" : "Наші клієнти"}
+        </div>
         <div id="drag-container">
           <div id="spin-container">
             {/* <img
@@ -104,16 +106,12 @@ const Carusel = (props) => {
             <img
               src="/img/black.png"
               alt=""
-              onClick={() =>
-                clickImg("https://blackthorn-vision.com/")
-              }
+              onClick={() => clickImg("https://blackthorn-vision.com/")}
             />
             <img
               src="/img/crystall.png"
               alt=""
-              onClick={() =>
-                clickImg("https://crystall.shop/")
-              }
+              onClick={() => clickImg("https://crystall.shop/")}
             />
             <img
               src="/img/Asnandent_logo.png"
