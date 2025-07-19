@@ -29,6 +29,7 @@ const About = () => {
   const [open, setOpen] = useState([]);
 
   const [value1, setValue1] = useState("");
+  const [value1en, setValue1en] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -70,7 +71,7 @@ const About = () => {
       setPositionen("");
       setImg("/img/default.jpg");
       setValue1("");
-      setValueen("");
+      setValue1en("");
     } catch (error) {
       console.log(error);
     }
@@ -288,6 +289,17 @@ const About = () => {
                       return setValue;
                     }}
                   />
+                  <label htmlFor="">(eng)</label>
+                  <ReactQuill
+                    theme="snow"
+                    value={wor.texten}
+                    onChange={(e) => {
+                      const newWorkers = JSON.parse(JSON.stringify(workers));
+                      newWorkers[idx].texten = e;
+                      setWorkers(newWorkers);
+                      return setValueen;
+                    }}
+                  />
                   <div className={styles.btnWrapper}>
                     <button className={styles.addButton} onClick={saveWorkers}>
                       Зберегти
@@ -318,15 +330,29 @@ const About = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
+            <label htmlFor="">Ім'я (eng)</label>
+            <input
+              type="text"
+              value={nameen}
+              onChange={(e) => setNameen(e.target.value)}
+            />
             <label htmlFor="">Посада</label>
             <input
               type="text"
               value={position}
               onChange={(e) => setPosition(e.target.value)}
             />
+            <label htmlFor="">Посада (eng)</label>
+            <input
+              type="text"
+              value={positionen}
+              onChange={(e) => setPositionen(e.target.value)}
+            />
           </div>
         </div>
         <ReactQuill theme="snow" value={value1} onChange={setValue1} />
+        <label htmlFor="">(eng)</label>
+        <ReactQuill theme="snow" value={value1en} onChange={setValue1en} />
         <div className={styles.btnWrapper}>
           <button className={styles.addButton} onClick={addWorker}>
             Додати

@@ -30,7 +30,7 @@
   .items {
     margin-top: 20px;
     input {
-      width: 50%;
+      width: 100%;
       display: inline-block;
       &.itemPrice {
         width: 50px;
@@ -181,4 +181,14 @@
 
 .emptyField {
   width: 30px;
+}
+
+.itemWr {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  input {
+    width: 100%;
+  }
 }

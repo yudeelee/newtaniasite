@@ -111,6 +111,18 @@ const mainPageSchema = new mongoose.Schema(
     quiqTexten: {
       type: String,
     },
+    button1: {
+      type: String
+    },
+    button1en: {
+      type: String
+    },
+    button2: {
+      type: String
+    },
+    button2en: {
+      type: String
+    },
   },
   {
     timestamps: true,

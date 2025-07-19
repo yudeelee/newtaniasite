@@ -1,0 +1,55 @@
+.fishki {
+    background-color: #edafb86e;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+    .fishWrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1000px;
+      .fishka {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .fishHeader {
+          font-size: 22px;
+          font-weight: 700;
+        }
+        .fishBody {
+          font-size: 18px;
+          font-weight: 500;
+          margin-top: 20px;
+          text-align: center;
+        }
+      }
+      @media (max-width: 670px) {
+        .fishka {
+          .fishHeader {
+            font-size: 14px;
+            font-weight: 700;
+          }
+          .fishBody {
+            font-size: 12px;
+            font-weight: 500;
+            margin-top: 20px;
+          }
+        }
+      }
+      @media (max-width: 450px) {
+        .fishka {
+          .fishHeader {
+            font-size: 12px;
+            font-weight: 500;
+          }
+          .fishBody {
+            font-size: 12px;
+            font-weight: 400;
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+  }

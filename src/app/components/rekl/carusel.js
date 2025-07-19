@@ -1,3 +1,5 @@
+'use client';
+
 import "./carusel.css";
 import React, { useLayoutEffect, useState, useEffect } from "react";
 

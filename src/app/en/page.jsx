@@ -1,13 +1,12 @@
-import HeaderMenu from './components/headerMenu/HeaderMenu';
-import HomePage from './components/home/HomePage';
-import Carusel from "./components/rekl/carusel";
-import Footer from "./components/footer/Footer";
-import MainServices from "./components/mainServices/MainServices";
-import MainHero from "./components/mainHero/MainHero";
-import MainYoutube from "./components/mainYoutube/MainYoutube";
-import MainProposition from "./components/mainProposition/MainProposition";
-import MainFishki from "./components/mainFishki/MainFishki";
-import MainMessage from "./components/mainMessage/MainMessage";
+import HeaderMenu from '../components/headerMenuen/HeaderMenu';
+import Carusel from "../components/rekl/carusel";
+import Footer from "../components/footer/Footer";
+import MainServices from "../components/mainServices/MainServices";
+import MainHero from "../components/mainHero/MainHero";
+import MainYoutube from "../components/mainYoutube/MainYoutube";
+import MainProposition from "../components/mainProposition/MainProposition";
+import MainFishki from "../components/mainFishki/MainFishki";
+import MainMessage from "../components/mainMessage/MainMessage";
 import "react-quill/dist/quill.snow.css";
 
 export default async function Home() {
@@ -28,9 +27,9 @@ export default async function Home() {
     <div className='site'>
       <HeaderMenu active='home' />            
       <div className="container">
-        <MainHero data={main}/>      
-        <MainYoutube data={main}/> 
-        <MainProposition data={main} photos={photos} />       
+        <MainHero data={main} eng={true}/>      
+        <MainYoutube data={main} eng={true}/> 
+        <MainProposition data={main} photos={photos} eng={true}/>       
         <MainFishki data={main}/>      
         <MainServices buh={newBuh} yur={newYur} block={newBlock} fin={newFin} finblock={newFinBlock}/> 
         <Carusel className="mt100"/>        

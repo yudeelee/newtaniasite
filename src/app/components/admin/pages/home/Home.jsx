@@ -31,6 +31,10 @@ const InitialState = {
   propositionTitleen: '',
   propositionItems: [],
   propositionItemsen: [],
+  button1: '',
+  button1en: '',
+  button2: '',
+  button2en: '',
   photos: [
     { src: '' },
     { src: '' },
@@ -249,6 +253,38 @@ const Home = () => {
               type='text'
               value={data.slogen || ''}
               onChange={(e) => setData({ ...data, slogen: e.target.value })}
+            />
+          </div>
+          <div className={styles.formControl}>
+            <label htmlFor=''>Кнопка 1</label>
+            <input
+              type='text'
+              value={data.button1 || ''}
+              onChange={(e) => setData({ ...data, button1: e.target.value })}
+            />
+          </div>
+          <div className={styles.formControl}>
+            <label htmlFor=''>Кнопка 1 (eng)</label>
+            <input
+              type='text'
+              value={data.button1en || ''}
+              onChange={(e) => setData({ ...data, button1en: e.target.value })}
+            />
+          </div>
+          <div className={styles.formControl}>
+            <label htmlFor=''>Кнопка 2</label>
+            <input
+              type='text'
+              value={data.button2 || ''}
+              onChange={(e) => setData({ ...data, button2: e.target.value })}
+            />
+          </div>
+          <div className={styles.formControl}>
+            <label htmlFor=''>Кнопка 2 (eng)</label>
+            <input
+              type='text'
+              value={data.button2en || ''}
+              onChange={(e) => setData({ ...data, button2en: e.target.value })}
             />
           </div>
         </div>

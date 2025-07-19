@@ -1,0 +1,21 @@
+.youtube {
+    margin-top: 100px;
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 20px;
+    @media (max-width: 1000px) {
+      flex-direction: column-reverse;
+    }
+    .rolik {
+      flex: 0 0 50%;
+      iframe {
+        width: 518px;
+        height: 298px;
+        @media (max-width: 558px) {
+          width: 90vw;
+          height: 60vw;
+        }
+      }
+    }
+  }

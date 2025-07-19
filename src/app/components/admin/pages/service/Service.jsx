@@ -14,17 +14,25 @@ const service = () => {
   const [value2, setValue2] = useState();
   const [value3, setValue3] = useState();
 
+  const [value4, setValue4] = useState();
+  const [value5, setValue5] = useState();
+
   const [opens, setOpens] = useState([]);
 
   const [name, setName] = useState("");
+  const [nameen, setNameen] = useState("");
   const [description, setDescription] = useState("");
+  const [descriptionen, setDescriptionen] = useState("");
   const [text, setText] = useState("");
+  const [texten, setTexten] = useState("");
   const [textMore, setTextMore] = useState("");
+  const [textMoreen, setTextMoreen] = useState("");
   const [slogId, setSlogId] = useState("");
   const [category, setCategory] = useState("");
   const [items, setItems] = useState([
     {
       name: "",
+      nameen: "",
       from: false,
       price: 0,
       nominal: "",
@@ -33,13 +41,18 @@ const service = () => {
 
   const [newService, setNewService] = useState({
     name: "",
+    nameen: "",
     description: "",
+    descriptionen: "",
     text: "",
+    texten: "",
     textMore: "",
+    textMoreen: "",
     category: "",
     items: [
       {
         name: "",
+        nameen: "",
         from: false,
         price: 0,
         nominal: "",
@@ -66,6 +79,7 @@ const service = () => {
     const newItems = JSON.parse(JSON.stringify(items));
     newItems.push({
       name: "",
+      nameen: "",
       from: false,
       price: 0,
       nominal: "",
@@ -88,9 +102,13 @@ const service = () => {
     }
     const nService = {
       name,
+      nameen,
       description,
+      descriptionen,
       text,
+      texten,
       textMore,
+      textMoreen,
       category,
       items,
     };
@@ -98,9 +116,13 @@ const service = () => {
       const res = await axios.post("/api/servicepage", nService);
       setServices(res.data.services.services);
       setName("");
+      setNameen("");
       setDescription("");
+      setDescriptionen("");
       setText("");
+      setTexten("");
       setTextMore("");
+      setTextMoreen("");
       setSlogId("");
       setItems([]);
     } catch (error) {
@@ -223,6 +245,17 @@ const service = () => {
                         setServices(newService);
                       }}
                     />
+                    <label htmlFor="addName">Назва (eng)</label>
+                    <input
+                      type="text"
+                      id="addName"
+                      value={ser.nameen || ""}
+                      onChange={(e) => {
+                        let newService = JSON.parse(JSON.stringify(services));
+                        newService[idx].nameen = e.target.value;
+                        setServices(newService);
+                      }}
+                    />
                     <label htmlFor="addShortDescr">Короткий опис</label>
                     <input
                       type="text"
@@ -231,6 +264,17 @@ const service = () => {
                       onChange={(e) => {
                         let newService = JSON.parse(JSON.stringify(services));
                         newService[idx].description = e.target.value;
+                        setServices(newService);
+                      }}
+                    />
+                    <label htmlFor="addShortDescr">Короткий опис (eng)</label>
+                    <input
+                      type="text"
+                      id="addShortDescr"
+                      value={ser.descriptionen || ""}
+                      onChange={(e) => {
+                        let newService = JSON.parse(JSON.stringify(services));
+                        newService[idx].descriptionen = e.target.value;
                         setServices(newService);
                       }}
                     />
@@ -246,6 +290,18 @@ const service = () => {
                         return setValue2;
                       }}
                     />
+                    <label htmlFor="addDescription">Опис (eng)</label>
+                    <ReactQuill
+                      id="addDescription"
+                      theme="snow"
+                      value={ser.texten}
+                      onChange={(e) => {
+                        let newService = JSON.parse(JSON.stringify(services));
+                        newService[idx].texten = e;
+                        setServices(newService);
+                        return setValue4;
+                      }}
+                    />
                     <label htmlFor="addDescription">Читати більше</label>
                     <ReactQuill
                       id="addDescription"
@@ -256,6 +312,18 @@ const service = () => {
                         newService[idx].textMore = e;
                         setServices(newService);
                         return setValue3;
+                      }}
+                    />
+                    <label htmlFor="addDescription">Читати більше (eng)</label>
+                    <ReactQuill
+                      id="addDescription"
+                      theme="snow"
+                      value={ser.textMoreen}
+                      onChange={(e) => {
+                        let newService = JSON.parse(JSON.stringify(services));
+                        newService[idx].textMoreen = e;
+                        setServices(newService);
+                        return setValue5;
                       }}
                     />
                     <label>Категорія</label>
@@ -290,6 +358,7 @@ const service = () => {
                       {ser?.items.map((item, sdx) => {
                         return (
                           <div className={styles.item} key={sdx}>
+                            <div className={styles.itemWr}>
                             <input
                               type="text"
                               className={styles.itemName}
@@ -303,6 +372,21 @@ const service = () => {
                                 setServices(newService);
                               }}
                             />
+                            <input
+                              type="text"
+                              placeholder="eng"
+                              className={styles.itemName}
+                              value={item.nameen || ""}
+                              onChange={(e) => {
+                                let newService = JSON.parse(
+                                  JSON.stringify(services)
+                                );
+                                newService[idx].items[sdx].nameen =
+                                  e.target.value;
+                                setServices(newService);
+                              }}
+                            />
+                            </div>
                             <div className={styles.priceBlock}>
                               <input
                                 id="html"
@@ -417,6 +501,18 @@ const service = () => {
             setName(e.target.value);
           }}
         />
+        <label htmlFor="addName">Назва (eng)</label>
+        <input
+          type="text"
+          id="addName"
+          value={nameen}
+          onChange={(e) => {
+            // const newItems = JSON.parse(JSON.stringify(newService));
+            // newItems.name = e.target.value;
+            // setNewService(newItems);
+            setNameen(e.target.value);
+          }}
+        />
         <label htmlFor="addShortDescr">Короткий опис</label>
         <input
           type="text"
@@ -427,6 +523,18 @@ const service = () => {
             // newItems.description = e.target.value;
             // setNewService(newItems);
             setDescription(e.target.value);
+          }}
+        />
+        <label htmlFor="addShortDescr">Короткий опис (eng)</label>
+        <input
+          type="text"
+          id="addShortDescr"
+          value={descriptionen}
+          onChange={(e) => {
+            // const newItems = JSON.parse(JSON.stringify(newService));
+            // newItems.description = e.target.value;
+            // setNewService(newItems);
+            setDescriptionen(e.target.value);
           }}
         />
         <label htmlFor="addDescription">Опис</label>
@@ -442,6 +550,19 @@ const service = () => {
             return setValue;
           }}
         />
+        <label htmlFor="addDescription">Опис (eng)</label>
+        <ReactQuill
+          id="addDescription"
+          theme="snow"
+          value={texten}
+          onChange={(e) => {
+            // const newItems = JSON.parse(JSON.stringify(newService));
+            // newItems.text = e;
+            // setNewService(newItems);
+            setTexten(e);
+            return setValue;
+          }}
+        />
         <label htmlFor="addDescription">Читати більше</label>
         <ReactQuill
           id="addDescription"
@@ -452,6 +573,19 @@ const service = () => {
             // newItems.textMore = e;
             // setNewService(newItems);
             setTextMore(e);
+            return setValue1;
+          }}
+        />
+        <label htmlFor="addDescription">Читати більше (eng)</label>
+        <ReactQuill
+          id="addDescription"
+          theme="snow"
+          value={textMoreen}
+          onChange={(e) => {
+            // const newItems = JSON.parse(JSON.stringify(newService));
+            // newItems.textMore = e;
+            // setNewService(newItems);
+            setTextMoreen(e);
             return setValue1;
           }}
         />
@@ -481,6 +615,7 @@ const service = () => {
           {items.map((ser, idx) => {
             return (
               <div className={styles.item} key={idx}>
+                <div className={styles.itemWr}>
                 <input
                   type="text"
                   className={styles.itemName}
@@ -491,6 +626,18 @@ const service = () => {
                     setItems(newItems);
                   }}
                 />
+                <input
+                  type="text"
+                  placeholder="eng"
+                  className={styles.itemName}
+                  value={ser.nameen}
+                  onChange={(e) => {
+                    const newItems = JSON.parse(JSON.stringify(items));
+                    newItems[idx].nameen = e.target.value;
+                    setItems(newItems);
+                  }}
+                />
+                </div>
                 <div className={styles.priceBlock}>
                   <input
                     id="html"
