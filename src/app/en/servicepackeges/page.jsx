@@ -10,7 +10,7 @@ export default async function Page() {
   return (
     <div>
       <HeaderMenu active="services" />
-      <ServicePage data={newData} title="Legal Services Packagesг" eng={true} />
+      <ServicePage data={newData} title="Legal Services Packages" eng={true} />
       <Footer />
     </div>
   );
