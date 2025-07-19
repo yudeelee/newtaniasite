@@ -3,6 +3,7 @@
 import Link from "next/link";
 import styles from "./styles.module.scss";
 import { useState } from "react";
+import Language from "../language/Language";
 
 const HeaderMenu = ({ active }) => {
   const [burger, setBurger] = useState(false);
@@ -13,6 +14,7 @@ const HeaderMenu = ({ active }) => {
           <img src="/img/Blue2.png" alt="" />
         </div>
         <nav className={styles.menu}>
+          <Language />
           <ul className={styles.topMenu}>
             <li className={active === "home" ? styles.active : ""}>
               <Link href="/en">Home</Link>
