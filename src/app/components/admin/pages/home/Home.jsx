@@ -9,6 +9,7 @@ import { MdOutlinePublishedWithChanges } from "react-icons/md";
 import { MdDeleteOutline } from "react-icons/md";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import axios from "axios";
+import Loading from "@/app/components/loading/Loading";
 
 const InitialState = {
   topImg: "",
@@ -75,6 +76,8 @@ const Home = () => {
 
   const [value, setValue] = useState("");
   const [value1, setValue1] = useState("");
+
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -145,8 +148,10 @@ const Home = () => {
   const save = async () => {
     console.log(data);
     try {
+      setLoading(true);
       const res = await axios.put("/api/mainpage", data);
       setData(res.data);
+      setLoading(false);
     } catch (error) {
       console.log(error.message);
     }
@@ -154,6 +159,7 @@ const Home = () => {
 
   return (
     <>
+      {loading && <Loading />}
       <div className={styles.buttons}>
         <h2>Головна</h2>
         <button onClick={save}>
@@ -186,8 +192,6 @@ const Home = () => {
               type="text"
               value={data.titleen || ""}
               onChange={(e) => {
-                console.log(data.titleen);
-                console.log(data);
                 return setData({ ...data, titleen: e.target.value });
               }}
             />
@@ -335,10 +339,6 @@ const Home = () => {
       </div>
       <div className={styles.formControl}>
         <label htmlFor="">Текст (eng)</label>
-        {/* <textarea
-          value={data.aboutText || ''}
-          onChange={(e) => setData({ ...data, aboutText: e.target.value })}
-        ></textarea> */}
         <ReactQuill theme="snow" value={value1} onChange={setValue1} />
       </div>
       <div className={styles.line}>Що ми пропонуємо</div>
@@ -386,19 +386,6 @@ const Home = () => {
           </div>
         );
       })}
-
-      {/* <div className={styles.formControl}>
-        <input type='text' />
-      </div>
-      <div className={styles.formControl}>
-        <input type='text' />
-      </div>
-      <div className={styles.formControl}>
-        <input type='text' />
-      </div>
-      <div className={styles.formControl}>
-        <input type='text' />
-      </div> */}
       <div className={styles.bButtons}>
         <button onClick={addProposition}>
           <IoIosAddCircleOutline />
@@ -429,77 +416,12 @@ const Home = () => {
           </div>
         );
       })}
-
-      {/* <div className={styles.formControl}>
-        <input type='text' />
-      </div>
-      <div className={styles.formControl}>
-        <input type='text' />
-      </div>
-      <div className={styles.formControl}>
-        <input type='text' />
-      </div>
-      <div className={styles.formControl}>
-        <input type='text' />
-      </div> */}
       <div className={styles.bButtons}>
         <button onClick={addProposition1}>
           <IoIosAddCircleOutline />
           Додати
         </button>
       </div>
-      {/* <div className={styles.line}>Фотографії</div>
-      <div className={styles.photos}>
-        <div className={styles.topImage + ' ' + styles.small}>
-          <img src={data?.photos[0]?.src} alt='' />
-          <button onClick={() => setImg1Open(true)}>
-            <MdOutlinePublishedWithChanges />
-            Змінити
-          </button>
-        </div>
-        <div className={styles.topImage + ' ' + styles.small}>
-          <img src={data?.photos[1]?.src} alt='' />
-          <button onClick={() => setImg2Open(true)}>
-            <MdOutlinePublishedWithChanges />
-            Змінити
-          </button>
-        </div>
-        <div className={styles.topImage + ' ' + styles.small}>
-          <img src={data?.photos[2]?.src} alt='' />
-          <button onClick={() => setImg3Open(true)}>
-            <MdOutlinePublishedWithChanges />
-            Змінити
-          </button>
-        </div>
-        <div className={styles.topImage + ' ' + styles.small}>
-          <img src={data?.photos[3]?.src} alt='' />
-          <button onClick={() => setImg4Open(true)}>
-            <MdOutlinePublishedWithChanges />
-            Змінити
-          </button>
-        </div>
-        <div className={styles.topImage + ' ' + styles.small}>
-          <img src={data?.photos[4]?.src} alt='' />
-          <button onClick={() => setImg5Open(true)}>
-            <MdOutlinePublishedWithChanges />
-            Змінити
-          </button>
-        </div>
-        <div className={styles.topImage + ' ' + styles.small}>
-          <img src={data?.photos[5]?.src} alt='' />
-          <button onClick={() => setImg6Open(true)}>
-            <MdOutlinePublishedWithChanges />
-            Змінити
-          </button>
-        </div>
-        <div className={styles.topImage + ' ' + styles.small}>
-          <img src={data?.photos[6]?.src} alt='' />
-          <button onClick={() => setImg7Open(true)}>
-            <MdOutlinePublishedWithChanges />
-            Змінити
-          </button>
-        </div>
-      </div> */}
       <div className={styles.line}>Фішки</div>
       <div className={styles.fishki}>
         <div className={styles.formControl}>
@@ -646,84 +568,7 @@ const Home = () => {
             }}
           />
         </div>
-        {/* <div className={styles.formControl}>
-          <label htmlFor=''>Заголовок</label>
-          <input type='text' />
-        </div>
-        <div className={styles.formControl}>
-          <label htmlFor=''>Текст</label>
-          <input type='text' />
-        </div>
-        <div className={styles.formControl}>
-          <label htmlFor=''>Заголовок</label>
-          <input type='text' />
-        </div>
-        <div className={styles.formControl}>
-          <label htmlFor=''>Текст</label>
-          <input type='text' />
-        </div> */}
       </div>
-      {/* <div className={styles.line}>Послуги</div>
-      <div className={styles.formControl}>
-        <label htmlFor=''>Заголовок</label>
-        <input type='text' />
-      </div>
-      <div className={styles.formControl}>
-        <label htmlFor=''>Текст</label>
-        <input type='text' />
-      </div>
-      <div className={styles.formControl}>
-        <label htmlFor=''>Заголовок</label>
-        <input type='text' />
-      </div>
-      <div className={styles.formControl}>
-        <label htmlFor=''>Текст</label>
-        <input type='text' />
-      </div>
-      <div className={styles.formControl}>
-        <label htmlFor=''>Заголовок</label>
-        <input type='text' />
-      </div>
-      <div className={styles.formControl}>
-        <label htmlFor=''>Текст</label>
-        <input type='text' />
-      </div>
-      <div className={styles.formControl}>
-        <label htmlFor=''>Заголовок</label>
-        <input type='text' />
-      </div>
-      <div className={styles.formControl}>
-        <label htmlFor=''>Текст</label>
-        <input type='text' />
-      </div>
-      <div className={styles.formControl}>
-        <label htmlFor=''>Заголовок</label>
-        <input type='text' />
-      </div>
-      <div className={styles.formControl}>
-        <label htmlFor=''>Текст</label>
-        <input type='text' />
-      </div>
-      <div className={styles.formControl}>
-        <label htmlFor=''>Заголовок</label>
-        <input type='text' />
-      </div>
-      <div className={styles.formControl}>
-        <label htmlFor=''>Текст</label>
-        <input type='text' />
-      </div> */}
-      {/* <div className={styles.line}>Клієнти</div>
-      <div className={styles.topImage + ' ' + styles.small}>
-        <img src='' alt='' />
-        <button>
-          <MdOutlinePublishedWithChanges />
-          Змінити
-        </button>
-        <div className={styles.formControl}>
-          <label htmlFor=''>Посилання</label>
-          <input type='text' />
-        </div>
-      </div> */}
       <div className={styles.line}>Швидка дія</div>
       <div className={styles.formControl}>
         <label htmlFor="">Заголовок</label>

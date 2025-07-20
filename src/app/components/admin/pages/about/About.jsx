@@ -9,6 +9,7 @@ import { IoMdArrowRoundUp } from "react-icons/io";
 import { IoMdArrowRoundDown } from "react-icons/io";
 import { MdDeleteOutline } from "react-icons/md";
 import { Fragment } from "react";
+import Loading from "@/app/components/loading/Loading";
 
 const About = () => {
   const [name, setName] = useState("");
@@ -17,11 +18,13 @@ const About = () => {
   const [positionen, setPositionen] = useState("");
   const [img, setImg] = useState("/img/default.jpg");
   const [value, setValue] = useState("");
-   const [valueen, setValueen] = useState("");
+  const [valueen, setValueen] = useState("");
   const [changeIdx, setChangeIdx] = useState(0);
   const [visible, setVisible] = useState(false);
 
   const [workers, setWorkers] = useState([]);
+
+  const [loading, setLoading] = useState(false);
 
   const [newWorker, setNewWorker] = useState(false);
   const [newWorker1, setNewWorker1] = useState(false);
@@ -45,14 +48,6 @@ const About = () => {
     fetchData();
   }, []);
 
-  // useEffect(() => {
-  //   if (workers[changeIdx]) {
-  //     const newWorkers = JSON.parse(JSON.stringify(workers));
-  //     newWorkers[changeIdx].text = value;
-  //     setWorkers([...newWorkers]);
-  //   }
-  // }, [value]);
-
   const addWorker = async () => {
     try {
       const data = {
@@ -64,6 +59,7 @@ const About = () => {
         text: value1,
         texten: valueen,
       };
+      setLoading(true);
       const res = await axios.post("/api/aboutpage", data);
       setName("");
       setNameen("");
@@ -72,6 +68,7 @@ const About = () => {
       setImg("/img/default.jpg");
       setValue1("");
       setValue1en("");
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -85,8 +82,9 @@ const About = () => {
 
   const saveWorkers = async () => {
     try {
+      setLoading(true);
       const res = await axios.put("/api/aboutpage", workers);
-      // setWorkers(res.data.workers.workers);
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -137,6 +135,7 @@ const About = () => {
 
   return (
     <div className={styles.about}>
+      {loading && <Loading />}
       <div className={styles.workerList}>
         {workers?.map((wor, idx) => {
           const worHeader = open[idx] ? styles.openHeader : "";

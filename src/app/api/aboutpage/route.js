@@ -1,5 +1,5 @@
-import db from '../../../../utils/db';
-import AboutPage from '../../../../models/AboutPage';
+import db from "../../../../utils/db";
+import AboutPage from "../../../../models/AboutPage";
 
 export async function POST(req) {
   const body = await req.json();
@@ -9,16 +9,13 @@ export async function POST(req) {
     const oldData = await AboutPage.findOne();
     oldData.workers.push(data);
     const newPage = await AboutPage.findByIdAndUpdate(
-      '65f09c01d011ba41a27eb247',
+      "65f09c01d011ba41a27eb247",
       {
         ...oldData,
       },
       { new: true }
     );
-
-    // const newPage = new AboutPage({ ...data, topImg: data.topImg });
-    // const addedPage = await newPage.save();
-    return new Response(JSON.stringify({ message: 'done' }));
+    return new Response(JSON.stringify({ message: "done" }));
   } catch (err) {
     return new Response(JSON.stringify({ message: err.message }));
   }
@@ -31,7 +28,7 @@ export async function PUT(req) {
     const data = body;
     const newData = { workers: data };
     const newPage = await AboutPage.findByIdAndUpdate(
-      '65f09c01d011ba41a27eb247',
+      "65f09c01d011ba41a27eb247",
       {
         ...newData,
       },

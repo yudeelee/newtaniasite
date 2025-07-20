@@ -3,6 +3,7 @@
 import styles from "./styles.module.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Loading from "../loading/Loading";
 
 const ContactPage = ({ eng = false }) => {
   const TOKEN = "5530765545:AAFy5U47-r8OYc198-5blcgCR-cKB3_jowE";
@@ -18,6 +19,8 @@ const ContactPage = ({ eng = false }) => {
   const [text, setText] = useState();
   const [texten, setTexten] = useState();
   const [contacts, setContacts] = useState();
+
+  const [loading, setLoading] = useState(false);
 
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -123,7 +126,7 @@ const ContactPage = ({ eng = false }) => {
     // } catch (error) {
     //   console.log(error);
     // }
-
+    setLoading(true);
     try {
       function gtag_report_conversion(url) {
         var callback = function () {
@@ -154,13 +157,14 @@ const ContactPage = ({ eng = false }) => {
         })
         .then((res) => {
           console.log(res);
-          setErrorMsg("Ваше замовлення прийнято");
         })
         .catch((err) => {
           console.log("bad");
         });
       try {
         const res = await axios.post("/api/orders", data);
+        setLoading(false);
+        setErrorMsg("Ваше замовлення прийнято");
         console.log(res.data);
       } catch (error) {
         console.log("RRRRRRRRRRRRRRRRRRR");
@@ -188,6 +192,7 @@ const ContactPage = ({ eng = false }) => {
           </div>
         </div>
       )}
+      {loading && <Loading />}
       <div className="container">
         <div className={styles.contactHeader}>
           <div className="title">

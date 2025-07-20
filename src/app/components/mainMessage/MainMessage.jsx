@@ -3,6 +3,7 @@
 import { useState } from "react";
 import axios from "axios";
 import styles from "./styles.module.scss";
+import Loading from "../loading/Loading";
 
 const MainMessage = ({ data, eng = false }) => {
   const TOKEN = "5530765545:AAFy5U47-r8OYc198-5blcgCR-cKB3_jowE";
@@ -14,16 +15,28 @@ const MainMessage = ({ data, eng = false }) => {
   const [errorMsg, setErrorMsg] = useState("");
   const [success, setSuccess] = useState("");
 
+  const [loading, setLoading] = useState(false);
+
   const sendMsg1 = async () => {
     if (name === "") {
-      setErrorMsg("Введіть будь-ласка своє Ім'я");
+      setErrorMsg(
+        eng ? "Please enter your Name" : "Введіть будь-ласка своє Ім'я"
+      );
       return;
     }
     if (phone === "") {
-      setErrorMsg("Введіть будь-ласка свій номер телефону");
+      setErrorMsg(
+        eng
+          ? "Please enter your phone number"
+          : "Введіть будь-ласка свій номер телефону"
+      );
       return;
     }
-    const msg1 = `Запит на консультацію\n${name}\n${phone}`;
+    const msg1 = `${
+      eng ? "Request for consultation" : "Запит на консультацію"
+    }\n${name}\n${phone}`;
+
+    setLoading(true);
 
     axios
       .post(URI, {
@@ -34,7 +47,6 @@ const MainMessage = ({ data, eng = false }) => {
         phone,
       })
       .then((res) => {
-        setSuccess("Вашу заявку прийнято");
         setName("");
         setPhone("");
         console.log("Result", res);
@@ -54,6 +66,10 @@ const MainMessage = ({ data, eng = false }) => {
     };
     try {
       const res = await axios.post("/api/orders", data1);
+      setLoading(false);
+      setSuccess(
+        eng ? "Your request has been accepted" : "Вашу заявку прийнято"
+      );
       console.log(res.data);
     } catch (error) {
       console.log(error);
@@ -78,6 +94,7 @@ const MainMessage = ({ data, eng = false }) => {
           </div>
         </div>
       )}
+      {loading && <Loading />}
       <div className={styles.message}>
         <div className="container">
           <div className={styles.mesText}>

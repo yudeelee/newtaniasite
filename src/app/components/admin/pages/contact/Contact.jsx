@@ -3,6 +3,7 @@ import "react-quill/dist/quill.snow.css";
 import styles from "./styles.module.scss";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Loading from "@/app/components/loading/Loading";
 
 const Contact = () => {
   const [phone, setPhone] = useState({});
@@ -12,6 +13,8 @@ const Contact = () => {
   const [youtube, setYoutube] = useState({});
   const [text, setText] = useState({});
   const [texten, setTexten] = useState({});
+
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -42,6 +45,7 @@ const Contact = () => {
         text,
         texten,
       };
+      setLoading(true);
       const res = await axios.put("/api/contactpage", data);
       setPhone(res.data.newPage.phone);
       setMail(res.data.newPage.mail);
@@ -50,6 +54,7 @@ const Contact = () => {
       setYoutube(res.data.newPage.youtube);
       setText(res.data.newPage.text);
       setTexten(res.data.newPage.texten);
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -57,6 +62,7 @@ const Contact = () => {
 
   return (
     <div className={styles.contact}>
+      {loading && <Loading />}
       <div className={styles.headLine}>Контакти</div>
       <div className={styles.contacts}>
         <div className={styles.formControl}>

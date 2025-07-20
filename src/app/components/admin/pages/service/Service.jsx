@@ -7,6 +7,7 @@ import { IoMdArrowRoundUp } from "react-icons/io";
 import { IoMdArrowRoundDown } from "react-icons/io";
 import { MdDeleteOutline } from "react-icons/md";
 import axios from "axios";
+import Loading from "@/app/components/loading/Loading";
 
 const service = () => {
   const [value, setValue] = useState();
@@ -18,6 +19,8 @@ const service = () => {
   const [value5, setValue5] = useState();
 
   const [opens, setOpens] = useState([]);
+
+  const [loading, setLoading] = useState(false);
 
   const [name, setName] = useState("");
   const [nameen, setNameen] = useState("");
@@ -113,6 +116,7 @@ const service = () => {
       items,
     };
     try {
+      setLoading(true);
       const res = await axios.post("/api/servicepage", nService);
       setServices(res.data.services.services);
       setName("");
@@ -125,6 +129,7 @@ const service = () => {
       setTextMoreen("");
       setSlogId("");
       setItems([]);
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -142,8 +147,10 @@ const service = () => {
     newWorkers[idx] = newWorkers[idx - 1];
     newWorkers[idx - 1] = x;
     try {
+      setLoading(true);
       const res = await axios.put("/api/servicepage", newWorkers);
       setServices(res.data.services.services);
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -155,8 +162,10 @@ const service = () => {
     newWorkers[idx] = newWorkers[idx + 1];
     newWorkers[idx + 1] = x;
     try {
+      setLoading(true);
       const res = await axios.put("/api/servicepage", newWorkers);
       setServices(res.data.services.services);
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -167,8 +176,10 @@ const service = () => {
     newWorkers = newWorkers.filter((wor, i) => i !== idx);
     console.log(newWorkers);
     try {
+      setLoading(true);
       const res = await axios.put("/api/servicepage", newWorkers);
       setServices(res.data.services.services);
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -176,8 +187,10 @@ const service = () => {
 
   const saveChanges = async () => {
     try {
+      setLoading(true);
       const res = await axios.put("/api/servicepage", services);
       setServices(res.data.services.services);
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -185,6 +198,7 @@ const service = () => {
 
   return (
     <div className={styles.services}>
+      {loading && <Loading />}
       <div className={styles.allServices}>
         {services.map((ser, idx) => {
           const worHeader = opens[idx] ? styles.openHeader : "";
@@ -359,33 +373,33 @@ const service = () => {
                         return (
                           <div className={styles.item} key={sdx}>
                             <div className={styles.itemWr}>
-                            <input
-                              type="text"
-                              className={styles.itemName}
-                              value={item.name || ""}
-                              onChange={(e) => {
-                                let newService = JSON.parse(
-                                  JSON.stringify(services)
-                                );
-                                newService[idx].items[sdx].name =
-                                  e.target.value;
-                                setServices(newService);
-                              }}
-                            />
-                            <input
-                              type="text"
-                              placeholder="eng"
-                              className={styles.itemName}
-                              value={item.nameen || ""}
-                              onChange={(e) => {
-                                let newService = JSON.parse(
-                                  JSON.stringify(services)
-                                );
-                                newService[idx].items[sdx].nameen =
-                                  e.target.value;
-                                setServices(newService);
-                              }}
-                            />
+                              <input
+                                type="text"
+                                className={styles.itemName}
+                                value={item.name || ""}
+                                onChange={(e) => {
+                                  let newService = JSON.parse(
+                                    JSON.stringify(services)
+                                  );
+                                  newService[idx].items[sdx].name =
+                                    e.target.value;
+                                  setServices(newService);
+                                }}
+                              />
+                              <input
+                                type="text"
+                                placeholder="eng"
+                                className={styles.itemName}
+                                value={item.nameen || ""}
+                                onChange={(e) => {
+                                  let newService = JSON.parse(
+                                    JSON.stringify(services)
+                                  );
+                                  newService[idx].items[sdx].nameen =
+                                    e.target.value;
+                                  setServices(newService);
+                                }}
+                              />
                             </div>
                             <div className={styles.priceBlock}>
                               <input
@@ -616,27 +630,27 @@ const service = () => {
             return (
               <div className={styles.item} key={idx}>
                 <div className={styles.itemWr}>
-                <input
-                  type="text"
-                  className={styles.itemName}
-                  value={ser.name}
-                  onChange={(e) => {
-                    const newItems = JSON.parse(JSON.stringify(items));
-                    newItems[idx].name = e.target.value;
-                    setItems(newItems);
-                  }}
-                />
-                <input
-                  type="text"
-                  placeholder="eng"
-                  className={styles.itemName}
-                  value={ser.nameen}
-                  onChange={(e) => {
-                    const newItems = JSON.parse(JSON.stringify(items));
-                    newItems[idx].nameen = e.target.value;
-                    setItems(newItems);
-                  }}
-                />
+                  <input
+                    type="text"
+                    className={styles.itemName}
+                    value={ser.name}
+                    onChange={(e) => {
+                      const newItems = JSON.parse(JSON.stringify(items));
+                      newItems[idx].name = e.target.value;
+                      setItems(newItems);
+                    }}
+                  />
+                  <input
+                    type="text"
+                    placeholder="eng"
+                    className={styles.itemName}
+                    value={ser.nameen}
+                    onChange={(e) => {
+                      const newItems = JSON.parse(JSON.stringify(items));
+                      newItems[idx].nameen = e.target.value;
+                      setItems(newItems);
+                    }}
+                  />
                 </div>
                 <div className={styles.priceBlock}>
                   <input
