@@ -77,7 +77,7 @@ const Footer = () => {
           <Link href="/oferta">Public offer</Link>
         </div>
         <div className={styles.footText}>
-          ТОВ "БУХГАЛТЕР КОНСУЛЬТАНТ" ЄДРПОУ 45494012 м. Львів
+          LLC "CONSULTANT ACCOUNTANT" Individual tax number 45494012, Lviv
         </div>
       </div>
     </div>
