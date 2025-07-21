@@ -69,34 +69,30 @@ const HeaderMenu = ({ active }) => {
           </div>
           <ul className={`${styles.burgerMenu} ${!burger ? styles.open : ""}`}>
             <li className={active === "home" ? styles.active : ""}>
-              <Link href="/">Головна</Link>
+              <Link href="/en">Home</Link>
             </li>
             <li className={active === "about" ? styles.active : ""}>
-              <Link href="/about">Про нас</Link>
+              <Link href="/en/about">About Us</Link>
             </li>
             <li className={styles.serviceLink}>
-              <Link href="/services">Бухгалтерські послуги</Link>
+              <Link href="/en/services">Accounting services</Link>
             </li>
             <li className={styles.serviceLink}>
-              <Link href="/legalservices">Юридичні послуги</Link>
+              <Link href="/en/legalservices">Legal services</Link>
             </li>
             <li className={styles.serviceLink}>
-              <Link href="/servicepackeges">Пакети юридичних послуг</Link>
+              <Link href="/en/servicepackeges">Legal Services Packages</Link>
             </li>
             <li className={styles.serviceLink}>
-              <Link href="/financeservices">Аудиторські послуги</Link>
+              <Link href="/en/financeservices">Audit services</Link>
             </li>
             <li className={styles.serviceLink}>
-              <Link href="/financepackeges">Пакети Фінансових послуг</Link>
+              <Link href="/en/financepackeges">
+                Financial Services Packages
+              </Link>
             </li>
-            {/* <li className={active === "services" ? styles.active : ""}>
-              Наші послуги
-              <ul className={styles.serviceMenu}>
-                
-              </ul>
-            </li> */}
             <li className={active === "contact" ? styles.active : ""}>
-              <Link href="/contact">Замовити</Link>
+              <Link href="/en/contact">Order</Link>
             </li>
           </ul>
         </nav>
