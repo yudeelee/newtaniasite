@@ -77,7 +77,7 @@ const Footer = () => {
           <Link href="/oferta">Public offer</Link>
         </div>
         <div className={styles.footText}>
-          LLC "CONSULTANT ACCOUNTANT" Individual tax number 45494012, Lviv
+          LLC "ACCOUNTANT CONSULTANT" Individual tax number 45494012, Lviv
         </div>
       </div>
     </div>
