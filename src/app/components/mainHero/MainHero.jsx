@@ -51,7 +51,10 @@ const MainHero = ({ data, eng = false }) => {
             </p>
           </a>
           <br />
-          <Link href="/services" className={styles.button}>
+          <Link
+            href={eng ? "/en/services" : "/services"}
+            className={styles.button}
+          >
             {eng ? "Order a service" : "Замовити послугу"}
           </Link>
         </div>
