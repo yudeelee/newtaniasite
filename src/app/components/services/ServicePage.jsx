@@ -149,19 +149,25 @@ const ServicePage = ({ data, title, eng = false }) => {
                                 ) : idx == 0 &&
                                   idx1 == 0 &&
                                   (title == "Аудиторські послуги" ||
-                                    title == "Аудиторські послуги") ? (
+                                    title == "Audit services") ? (
                                   <div
                                     className={styles.payWrapper}
                                     colSpan={4}
                                   >
+                                    <Link
+                                      className={styles.button}
+                                      href={eng ? "/en/contact" : "/contact"}
+                                    >
+                                      {eng
+                                        ? "Order a service"
+                                        : "Замовити послугу"}
+                                    </Link>
                                     <a
                                       target="blank"
                                       className={styles.liqpay}
                                       href="https://www.liqpay.ua/api/3/checkout?data=eyJ2ZXJzaW9uIjozLCJhY3Rpb24iOiJwYXkiLCJhbW91bnQiOiIxMDkwMCIsImN1cnJlbmN5IjoiVUFIIiwiZGVzY3JpcHRpb24iOiJDaGVjayB1cCDQsdGW0LfQvdC10YHRgyIsInB1YmxpY19rZXkiOiJpMzIyODA3NjAyNjAiLCJsYW5ndWFnZSI6InVrIn0=&signature=iDoihs3SFZvcRD15aZ1U7bAJat8="
                                     >
-                                      {eng
-                                        ? "Make an order"
-                                        : "Оформити замовлення"}
+                                      {eng ? "Pay" : "Оплатити"}
                                     </a>
                                   </div>
                                 ) : (
