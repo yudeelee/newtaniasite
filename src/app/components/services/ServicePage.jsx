@@ -138,12 +138,20 @@ const ServicePage = ({ data, title, eng = false }) => {
                                     className={styles.payWrapper}
                                     colSpan={4}
                                   >
+                                    <Link
+                                      className={styles.button}
+                                      href={eng ? "/en/contact" : "/contact"}
+                                    >
+                                      {eng
+                                        ? "Order a service"
+                                        : "Замовити послугу"}
+                                    </Link>
                                     <a
                                       target="blank"
                                       className={styles.liqpay}
                                       href="https://www.liqpay.ua/api/3/checkout?data=eyJ2ZXJzaW9uIjozLCJhY3Rpb24iOiJzdWJzY3JpYmUiLCJhbW91bnQiOiIyMDAwIiwiY3VycmVuY3kiOiJVQUgiLCJkZXNjcmlwdGlvbiI6ItCR0YPRhdCz0LDQu9GC0LXRgNGB0YzQutC40Lkg0YHRg9C/0YDQvtCy0ZbQtCIsInB1YmxpY19rZXkiOiJpMzIyODA3NjAyNjAiLCJsYW5ndWFnZSI6InVrIiwic3Vic2NyaWJlIjoxLCJzdWJzY3JpYmVfZGF0ZV9zdGFydCI6Im5vdyIsInN1YnNjcmliZV9wZXJpb2RpY2l0eSI6Im1vbnRoIn0=&signature=3r9n/w0ubi9rO2qml+Oyjk3Ki7c="
                                     >
-                                      {eng ? "Subscribe" : "Оформити підписку"}
+                                      {eng ? "Pay" : "Оплатити"}
                                     </a>
                                   </div>
                                 ) : idx == 0 &&
