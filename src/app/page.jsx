@@ -29,6 +29,7 @@ export default async function Home() {
       <HeaderMenu active="home" />
       <div className="container">
         <MainHero data={main} />
+        <MainMessage data={main} />
         <MainYoutube data={main} />
         <MainProposition data={main} photos={photos} />
         <MainFishki data={main} />
@@ -40,7 +41,6 @@ export default async function Home() {
           finblock={newFinBlock}
         />
         <Carusel className="mt100" />
-        <MainMessage data={main} />
       </div>
       <Footer />
     </div>
