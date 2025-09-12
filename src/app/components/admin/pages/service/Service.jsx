@@ -172,6 +172,7 @@ const service = () => {
   };
 
   const deleteWorker = async (idx) => {
+    console.log(services);
     let newWorkers = JSON.parse(JSON.stringify(services));
     newWorkers = newWorkers.filter((wor, i) => i !== idx);
     console.log(newWorkers);
