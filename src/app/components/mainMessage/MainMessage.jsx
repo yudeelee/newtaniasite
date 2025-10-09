@@ -49,7 +49,6 @@ const MainMessage = ({ data, eng = false }) => {
       .then((res) => {
         setName("");
         setPhone("");
-        console.log("Result", res);
       })
       .catch((err) => {
         console.log(err);
@@ -70,7 +69,6 @@ const MainMessage = ({ data, eng = false }) => {
       setSuccess(
         eng ? "Your request has been accepted" : "Вашу заявку прийнято"
       );
-      console.log(res.data);
     } catch (error) {
       console.log(error);
     }

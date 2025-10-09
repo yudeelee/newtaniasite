@@ -40,9 +40,6 @@ const HeaderMenu = ({ active }) => {
                 <li className={styles.serviceLink}>
                   <Link href="/financepackeges">Пакети Фінансових послуг</Link>
                 </li>
-                {/* <li className={styles.serviceLink}>
-                  <Link href="/audit">Аудит</Link>
-                </li> */}
               </ul>
             </li>
             <li className={active === "contact" ? styles.active : ""}>
@@ -85,12 +82,6 @@ const HeaderMenu = ({ active }) => {
             <li className={styles.serviceLink}>
               <Link href="/financepackeges">Пакети Фінансових послуг</Link>
             </li>
-            {/* <li className={active === "services" ? styles.active : ""}>
-              Наші послуги
-              <ul className={styles.serviceMenu}>
-                
-              </ul>
-            </li> */}
             <li className={active === "contact" ? styles.active : ""}>
               <Link href="/contact">Замовити</Link>
             </li>

@@ -44,9 +44,6 @@ const HeaderMenu = ({ active }) => {
                     Financial Services Packages
                   </Link>
                 </li>
-                {/* <li className={styles.serviceLink}>
-                  <Link href="/audit">Аудит</Link>
-                </li> */}
               </ul>
             </li>
             <li className={active === "contact" ? styles.active : ""}>

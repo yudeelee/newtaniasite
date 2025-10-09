@@ -93,99 +93,94 @@ const Carusel = ({ eng = false }) => {
         </div>
         <div id="drag-container">
           <div id="spin-container">
-            {/* <img
-              src='/img/Dukachi_logo.png'
-              alt=''
-              onClick={() => clickImg('https://dukachi.com/uk-ua/')}
-            /> */}
             <img
-              src="/img/1uahmatters.charity_logo_1.png"
+              src="/img/1uahmatters.charity_logo_1.webp"
               alt=""
               onClick={() => clickImg("https://1uahmatters.charity/")}
             />
             <img
-              src="/img/black.png"
+              src="/img/black.webp"
               alt=""
               onClick={() => clickImg("https://blackthorn-vision.com/")}
             />
             <img
-              src="/img/crystall.png"
+              src="/img/crystall.webp"
               alt=""
               onClick={() => clickImg("https://crystall.shop/")}
             />
             <img
-              src="/img/Asnandent_logo.png"
+              src="/img/Asnandent_logo.webp"
               alt=""
               onClick={() => clickImg("https://asnandent.com.ua/")}
             />
             <img
-              src="/img/Aurastomatologiia_logo_1.png"
+              src="/img/Aurastomatologiia_logo_1.webp"
               alt=""
               onClick={() =>
                 clickImg("https://www.instagram.com/aurastomatologiia/")
               }
             />
             <img
-              src="/img/b.by.julia_logo.png"
+              src="/img/b.by.julia_logo.webp"
               alt=""
               onClick={() => clickImg("https://bbyjulia-cs3438032.prom.ua/ua/")}
             />
             <img
-              src="/img/Bazar.club_logo_1.png"
+              src="/img/Bazar.club_logo_1.webp"
               alt=""
               onClick={() => clickImg("https://www.bazar.club/en")}
             />
             <img
-              src="/img/Brainspot_logo.png"
+              src="/img/Brainspot_logo.webp"
               alt=""
               onClick={() => clickImg("https://brain-spot.com/")}
             />
             <img
-              src="/img/Cooksy_logo_1.png"
+              src="/img/Cooksy_logo_1.webp"
               alt=""
               onClick={() => clickImg("https://cooksy.com.ua/")}
             />
             <img
-              src="/img/DeckoPlast_logo.png"
+              src="/img/DeckoPlast_logo.webp"
               alt=""
               onClick={() =>
                 clickImg("https://www.instagram.com/deckoplast/?hl=uk")
               }
             />
             <img
-              src="/img/Mocko.store_logo.png"
+              src="/img/Mocko.store_logo.webp"
               alt=""
               onClick={() => clickImg("https://www.instagram.com/mocko.store/")}
             />
             <img
-              src="/img/Service pobut_logo_1.png"
+              src="/img/Service pobut_logo_1.webp"
               alt=""
               onClick={() => clickImg("https://service-pobut.com.ua/")}
             />
             <img
-              src="/img/Tvoya_polygraphy.png"
+              src="/img/Tvoya_polygraphy.webp"
               alt=""
               onClick={() =>
                 clickImg("https://www.instagram.com/tvoya_polygraphy/?hl=uk")
               }
             />
             <img
-              src="/img/bytech.png"
+              src="/img/bytech.webp"
               alt=""
               onClick={() => clickImg("https://bftech.pro/")}
             />
             <img
-              src="/img/diamy.png"
+              src="/img/diamy.webp"
               alt=""
               onClick={() => clickImg("https://www.instagram.com/bo.diia.my/")}
             />
             <img
-              src="/img/beegu.png"
+              src="/img/beegu.webp"
               alt=""
               onClick={() => clickImg("https://www.beezhu.com/")}
             />
             <img
-              src="/img/tomik.png"
+              src="/img/tomik.webp"
               alt=""
               onClick={() =>
                 clickImg(

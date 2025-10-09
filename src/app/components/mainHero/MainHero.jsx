@@ -59,7 +59,7 @@ const MainHero = ({ data, eng = false }) => {
           </Link>
         </div>
         <div className={styles.heroImg}>
-          <img src="/img/backkk5.jpg" alt="Main Image" />
+          <img src="/img/backkk5-min.jpg" alt="Main Image" />
         </div>
       </div>
     </>
