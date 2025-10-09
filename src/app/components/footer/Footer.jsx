@@ -54,13 +54,13 @@ const Footer = () => {
               </li>
               <li>
                 <a href="https://www.instagram.com/tanyaselezniova_accountant/">
-                  <img src="/img/insta.png" alt="" />
+                  <img src="/img/insta.png" alt="Заходь до нас в Instagram" />
                 </a>
                 <a href="https://t.me/tanyaselezniova_accountant">
-                  <img src="/img/teleg.png" alt="" />
+                  <img src="/img/teleg.png" alt="Заходь до нас в Telegram" />
                 </a>
                 <a href="https://www.youtube.com/@consulting-accountant">
-                  <img src="/img/youtu.png" alt="" />
+                  <img src="/img/youtu.png" alt="Заходь до нас на Youtube" />
                 </a>
               </li>
               <li>+380734187147</li>
