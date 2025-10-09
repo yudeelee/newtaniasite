@@ -44,9 +44,7 @@ export default function RootLayout({
       </Head>
       <ReduxProvider>
         <SessionProvider session={session}>
-          <body
-            className={`${roboto.className} ${montserrat.className} ${poppins.className}`}
-          >
+          <body className={roboto.className}>
             {children}
             <GoogleTagManager gtmId="GTM-M6M682HP" />
             <Script src="/script.js" strategy="lazyOnload" />
