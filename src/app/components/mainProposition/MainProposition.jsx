@@ -5,6 +5,7 @@ import { Autoplay } from "swiper";
 import "swiper/css";
 
 import styles from "./styles.module.scss";
+import Image from "next/image";
 
 const MainProposition = ({ photos, data, eng = false }) => {
   return (
@@ -57,7 +58,12 @@ const MainProposition = ({ photos, data, eng = false }) => {
               if (!ab.unvisible) {
                 return (
                   <SwiperSlide key={idx}>
-                    <img src={ab.photo} alt="" />
+                    <Image
+                      src={ab.photo}
+                      alt="photo"
+                      width={100}
+                      height={400}
+                    />
                   </SwiperSlide>
                 );
               }

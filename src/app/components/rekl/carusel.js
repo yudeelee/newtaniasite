@@ -3,6 +3,25 @@
 import "./carusel.css";
 import React, { useLayoutEffect, useState, useEffect } from "react";
 
+import caruselImg1 from "../../../../public/img/1uahmatters.charity_logo_1.webp";
+import caruselImg2 from "../../../../public/img/black.webp";
+import caruselImg3 from "../../../../public/img/crystall.webp";
+import caruselImg4 from "../../../../public/img/Asnandent_logo.webp";
+import caruselImg5 from "../../../../public/img/Aurastomatologiia_logo_1.webp";
+import caruselImg6 from "../../../../public/img/b.by.julia_logo.webp";
+import caruselImg7 from "../../../../public/img/Bazar.club_logo_1.webp";
+import caruselImg8 from "../../../../public/img/Brainspot_logo.webp";
+import caruselImg9 from "../../../../public/img/Cooksy_logo_1.webp";
+import caruselImg10 from "../../../../public/img/DeckoPlast_logo.webp";
+import caruselImg11 from "../../../../public/img/Mocko.store_logo.webp";
+import caruselImg12 from "../../../../public/img/Service pobut_logo_1.webp";
+import caruselImg13 from "../../../../public/img/Tvoya_polygraphy.webp";
+import caruselImg14 from "../../../../public/img/bytech.webp";
+import caruselImg15 from "../../../../public/img/diamy.webp";
+import caruselImg16 from "../../../../public/img/beegu.webp";
+import caruselImg17 from "../../../../public/img/tomik.webp";
+import Image from "next/image";
+
 function useWindowSize() {
   const [size, setSize] = useState([0, 0]);
   useLayoutEffect(() => {
@@ -93,95 +112,129 @@ const Carusel = ({ eng = false }) => {
         </div>
         <div id="drag-container">
           <div id="spin-container">
-            <img
-              src="/img/1uahmatters.charity_logo_1.webp"
-              alt=""
+            <Image
+              src={caruselImg1}
+              alt="reklama1"
+              width={250}
+              height={150}
               onClick={() => clickImg("https://1uahmatters.charity/")}
             />
-            <img
-              src="/img/black.webp"
-              alt=""
+            <Image
+              src={caruselImg2}
+              alt="reklama2"
+              width={250}
+              height={150}
               onClick={() => clickImg("https://blackthorn-vision.com/")}
             />
-            <img
-              src="/img/crystall.webp"
-              alt=""
+            <Image
+              src={caruselImg3}
+              alt="reklama3"
+              width={250}
+              height={150}
               onClick={() => clickImg("https://crystall.shop/")}
             />
-            <img
-              src="/img/Asnandent_logo.webp"
-              alt=""
+            <Image
+              src={caruselImg4}
+              alt="reklama4"
+              width={250}
+              height={150}
               onClick={() => clickImg("https://asnandent.com.ua/")}
             />
-            <img
-              src="/img/Aurastomatologiia_logo_1.webp"
-              alt=""
+            <Image
+              src={caruselImg5}
+              alt="reklama5"
+              width={250}
+              height={150}
               onClick={() =>
                 clickImg("https://www.instagram.com/aurastomatologiia/")
               }
             />
-            <img
-              src="/img/b.by.julia_logo.webp"
-              alt=""
+            <Image
+              src={caruselImg6}
+              alt="reklama6"
+              width={250}
+              height={150}
               onClick={() => clickImg("https://bbyjulia-cs3438032.prom.ua/ua/")}
             />
-            <img
-              src="/img/Bazar.club_logo_1.webp"
-              alt=""
+            <Image
+              src={caruselImg7}
+              alt="reklama7"
+              width={250}
+              height={150}
               onClick={() => clickImg("https://www.bazar.club/en")}
             />
-            <img
-              src="/img/Brainspot_logo.webp"
-              alt=""
+            <Image
+              src={caruselImg8}
+              alt="reklama8"
+              width={250}
+              height={150}
               onClick={() => clickImg("https://brain-spot.com/")}
             />
-            <img
-              src="/img/Cooksy_logo_1.webp"
-              alt=""
+            <Image
+              src={caruselImg9}
+              alt="reklama9"
+              width={250}
+              height={150}
               onClick={() => clickImg("https://cooksy.com.ua/")}
             />
-            <img
-              src="/img/DeckoPlast_logo.webp"
-              alt=""
+            <Image
+              src={caruselImg10}
+              alt="reklama10"
+              width={250}
+              height={150}
               onClick={() =>
                 clickImg("https://www.instagram.com/deckoplast/?hl=uk")
               }
             />
-            <img
-              src="/img/Mocko.store_logo.webp"
-              alt=""
+            <Image
+              src={caruselImg11}
+              alt="reklama11"
+              width={250}
+              height={150}
               onClick={() => clickImg("https://www.instagram.com/mocko.store/")}
             />
-            <img
-              src="/img/Service pobut_logo_1.webp"
-              alt=""
+            <Image
+              src={caruselImg12}
+              alt="reklama12"
+              width={250}
+              height={150}
               onClick={() => clickImg("https://service-pobut.com.ua/")}
             />
-            <img
-              src="/img/Tvoya_polygraphy.webp"
-              alt=""
+            <Image
+              src={caruselImg13}
+              alt="reklama13"
+              width={250}
+              height={150}
               onClick={() =>
                 clickImg("https://www.instagram.com/tvoya_polygraphy/?hl=uk")
               }
             />
-            <img
-              src="/img/bytech.webp"
-              alt=""
+            <Image
+              src={caruselImg14}
+              alt="reklama14"
+              width={250}
+              height={150}
               onClick={() => clickImg("https://bftech.pro/")}
             />
-            <img
-              src="/img/diamy.webp"
-              alt=""
+            <Image
+              src={caruselImg15}
+              alt="reklama15"
+              width={250}
+              height={150}
               onClick={() => clickImg("https://www.instagram.com/bo.diia.my/")}
             />
-            <img
-              src="/img/beegu.webp"
-              alt=""
+            <Image
+              src={caruselImg16}
+              alt="reklama16"
+              width={250}
+              height={150}
               onClick={() => clickImg("https://www.beezhu.com/")}
             />
-            <img
-              src="/img/tomik.webp"
-              alt=""
+            <Image
+              src={caruselImg17}
+              alt="reklama17"
+              width={250}
+              height={150}
               onClick={() =>
                 clickImg(
                   "https://tomik.org.ua/?gad_source=1&gclid=Cj0KCQiA_qG5BhDTARIsAA0UHSLUQaER8bglscnVTPKOH06DPuEKnQBHNF5IxFxW3Ae64fVbKMUK_4YaAtpnEALw_wcB"

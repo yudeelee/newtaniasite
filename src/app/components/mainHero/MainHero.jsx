@@ -1,6 +1,9 @@
 import Link from "next/link";
 import styles from "./styles.module.scss";
 
+import heroImg from "../../../../public/img/backkk5-min.jpg";
+import Image from "next/image";
+
 const MainHero = ({ data, eng = false }) => {
   return (
     <>
@@ -59,11 +62,13 @@ const MainHero = ({ data, eng = false }) => {
           </Link>
         </div>
         <div className={styles.heroImg}>
-          <img
+          <Image src={heroImg} alt="Hero" width={1200} height={600} priority />
+
+          {/* <img
             src="/img/backkk5-min.jpg"
             alt="Main Image"
             fetchpriority="high"
-          />
+          /> */}
         </div>
       </div>
     </>
