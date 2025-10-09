@@ -61,7 +61,7 @@ const MainProposition = ({ photos, data, eng = false }) => {
                     <Image
                       src={ab.photo}
                       alt="photo"
-                      width={100}
+                      width={300}
                       height={400}
                     />
                   </SwiperSlide>
