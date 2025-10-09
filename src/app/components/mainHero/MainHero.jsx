@@ -9,7 +9,7 @@ const MainHero = ({ data, eng = false }) => {
           <h1 className={styles.heroTitle}>
             {!eng ? data.title : data.titleen != "" ? data.titleen : data.title}
           </h1>
-          <h3 className={styles.heroSubTitle}>
+          <h2 className={styles.heroSubTitle}>
             {!eng
               ? data.subTitle
               : data.subTitleen != ""
@@ -30,7 +30,7 @@ const MainHero = ({ data, eng = false }) => {
                 ? data.subTitle3en
                 : data.subTitle3}
             </span>
-          </h3>
+          </h2>
           <a href="#buhService">
             <p className={`text ${styles.headerSlog}`}>
               {!eng
