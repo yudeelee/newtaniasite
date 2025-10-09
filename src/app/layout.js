@@ -9,6 +9,14 @@ import { GoogleTagManager } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
+import { Roboto } from "next/font/google";
+
+const roboto = Roboto({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["100", "300", "400", "500", "700", "900"],
+});
+
 export default function RootLayout({
   children,
   params: { session, ...params },
@@ -20,7 +28,7 @@ export default function RootLayout({
       </Head>
       <ReduxProvider>
         <SessionProvider session={session}>
-          <body className={inter.className}>
+          <body className={roboto.className}>
             {children}
             <GoogleTagManager gtmId="GTM-M6M682HP" />
             <Script src="/script.js" strategy="lazyOnload" />

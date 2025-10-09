@@ -1,13 +1,24 @@
 import HeaderMenu from "./components/headerMenu/HeaderMenu";
-import Carusel from "./components/rekl/carusel";
+// import Carusel from "./components/rekl/carusel";
 import Footer from "./components/footer/Footer";
 import MainServices from "./components/mainServices/MainServices";
 import MainHero from "./components/mainHero/MainHero";
-import MainYoutube from "./components/mainYoutube/MainYoutube";
+// import MainYoutube from "./components/mainYoutube/MainYoutube";
 import MainProposition from "./components/mainProposition/MainProposition";
 import MainFishki from "./components/mainFishki/MainFishki";
 import MainMessage from "./components/mainMessage/MainMessage";
 import "react-quill/dist/quill.snow.css";
+
+import dynamic from "next/dynamic";
+const Carusel = dynamic(() => import("./components/rekl/carusel"), {
+  ssr: false,
+});
+const MainYoutube = dynamic(
+  () => import("./components/mainYoutube/MainYoutube"),
+  {
+    ssr: false,
+  }
+);
 
 export const metadata = {
   title: "Бухгалтер Консультант",
