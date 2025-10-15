@@ -3,6 +3,12 @@ import ServicePage from "../components/services/ServicePage";
 import HeaderMenu from "../components/headerMenu/HeaderMenu";
 import Footer from "../components/footer/Footer";
 
+export const metadata = {
+  title: "Пакети юридичних послуг — готові рішення для бізнесу",
+  description:
+    "Обирайте зручний пакет юридичних послуг для вашої компанії. Ми забезпечимо постійний правовий супровід, підготовку документів, консультації та представництво інтересів.",
+};
+
 export default async function Page() {
   const data = await getData();
   const newData = { services: [] };

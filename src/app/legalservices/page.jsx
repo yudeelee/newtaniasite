@@ -3,6 +3,12 @@ import ServicePage from "../components/services/ServicePage";
 import HeaderMenu from "../components/headerMenu/HeaderMenu";
 import Footer from "../components/footer/Footer";
 
+export const metadata = {
+  title: "Юридичні послуги для бізнесу — правова підтримка компаній",
+  description:
+    "Повний юридичний супровід бізнесу: від реєстрації компанії та договірного права до кадрових питань, ЗЕД, інтелектуальної власності та резидентства Дія.City.",
+};
+
 export default async function Page() {
   const data = await getData();
   const newData = { services: [] };

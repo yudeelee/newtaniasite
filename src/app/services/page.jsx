@@ -3,6 +3,12 @@ import ServicePage from "../components/services/ServicePage";
 import HeaderMenu from "../components/headerMenu/HeaderMenu";
 import Footer from "../components/footer/Footer";
 
+export const metadata = {
+  title: "Бухгалтерські послуги для бізнесу — повний бухгалтерський супровід",
+  description:
+    "Комплексне бухгалтерське обслуговування для компаній різних форм власності. Ведення обліку, звітність, кадровий облік, оптимізація оподаткування та фінансовий контроль.",
+};
+
 export default async function Page() {
   const data = await getData();
   const newData = { services: [] };

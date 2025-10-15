@@ -3,6 +3,12 @@ import ServicePage from "../components/services/ServicePage";
 import HeaderMenu from "../components/headerMenu/HeaderMenu";
 import Footer from "../components/footer/Footer";
 
+export const metadata = {
+  title: "Пакети фінансових послуг — стратегічне управління фінансами бізнесу",
+  description:
+    "Готові пакети фінансових послуг для малого та середнього бізнесу. Управлінський облік, фінансове планування, аналіз прибутковості та підготовка до масштабування.",
+};
+
 export default async function Page() {
   const data = await getData();
   const newData = { services: [] };

@@ -62,7 +62,9 @@ const MainProposition = ({ photos, data, eng = false }) => {
                       src={ab.photo}
                       alt="photo"
                       width={300}
-                      height={400}
+                      height={450}
+                      // fill
+                      sizes="(max-width: 1000px) 50vw, 300px"
                     />
                   </SwiperSlide>
                 );
