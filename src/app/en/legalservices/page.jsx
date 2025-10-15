@@ -3,6 +3,12 @@ import ServicePage from "../../components/services/ServicePage";
 import HeaderMenu from "../../components/headerMenuen/HeaderMenu";
 import Footer from "../../components/footeren/Footer";
 
+export const metadata = {
+  title: "Legal Services for Businesses — Full Legal Support",
+  description:
+    "Comprehensive legal support for businesses: from company registration and contract law to HR matters, foreign economic activity, intellectual property, and Diia.City residency.",
+};
+
 export default async function Page() {
   const data = await getData();
   const newData = { services: [] };

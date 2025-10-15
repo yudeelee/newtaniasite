@@ -3,6 +3,13 @@ import ServicePage from "../../components/services/ServicePage";
 import HeaderMenu from "../../components/headerMenuen/HeaderMenu";
 import Footer from "../../components/footeren/Footer";
 
+export const metadata = {
+  title:
+    "Financial Service Packages — Strategic Financial Management for Businesses",
+  description:
+    "Ready-made financial service packages for small and medium-sized businesses. Management accounting, financial planning, profitability analysis, and scaling preparation.",
+};
+
 export default async function Page() {
   const data = await getData();
   const newData = { services: [] };
@@ -30,7 +37,6 @@ async function getData() {
       throw new Error("Failed to fetch data");
     }
     const posts = res.json();
-    console.log("qqqq");
     return posts;
   } catch (error) {
     return error;

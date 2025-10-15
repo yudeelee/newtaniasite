@@ -3,6 +3,12 @@ import ServicePage from "../../components/services/ServicePage";
 import HeaderMenu from "../../components/headerMenuen/HeaderMenu";
 import Footer from "../../components/footeren/Footer";
 
+export const metadata = {
+  title: "Legal Service Packages — Ready-Made Solutions for Your Business",
+  description:
+    "Choose a convenient legal service package for your company. We provide ongoing legal support, document preparation, consultations, and representation of your interests.",
+};
+
 export default async function Page() {
   const data = await getData();
   const newData = { services: [] };
@@ -26,7 +32,6 @@ async function getData() {
       throw new Error("Failed to fetch data");
     }
     const posts = res.json();
-    console.log("qqqq");
     return posts;
   } catch (error) {
     return error;

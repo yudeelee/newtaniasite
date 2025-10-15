@@ -9,6 +9,12 @@ import MainFishki from "../components/mainFishki/MainFishki";
 import MainMessage from "../components/mainMessage/MainMessage";
 import "react-quill/dist/quill.snow.css";
 
+export const metadata = {
+  title: "Audit, Accounting, and Legal Services for Businesses Across Ukraine",
+  description:
+    "We are a team of professionals with over 5 years of experience supporting businesses at every stage — from registration to growth. Our auditors, lawyers, financial, and tax experts ensure stability, transparency, and financial protection.",
+};
+
 export default async function Home() {
   const { photos, main, services } = await getData();
 

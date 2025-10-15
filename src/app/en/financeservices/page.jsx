@@ -3,6 +3,12 @@ import ServicePage from "../../components/services/ServicePage";
 import HeaderMenu from "../../components/headerMenuen/HeaderMenu";
 import Footer from "../../components/footeren/Footer";
 
+export const metadata = {
+  title: "Audit Services — Financial Review and Reporting Assessment",
+  description:
+    "Professional audit for companies: financial verification, risk analysis, reporting assurance, and recommendations for sustainable business growth.",
+};
+
 export default async function Page() {
   const data = await getData();
   console.log(data);

@@ -3,6 +3,12 @@ import ServicePage from "../../components/services/ServicePage";
 import HeaderMenu from "../../components/headerMenuen/HeaderMenu";
 import Footer from "../../components/footeren/Footer";
 
+export const metadata = {
+  title: "Accounting Services for Businesses — Full Accounting Support",
+  description:
+    "Comprehensive accounting services for companies of all ownership types. Bookkeeping, reporting, HR accounting, tax optimization, and financial control.",
+};
+
 export default async function Page() {
   const data = await getData();
   const newData = { services: [] };
