@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin/
+Disallow: /administrator/
+Disallow: /login/
+Disallow: /wp-admin/
+Disallow: /panel/
+Disallow: /dashboard/
+
+Sitemap: https://consulting.lviv.ua/sitemap.xml
