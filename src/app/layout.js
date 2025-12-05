@@ -1,8 +1,6 @@
-"use client";
-import Head from "next/head";
 import ReduxProvider from "../../redux/provider";
 import "./globals.scss";
-import { SessionProvider } from "next-auth/react";
+import SesProviders from "./components/providers/sesProviders";
 import Script from "next/script";
 import { GoogleTagManager } from "@next/third-parties/google";
 
@@ -14,6 +12,14 @@ const roboto = Roboto({
   display: "swap",
 });
 
+export function Head() {
+  return (
+    <>
+      <meta name="msvalidate.01" content="3EA19C82B86DB97301EBD7CF5695851F" />
+    </>
+  );
+}
+
 export default function RootLayout({
   children,
   params: { session, ...params },
@@ -21,13 +27,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ReduxProvider>
-        <SessionProvider session={session}>
+        <SesProviders>
+          <Head />
           <body className={roboto.className}>
             {children}
             <GoogleTagManager gtmId="GTM-M6M682HP" />
             <Script src="/script.js" strategy="lazyOnload" />
           </body>
-        </SessionProvider>
+        </SesProviders>
       </ReduxProvider>
     </html>
   );
