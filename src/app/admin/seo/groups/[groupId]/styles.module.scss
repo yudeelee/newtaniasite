@@ -1,0 +1,19 @@
+.groupTitle {
+  padding: 20px 40px;
+  background-color: #6b333c;
+  color: white;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.groupWrapper {
+  width: 1440px;
+  margin: 0px auto;
+  .keywords {
+    padding: 10px 20px;
+    background-color: #edafb8;
+    &:nth-child(2n) {
+      background-color: #f8dbdf;
+    }
+  }
+}

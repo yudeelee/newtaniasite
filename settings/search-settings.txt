@@ -1,0 +1,5 @@
+<script async src="https://cse.google.com/cse.js?cx=07e07d5f1178b4752">
+</script>
+<div class="gcse-search"></div>
+
+API_key=AIzaSyBevGi4dWJ3aMF16MLzB2X4PiKy9cDyY3o

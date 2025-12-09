@@ -6,9 +6,9 @@ const MainServices = ({ buh, yur, block, fin, finblock, eng = false }) => {
     <>
       <div className={styles.services}>
         <div className="container">
-          <div className="title mt100 center" id="buhService">
+          <h2 className="title mt100 center" id="buhService">
             {eng ? "Accounting services" : "Бухгалтерські послуги"}
-          </div>
+          </h2>
           <div className={styles.serviceWrapper}>
             {buh?.map((item, idx) => (
               <Link
@@ -46,9 +46,9 @@ const MainServices = ({ buh, yur, block, fin, finblock, eng = false }) => {
       </div>
       <div className={styles.services}>
         <div className="container">
-          <div className="title mt100 center">
+          <h2 className="title mt100 center">
             {eng ? "Legal services" : "Юридичні послуги"}
-          </div>
+          </h2>
           <div className={styles.serviceWrapper}>
             {yur?.map((item, idx) => (
               <Link
@@ -79,9 +79,9 @@ const MainServices = ({ buh, yur, block, fin, finblock, eng = false }) => {
       </div>
       <div className={styles.services}>
         <div className="container">
-          <div className="title mt100 center">
+          <h2 className="title mt100 center">
             {eng ? "Legal Services Packages" : "Пакети Юридичних послуг"}
-          </div>
+          </h2>
           <div className={styles.serviceWrapper}>
             {block?.map((item, idx) => (
               <Link
@@ -112,9 +112,9 @@ const MainServices = ({ buh, yur, block, fin, finblock, eng = false }) => {
       </div>
       <div className={styles.services}>
         <div className="container">
-          <div className="title mt100 center" id="auditService">
+          <h2 className="title mt100 center" id="auditService">
             {eng ? "Audit services" : "Аудиторські послуги"}
-          </div>
+          </h2>
           <div className={styles.serviceWrapper}>
             {fin?.map((item, idx) => (
               <Link
@@ -152,9 +152,9 @@ const MainServices = ({ buh, yur, block, fin, finblock, eng = false }) => {
       </div>
       <div className={styles.services}>
         <div className="container">
-          <div className="title mt100 center">
+          <h2 className="title mt100 center">
             {eng ? "Financial Services Packages" : "Пакети Фінансових послуг"}
-          </div>
+          </h2>
           <div className={styles.serviceWrapper}>
             {finblock?.map((item, idx) => (
               <Link

@@ -97,13 +97,13 @@ const MainMessage = ({ data, eng = false }) => {
         <div className="container">
           <div className={styles.mesText}>
             <div className="redText">{eng ? "quick action" : "швидка дія"}</div>
-            <div className="title">
+            <h2 className="title">
               {!eng
                 ? data.quiqTitle
                 : data.quiqTitleen != ""
                 ? data.quiqTitleen
                 : data.quiqTitle}
-            </div>
+            </h2>
             <div className={styles.messegeWrapper}>
               <div className={styles.mesLeft}>
                 <div className="text mt20">

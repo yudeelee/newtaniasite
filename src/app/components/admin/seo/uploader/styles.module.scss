@@ -1,0 +1,29 @@
+.uploader {
+  label {
+    display: block;
+    height: 50px;
+    padding: 0px 30px;
+    background: linear-gradient(
+      180deg,
+      rgba(181, 115, 125, 1) 0%,
+      rgba(255, 255, 255, 1) 50%,
+      rgba(181, 115, 125, 1) 100%
+    );
+    border: 1px solid #744a50;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.5s;
+    &:hover {
+      transform: scale(1.1);
+    }
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+  input {
+    display: none;
+  }
+}

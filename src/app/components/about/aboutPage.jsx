@@ -11,7 +11,7 @@ const AboutPage = async ({ eng = false }) => {
     <div className={styles.about}>
       <div className="container">
         <div className={styles.header}>
-          <div className="title">{eng ? "About Us" : "Про нас"}</div>
+          <h1 className="title">{eng ? "About Us" : "Про нас"}</h1>
         </div>
         {data?.map((wor, idx) => {
           const cls = par % 2 == 0 ? styles.person : styles.personReverse;
@@ -28,9 +28,9 @@ const AboutPage = async ({ eng = false }) => {
                       ? wor.positionen
                       : wor.position}
                   </div>
-                  <div className="title">
+                  <h2 className="title">
                     {!eng ? wor.name : wor.nameen != "" ? wor.nameen : wor.name}
-                  </div>
+                  </h2>
                   <div
                     className={"text" + " " + "mt20"}
                     dangerouslySetInnerHTML={{

@@ -25,13 +25,13 @@ const MainYoutube = ({ data, eng = false }) => {
           <div className="redText">
             {eng ? "About The Company" : "Про Компанію"}
           </div>
-          <div className="title">
+          <h2 className="title">
             {!eng
               ? data.aboutTitle
               : data.aboutTitleen != ""
               ? data.aboutTitleen
               : data.aboutTitle}
-          </div>
+          </h2>
           <div
             className={"text" + " " + "mt20"}
             dangerouslySetInnerHTML={{

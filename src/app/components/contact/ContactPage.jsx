@@ -195,9 +195,9 @@ const ContactPage = ({ eng = false }) => {
       {loading && <Loading />}
       <div className="container">
         <div className={styles.contactHeader}>
-          <div className="title">
+          <h1 className="title">
             {eng ? "Order a service" : "Замовити послугу"}
-          </div>
+          </h1>
         </div>
         <div className={styles.contactWrapper}>
           <div className={styles.contacts}>

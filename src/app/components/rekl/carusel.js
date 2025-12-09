@@ -107,9 +107,9 @@ const Carusel = ({ eng = false }) => {
   return (
     <>
       <div className="carusel-wrapper">
-        <div className="titleCar center">
+        <h2 className="titleCar center">
           {eng ? "Our clients" : "Наші клієнти"}
-        </div>
+        </h2>
         <div id="drag-container">
           <div id="spin-container">
             <Image

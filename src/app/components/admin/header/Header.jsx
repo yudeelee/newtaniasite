@@ -1,23 +1,24 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import styles from './styles.module.scss';
-import { signOut } from 'next-auth/react';
+import Link from "next/link";
+import styles from "./styles.module.scss";
+import { signOut } from "next-auth/react";
 
-import { RiArrowGoBackFill } from 'react-icons/ri';
-import { GoWorkflow } from 'react-icons/go';
-import { GrServices } from 'react-icons/gr';
-import { GoPeople } from 'react-icons/go';
-import { IoDocumentsOutline } from 'react-icons/io5';
-import { IoMdExit } from 'react-icons/io';
+import { RiArrowGoBackFill } from "react-icons/ri";
+import { GoWorkflow } from "react-icons/go";
+import { GrServices } from "react-icons/gr";
+import { GoPeople } from "react-icons/go";
+import { IoDocumentsOutline } from "react-icons/io5";
+import { IoMdExit } from "react-icons/io";
+import { LuFileSearch } from "react-icons/lu";
 
 const Header = () => {
   return (
     <div className={styles.header}>
-      <div className='container'>
+      <div className="container">
         <div className={styles.hMenu}>
           <div className={styles.toSite}>
-            <Link href='#'>
+            <Link href="#">
               <RiArrowGoBackFill />
               На сайт
             </Link>
@@ -25,29 +26,35 @@ const Header = () => {
           <div className={styles.menu}>
             <ul>
               <li>
-                <Link href='/admin/orders'>
+                <Link href="/admin/orders">
                   <GoWorkflow />
                   Заявки
                 </Link>
               </li>
               <li>
-                <Link href='#'>
+                <Link href="#">
                   <GoPeople />
                   Клієнти
                 </Link>
               </li>
               <li>
-                <Link href='/admin/manager'>
+                <Link href="/admin/manager">
                   <GrServices />
                   Менеджери
                 </Link>
               </li>
               <li>
-                <Link href='/admin/pages'>
+                <Link href="/admin/pages">
                   <IoDocumentsOutline />
                   Сторінки
                 </Link>
               </li>
+              {/* <li>
+                <Link href="/admin/seo">
+                  <LuFileSearch />
+                  SEO
+                </Link>
+              </li> */}
               <li>
                 <button onClick={() => signOut()}>
                   Вихід

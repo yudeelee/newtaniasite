@@ -32,7 +32,7 @@ const ServicePage = ({ data, title, eng = false }) => {
       </Link>
       <div className="container">
         <div className={styles.header}>
-          <div className="title">{title}</div>
+          <h1 className="title">{title}</h1>
         </div>
         {services?.map((ser, idx) => {
           return (
@@ -42,9 +42,9 @@ const ServicePage = ({ data, title, eng = false }) => {
                 id={ser.slogId}
                 ref={(el) => (itemsRef.current[idx] = el)}
               >
-                <div className={styles.sectionHeader}>
+                <h2 className={styles.sectionHeader}>
                   {!eng ? ser.name : ser.nameen != "" ? ser.nameen : ser.name}
-                </div>
+                </h2>
                 <div
                   className={
                     idx % 2 === 0

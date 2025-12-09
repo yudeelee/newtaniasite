@@ -15,13 +15,13 @@ const MainProposition = ({ photos, data, eng = false }) => {
           <div className="redText">
             {eng ? "what we offer!" : "що ми пропонуємо!"}{" "}
           </div>
-          <div className="title mb20">
+          <h2 className="title mb20">
             {!eng
               ? data.propositionTitle
               : data.propositionTitleen != ""
               ? data.propositionTitleen
               : data.propositionTitle}
-          </div>
+          </h2>
           <ul>
             {!eng || data.propositionItemsen.length == 0
               ? data.propositionItems &&
