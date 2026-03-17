@@ -39,3 +39,9 @@ export default function RootLayout({
     </html>
   );
 }
+
+export const metadata = {
+  verification: {
+    google: '19Q7nmYtDvftuYwQVVzfWKe1c2ijJ2HXok-zEfOmtLk',
+  },
+}
