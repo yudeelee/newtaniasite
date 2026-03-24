@@ -65,7 +65,7 @@ const Footer = () => {
                   <img src="/img/youtu.png" alt="" />
                 </a>
               </li>
-              <li>+380734187147</li>
+              {/*<li>+380734187147</li>*/}
               <li>audit@consulting.lviv.ua</li>
             </ul>
           </div>
